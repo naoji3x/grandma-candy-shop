@@ -1,21 +1,18 @@
 {
-  "name": "retail-starter",
+  "name": "grandma-candy-shop",
   "version": "0.1.0",
-  "description": "retail system starter package",
+  "description": "grandma's candy shop system",
   "license": "MIT",
   "author": "naoji3x",
   "scripts": {
-    "glossary:merge": "ts-node docs/tools/src/mergeGlossary.ts --root docs/glossary --out docs/glossary",
-    "glossary:merge:validate": "ts-node docs/tools/src/mergeGlossary.ts --root docs/glossary --out docs/glossary --schema docs/tools/schemas/glossary.schema.json",
-    "glossary:watch": "chokidar \"docs/glossary/glossary.*.yaml\" -i \"docs/glossary_merged_*\" -c \"npm run glossary:merge:validate\""
+    "prepare": "lefthook install",
+    "lint:md": "markdownlint '**/*.md'",
+    "lint:md:fix": "markdownlint --fix '**/*.md'"
   },
   "devDependencies": {
-    "@types/node": "^24.9.1",
-    "ajv": "^8.17.1",
-    "chokidar-cli": "^3.0.0",
-    "fast-glob": "^3.3.3",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3",
-    "yaml": "^2.8.1"
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "lefthook": "^2.0.2",
+    "markdownlint-cli": "^0.45.0"
   }
 }

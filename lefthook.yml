@@ -1,0 +1,17 @@
+# Git hooks for development workflow
+pre-commit:
+  parallel: true
+  commands:
+    format-markdown:
+      glob: '*.md'
+      run: npx markdownlint --fix {staged_files}
+      stage_fixed: true
+
+    lint-markdown:
+      glob: '*.md'
+      run: npx markdownlint {staged_files}
+
+commit-msg:
+  commands:
+    commitlint:
+      run: npx commitlint --edit $1

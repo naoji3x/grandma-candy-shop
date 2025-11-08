@@ -15,7 +15,7 @@
 
 ## 決定
 
-- 2. PostgreSQL を採用
+- PostgreSQL を採用
 
 ## 理由
 
