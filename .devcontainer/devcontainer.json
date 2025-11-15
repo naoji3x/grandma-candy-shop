@@ -17,7 +17,8 @@
         "corschenzi.mermaid-graphical-editor",
         "redhat.vscode-yaml",
         "davidanson.vscode-markdownlint",
-        "editorconfig.editorconfig"
+        "editorconfig.editorconfig",
+        "yzhang.markdown-all-in-one"
       ]
     }
   }

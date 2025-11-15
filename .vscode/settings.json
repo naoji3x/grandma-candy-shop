@@ -30,11 +30,11 @@
     "*.yml": "yaml"
   },
   "[markdown]": {
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.fixAll.markdownlint": "explicit"
-    }
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "editor.formatOnSave": true
   },
+  "markdownlint.run": "onSave",
+
   "editor.detectIndentation": false,
   "editor.insertSpaces": true
 }
