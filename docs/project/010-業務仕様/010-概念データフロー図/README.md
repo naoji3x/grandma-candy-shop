@@ -27,7 +27,7 @@
 
 ## Mermaid を用いたデータフロー図（DFD）作成ルール
 
-[mermaid-dfd-rules.md](mermaid-dfd-rules.md)を参照。生成AIへの指示はテンプレート([mermaid-dfd-instruction.md](mermaid-dfd-instruction.md))を参考にしてください。
+[mermaid-dfd-rules.md](mermaid-dfd-rules.md) を参照。生成AIへの指示はテンプレート[mermaid-dfd-instruction.md](mermaid-dfd-instruction.md) を参考にしてください。
 
 ---
 
