@@ -1,6 +1,6 @@
-# grandma-candy-shop
+# grandma-candy-shop Documentation
 
-![Grandma Candy Shop](./docs/handbook/story/images/grandma-candy-shop-hero.jpg)
+![Grandma Candy Shop](./handbook/story/images/grandma-candy-shop-hero.jpg)
 
 駄菓子屋「きぬや」の業務（販売・在庫・仕入・発注・品質・テスト・移行・決定記録 など）を体系的に整理し、将来的なシステム化・改善活動を支援するためのドキュメントリポジトリです。アプリケーションコードよりも、まず業務/アーキテクチャ/設計知識のベースラインを確立することを目的としています。
 
