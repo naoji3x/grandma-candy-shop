@@ -15,7 +15,8 @@
     "Stockout",
     "Stocktake",
     "systemization",
-    "TAXCLASS"
+    "TAXCLASS",
+    "vitepress"
   ],
 
   // ===== ファイル全体の共通設定 =====

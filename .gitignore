@@ -49,3 +49,7 @@ next-env.d.ts
 .env.production
 .env.test
 .env.staging
+
+# vitepress build output
+/docs/.vitepress/dist
+/docs/.vitepress/cache

@@ -8,15 +8,21 @@
     "prepare": "lefthook install",
     "lint:md": "markdownlint '**/*.md'",
     "lint:md:fix": "markdownlint --fix '**/*.md'",
-    "doc:toc": "tsx scripts/generate-toc.ts"
+    "doc:toc": "tsx scripts/generate-toc.ts",
+    "docs:dev": "vitepress dev docs --host 0.0.0.0 --port 5173",
+    "docs:build:mermaid": "tsx docs/tools/src/gen-mermaid-svg.ts",
+    "docs:build": "npm run docs:build:mermaid && vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
+    "@mermaid-js/mermaid-cli": "^11.12.0",
     "lefthook": "^2.0.2",
     "markdownlint-cli": "^0.45.0",
     "prettier": "^3.6.2",
     "tsx": "^4.20.6",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitepress": "^1.6.4"
   }
 }
