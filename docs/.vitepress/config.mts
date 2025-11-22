@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { generateSidebar } from 'vitepress-sidebar'
 import * as crypto from 'crypto'
 
 // GitHub Pages の公開パス: https://naoji3x.github.io/grandma-candy-shop/
@@ -14,7 +15,13 @@ export default defineConfig({
   base,
 
   themeConfig: {
-    // 必要ならここに sidebar などを設定
+    sidebar: generateSidebar({
+      documentRootPath: 'docs',
+      scanStartPath: '.',
+      useTitleFromFileHeading: false,
+      collapseDepth: 2,
+      collapsed: true, // デフォルトは折りたたんだ状態にする
+    }),
   },
 
   markdown: {
