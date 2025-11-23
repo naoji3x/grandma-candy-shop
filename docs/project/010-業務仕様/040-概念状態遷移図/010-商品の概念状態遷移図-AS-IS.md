@@ -1,15 +1,15 @@
 ---
-id: cstd-product-as-is # 一意なID
+id: product-cstd-as-is # 一意なID
 type: domain # screen | api | domain | data | test | flow | rule
 title: 商品の概念状態遷移図 (AS-IS)
-version: 1.3.0
+version: 0.1.0
 status: draft # draft | ready | deprecated
-owners: [app@team.example]
-tags: [subscription, checkout, payments, jp]
+owners: []
+tags: []
 
 # 参照関係（方向と意味を固定）
-depends_on: [] # 実装上の依存（下位レイヤへ）
-implements: [] # ビジネスルールを満たす
+depends_on: [] # 技術的・定義的な土台（前提）へのリンク
+implements: [] # 満たすべきビジネスルールへのリンク
 tests: [] # この仕様を検証するテスト仕様
 supersedes: [] # 置き換え関係（古仕様→新仕様）
 blocks: [] # これが無いと進まない対象（逆依存明示）

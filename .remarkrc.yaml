@@ -1,0 +1,12 @@
+plugins:
+  - remark-parse
+  - - remark-frontmatter
+    - type: yaml
+      marker: '-'
+  - remark-gfm
+  - remark-lint
+  - - remark-lint-frontmatter-schema
+    - schemas:
+        ./docs/tools/schemas/spec-frontmatter.schema.yaml:
+          - ./docs/**/*.md
+          - ./local/*.md

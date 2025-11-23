@@ -22,7 +22,8 @@
         "redhat.vscode-yaml",
         "davidanson.vscode-markdownlint",
         "editorconfig.editorconfig",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "unifiedjs.vscode-remark"
       ]
     }
   }

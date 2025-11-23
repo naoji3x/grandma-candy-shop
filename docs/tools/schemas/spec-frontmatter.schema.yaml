@@ -1,0 +1,81 @@
+$schema: 'http://json-schema.org/draft-07/schema#'
+title: Spec Front Matter
+type: object
+additionalProperties: false
+required:
+  - id
+  - type
+  - title
+  - status
+
+definitions:
+  idRef:
+    type: string
+    pattern: '^[a-z0-9][a-z0-9-]*$'
+    description: '英小文字・数字・ハイフンのみ。先頭は英小文字または数字。'
+  idRefArray:
+    type: array
+    items:
+      $ref: '#/definitions/idRef'
+    uniqueItems: true
+  semver:
+    type: string
+    # SemVer 2.0.0（prerelease / build metadata も許容）
+    pattern: "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z-.]+)?(?:\\+[0-9A-Za-z-.]+)?$"
+
+properties:
+  id:
+    $ref: '#/definitions/idRef'
+    description: '一意なID'
+  type:
+    type: string
+    # screen: 画面仕様
+    # api: API仕様
+    # domain: ドメイン仕様
+    # data: データ仕様
+    # test: テスト仕様
+    # flow: 業務フロー仕様
+    # rule: 業務ルール仕様
+    enum: ['screen', 'api', 'domain', 'data', 'test', 'flow', 'rule']
+    description: '仕様の種別'
+  title:
+    type: string
+    minLength: 1
+  version:
+    $ref: '#/definitions/semver'
+  status:
+    type: string
+    # draft: 作成中
+    # ready: 公開済み
+    # deprecated: 廃止済み
+    enum: ['draft', 'ready', 'deprecated']
+
+  owners:
+    type: array
+    items:
+      type: string
+      format: email
+    uniqueItems: true
+
+  tags:
+    type: array
+    items:
+      type: string
+      minLength: 1
+    uniqueItems: true
+
+  depends_on:
+    $ref: '#/definitions/idRefArray'
+    default: []
+  implements:
+    $ref: '#/definitions/idRefArray'
+    default: []
+  tests:
+    $ref: '#/definitions/idRefArray'
+    default: []
+  supersedes:
+    $ref: '#/definitions/idRefArray'
+    default: []
+  blocks:
+    $ref: '#/definitions/idRefArray'
+    default: []
