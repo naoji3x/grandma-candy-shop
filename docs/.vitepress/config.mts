@@ -31,6 +31,33 @@ export default defineConfig({
     // （Markdownファイルは書き換えない。HTML生成時だけ差し替え）
     //
     config: md => {
+      // front matter の title を先頭H1として注入（既にH1があれば何もしない）
+      md.core.ruler.after('block', 'frontmatter-h1', (state: any) => {
+        const fmTitle = state.env?.frontmatter?.title
+        if (!fmTitle) return
+
+        const hasH1 = state.tokens.some((t: any) => t.type === 'heading_open' && t.tag === 'h1')
+        if (hasH1) return
+
+        const Token = state.Token
+        const open = new Token('heading_open', 'h1', 1)
+        open.markup = '#'
+        open.block = true
+
+        const inline = new Token('inline', '', 0)
+        inline.content = String(fmTitle)
+        inline.children = []
+
+        const close = new Token('heading_close', 'h1', -1)
+        close.markup = '#'
+        close.block = true
+
+        // 文書の先頭に H1 を差し込む
+        state.tokens.unshift(close)
+        state.tokens.unshift(inline)
+        state.tokens.unshift(open)
+      })
+
       // インラインコード `...` は必ず v-pre を付けて出力
       //    → `{{ ... }}` を Vue がパースしなくなる
       md.renderer.rules.code_inline = (tokens, idx) => {
