@@ -1,11 +1,11 @@
 import { readdirSync, writeFileSync } from 'fs'
 import { join } from 'path'
 
-const rootDir = 'docs'
+const rootDirs = ['docs/handbook', 'docs/project']
 const outFile = 'docs/index.md'
 
 function walk(dir: string, prefix = ''): string {
-  const items = readdirSync(dir, { withFileTypes: true })
+  const items = readdirSync(dir, { withFileTypes: true }).filter(item => !item.name.startsWith('.'))
 
   let result = ''
 
@@ -26,7 +26,7 @@ function walk(dir: string, prefix = ''): string {
   return result
 }
 
-const content = `# 📁 docs ツリー一覧\n\n${walk(rootDir)}`
+const content = `# 📁 docs ツリー一覧\n\n${rootDirs.map(rootDir => walk(rootDir)).join('\n')}`
 writeFileSync(outFile, content, { encoding: 'utf8' })
 
 console.log('✨ 生成完了: docs/index.md')
