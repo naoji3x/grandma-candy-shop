@@ -294,4 +294,4 @@ flowchart LR
 > - 必要に応じて `<br>` を用いてノードやエッジラベルを改行してください。
 > - 結果は ` ```mermaid ～``` ` のコードブロックとして出力してください。
 
-このルールとテンプレートをコピーして、生成 AI のプロンプトに貼り付けて利用してください。なお、[mermaid-dfd-instruction.md](mermaid-dfd-instruction.md)として別ファイルに保存しています。
+このテンプレートをコピーして、生成 AI のプロンプトに貼り付けて利用してください。なお、[mermaid-dfd-instruction.md](mermaid-dfd-instruction.md)として別ファイルに保存しています。

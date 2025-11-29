@@ -1,39 +1,72 @@
-# 業務データ辞書(Business Data Dictionary)作成ルール
+# 業務データ辞書（Business Data Dictionary, BDD）作成ルール
 
-## 業務データ辞書
+本ドキュメントは、業務分析・要求定義・システム設計のために **業務データ辞書（Business Data Dictionary, BDD）関連を記述する標準ルール**です。
+各エンティティの論理名・物理名・説明・属性・制約などを明確に記載し、業務理解やシステム設計につなげます。
 
-業務データ辞書(Business Data Dictionary)は、システムで扱う業務データの定義を体系的に整理・記述したドキュメントです。以下のルールに従って作成します。
+## 1. メタデータ
 
-| 項目       | 説明                                       | 必須 |
-| ---------- | ------------------------------------------ | ---- |
-| id         | データ辞書ID (bdd-xxx-xxxx)                | ○    |
-| type       | `domain` 固定                              | ○    |
-| title      | データ辞書名                               | ○    |
-| status     | `draft`/`ready`/`deprecated`               | ○    |
-| version    | バージョン                                 | 任意 |
-| owners     | 担当者                                     | 任意 |
-| depends_on | 前提となる他データ辞書や概念データストア等 | 任意 |
-| implements | 満たすべきビジネスルール                   | 任意 |
-| tests      | この仕様を検証するテスト仕様               | 任意 |
-| supersedes | 置き換え関係（古仕様→新仕様）              | 任意 |
-| entities   | 業務データエンティティの一覧               | ○    |
+| 項目       | 説明                          | 必須 |
+| ---------- | ----------------------------- | ---- |
+| id         | データ辞書ID (bdd-xxx-xxxx)   | ○    |
+| type       | `domain` 固定                 | ○    |
+| title      | データ辞書名                  | ○    |
+| status     | `draft`/`ready`/`deprecated`  | ○    |
+| version    | バージョン                    | 任意 |
+| owners     | 担当者                        | 任意 |
+| tags       | タグ・分類                    | 任意 |
+| supersedes | 置き換え関係（古仕様→新仕様） | 任意 |
 
-### entities フィールド構成
+## 2. 記載ルール・命名規則
 
-| サブ項目       | 説明                       | 必須 |
-| -------------- | -------------------------- | ---- |
-| logicalName    | 業務上の論理名             | ○    |
-| physicalName   | システム上の物理名         | ○    |
-| description    | 業務データの説明           | 任意 |
-| glossaryTermId | 用語集の用語ID             | 任意 |
-| fields         | 業務データフィールドの一覧 | ○    |
+- YAML形式で記述する。
+- **業務視点の論理名・説明を重視**し、実装要素は必要最小限とする。
+- **実装都合の属性や技術的カラム（created_at等）は原則含めないが、物理名(physicalName)については業務データ辞書で一元管理する。**
+- データ項目の意味・制約・例値・関連情報や定義・説明を簡潔かつ明確に記載する。
+- 論理名・属性名は**日本語の単数形**で記載する。
+- 物理名（`physicalName`）はentity, fieldとも必ず **lowerCamelCase** を用いる（例：`productCode`, `creditBalance`, `paymentStatus`）。
+- エンティティや項目の論理名・説明は、概念クラス図（CCD）や用語集 (glossary) と整合性を保つ。
+- 関連用語や分類は必要に応じて記載する。
+- glossaryTermIdは、用語集（glossary）で定義したIDと一致させる。
+- フィールドが `type: enum` の場合、許容値を必ず明示する。
+- 記述方法は以下のいずれかを採用する。
+  - 簡易列挙: `allowedValues: [PENDING, PAID, CANCELED]`
+  - 詳細列挙: `allowedValuesDetailed:` で `value` と `label` を持つ配列。
+- 多言語化対応はファイル名で管理し、エンティティ・フィールド内での言語別記載は行わない。例: `010-業務データ辞書-ja.yaml`, `010-bdd-main-en.yaml`
 
-### fields フィールド構成
+## 3. 禁止事項
+
+- 技術的属性（created_at, updated_at, deleted_at等）を含めない
+- 実装都合のカラムやAPI用の構造体をそのまま記載しない
+- 用語集やCCDと不整合な用語・IDを使わない
+- 英語と日本語のランダム混在（物理名・論理名の混在）
+- 意味が曖昧な説明や略語のみの記載
+
+## 4. 業務データ辞書の記載項目
+
+### 4.1 主要項目
+
+| 項目     | 説明                         | 必須 |
+| -------- | ---------------------------- | ---- |
+| entities | 業務データエンティティの一覧 | ○    |
+
+### 4.2 entities フィールド構成
+
+| サブ項目       | 説明                                      | 必須 |
+| -------------- | ----------------------------------------- | ---- |
+| logicalName    | 業務上の論理名（日本語単数形）            | ○    |
+| physicalName   | システム上の物理名 (lowerCamelCase)       | ○    |
+| description    | 業務データの説明                          | 任意 |
+| glossaryTermId | 用語集の用語ID                            | 任意 |
+| relatedTerms   | 関連用語IDリスト                          | 任意 |
+| keyFields      | キー項目 (複合キーも想定し物理名のリスト) | ○    |
+| fields         | 業務データフィールドの一覧                | ○    |
+
+### 4.3 fields フィールド構成
 
 | サブ項目       | 説明                                                                   | 必須 |
 | -------------- | ---------------------------------------------------------------------- | ---- |
-| logicalName    | 業務上の論理名                                                         | ○    |
-| physicalName   | システム上の物理名                                                     | ○    |
+| logicalName    | 業務上の論理名（日本語単数形）                                         | ○    |
+| physicalName   | システム上の物理名 (lowerCamelCase)                                    | ○    |
 | glossaryTermId | 用語集の用語ID                                                         | 任意 |
 | type           | データ型 (integer / string / boolean / date / datetime / enum / money) | ○    |
 | description    | フィールドの説明                                                       | 任意 |
@@ -41,45 +74,40 @@
 | constraints    | フィールドの制約条件                                                   | 任意 |
 | example        | フィールドの例値                                                       | 任意 |
 
-### constraints サブフィールド構成
+### 4.4 constraints サブフィールド構成
 
 | サブ項目 | 説明                            | 必須 |
 | -------- | ------------------------------- | ---- |
 | required | 必須入力かどうか (true / false) | 任意 |
 | unique   | 一意性制約 (true / false)       | 任意 |
-| minValue | 最小値                          | 任意 |
-| maxValue | 最大値                          | 任意 |
+| min      | 最小値                          | 任意 |
+| max      | 最大値                          | 任意 |
 | pattern  | 正規表現パターン                | 任意 |
 
-## サンプル
-
-### 業務データ辞書
+## 5. サンプル
 
 ```yaml
-id: bdd-main # 一意なID
-type: domain # screen | api | domain | data | test | flow | rule
-title: 業務データ辞書
+id: bdd-main
+type: domain
+title: 業務データ辞書(main)
 version: 0.1.0
-status: draft # draft | ready | deprecated
+status: draft
 owners: []
 tags: []
-
-# 参照関係（方向と意味を固定）
-depends_on: [] # 技術的・定義的な土台（前提）へのリンク
-implements: [] # 満たすべきビジネスルールへのリンク
-tests: [] # この仕様を検証するテスト仕様
-supersedes: [] # 置き換え関係（古仕様→新仕様）
+supersedes: []
 
 entities:
   - logicalName: 商品
     physicalName: product
     description: 駄菓子屋で販売する個々の商品
     glossaryTermId: tm-product
+    relatedTerms: [tm-price, tm-stock]
+    keyFields: [productCode]
     fields:
       - logicalName: 商品コード
         physicalName: productCode
         glossaryTermId: tm-product-code
-        type: string # integer | string | boolean | date | datetime | enum | money
+        type: string
         description: 各商品を一意に識別するコード
         constraints:
           required: true
@@ -87,7 +115,7 @@ entities:
         example: 45-14603-32581-2
       - logicalName: 商品名
         physicalName: productName
-        type: string # integer | string | boolean | date | datetime | enum | money
+        type: string
         glossaryTermId: tm-product-name
         description: おばあちゃんやお客さんが読める商品名
         constraints:
@@ -95,7 +123,7 @@ entities:
         example: うまか棒 たこ焼き味
       - logicalName: 価格
         physicalName: price
-        type: integer # integer | string | boolean | date | datetime | enum | money
+        type: integer
         glossaryTermId: tm-price
         description: 商品の販売価格（税抜き）
         unit: 円
@@ -103,47 +131,113 @@ entities:
           required: true
         example: 100
 
-  - logicalName: 顧客
-    physicalName: customer
-    glossaryTermId: tm-customer
-    description: 駄菓子屋の常連客
+  - logicalName: 支払い
+    physicalName: payment
+    description: 顧客からの支払い情報
+    glossaryTermId: tm-payment
+    keyFields: [paymentId]
     fields:
-      - logicalName: 顧客ID
-        physicalName: customerId
-        type: string # integer | string | boolean | date | datetime | enum | money
-        glossaryTermId: tm-customer-id
-        description: 顧客を一意に識別するID
-        example: CU-0001
-      - logicalName: 名前
-        physicalName: name
-        type: string # integer | string | boolean | date | datetime | enum | money
-        glossaryTermId: tm-customer-name
-        description: 本名または保護者名
-        example: 山田 太郎
-      - logicalName: ニックネーム
-        physicalName: nickname
-        type: string # integer | string | boolean | date | datetime | enum | money
-        glossaryTermId: tm-customer-nickname
-        description: 子どもたちの呼び名
-        example: タロちゃん
-      - logicalName: つけ残高
-        physicalName: creditBalance
-        type: integer # integer | string | boolean | date | datetime | enum | money
-        glossaryTermId: tm-credit-balance
-        description: 現時点でのつけの残高
-        unit: 円
-        example: 250
+      - logicalName: 支払いID
+        physicalName: paymentId
+        type: string
+        glossaryTermId: tm-payment-id
+        description: 支払いを一意に識別するID
+        constraints:
+          required: true
+          unique: true
+        example: PAY-0001
+      - logicalName: 支払ステータス
+        physicalName: paymentStatus
+        type: enum
+        description: 支払い処理の現在状態
+        constraints:
+          required: true
+        allowedValuesDetailed:
+          - value: PENDING
+            label: 未処理
+          - value: PAID
+            label: 支払済
+          - value: CANCELED
+            label: 取消
 ```
 
-### 概念データストア一覧
+## 7. 生成 AI への指示テンプレート
 
-Conceptual Data Stores List
+生成 AI に業務データ辞書を作らせるときは、以下のような指示を与える。
 
-### 保管場所一覧
+> 以下のルールに従って、**YAML形式の業務データ辞書（BDD）を作成**してください。
+>
+> ---
+>
+> ## **1. ファイル形式**
+>
+> - 出力は **YAML形式** とし、余計な文章は書かず、YAML のみを出力してください。
+>
+> ## **2. メタデータ**
+>
+> 次のメタデータを必ず定義してください。
+>
+> ```yaml
+> id: bdd-XXXX # 任意の一意ID（bdd-から始める）
+> type: domain
+> title: 業務データ辞書(XXXX)
+> status: draft
+> version: 0.1.0
+> owners: []
+> tags: []
+> supersedes: []
+> ```
+>
+> ## **3. 記載ルール（遵守）**
+>
+> - **論理名（logicalName）は日本語単数形**で記載すること。
+> - **物理名（physicalName）は lowerCamelCase** で記載すること。
+> - **実装都合の属性（created_at など）は含めない**こと。
+> - 用語集と連動する場合は **glossaryTermId を対応IDで記載**すること。
+> - **キー項目は keyFields に、物理名の配列**で記載すること。
+> - フィールドの型は以下から選択：
+>   `integer / string / boolean / date / datetime / enum / money`
+> - enum を使う場合、以下のどちらかの方式で許容値を記述する：
+>   - `allowedValues: [A, B, C]`
+>   - `allowedValuesDetailed:` 形式で `value` / `label` を列挙
+>
+> ## **4. エンティティの記述形式（必ずこの構造）**
+>
+> ```yaml
+> entities:
+>   - logicalName: 〇〇
+>     physicalName: 〇〇
+>     description: 〇〇（業務的な説明）
+>     glossaryTermId: tm-xxxx # 任意
+>     relatedTerms: [tm-xxxx] # 任意
+>     keyFields: [primaryKeyField] # 必須。複合キーも可
+>     fields:
+>       - logicalName: 〇〇
+>         physicalName: 〇〇
+>         type: string
+>         glossaryTermId: tm-xxx # 任意
+>         description: 〇〇 # 任意
+>         unit: 円 # 任意
+>         constraints:
+>           required: true
+>           unique: true
+>         example: サンプル値
+> ```
+>
+> ### **5. 出力要件**
+>
+> - エンティティ間で名前の衝突や ID の不整合がないよう生成してください。
+> - 物理名・論理名・説明は、業務シナリオに整合する自然な内容にしてください。
+>
+> ## **6. 参考**
+>
+> - 必要に応じて用語集（glossary）を参照し、glossaryTermId を補完してください。
+> - BDD 作成ルールはこのファイル **bdd-rules.md** を参照してください。
+>
+> ## **7. 最終出力**
+>
+> - 出力は YAML コードブロックのみで、前後や途中に文章を入れないこと。
+>
+> **以上のルールに従って、業務データ辞書を生成してください。**
 
-Storage Locations List
-
-### ステータス
-
-Product Status
-Payment Status
+このテンプレートをコピーして、生成 AI のプロンプトに貼り付けて利用してください。なお、[bdd-instruction.md](bdd-instruction.md)として別ファイルに保存しています。

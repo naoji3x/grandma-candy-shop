@@ -1,0 +1,217 @@
+$schema: 'http://json-schema.org/draft-07/schema#'
+title: Business Data Dictionary Schema
+type: object
+
+required:
+  - id
+  - type
+  - title
+  - status
+  - entities
+
+properties:
+  id:
+    type: string
+    pattern: "^bdd-[a-z0-9\\-]+$"
+
+  type:
+    type: string
+    const: 'domain'
+
+  title:
+    type: string
+
+  status:
+    type: string
+    enum: ['draft', 'ready', 'deprecated']
+
+  version:
+    type: string
+
+  owners:
+    type: array
+    items:
+      type: string
+
+  tags:
+    type: array
+    items:
+      type: string
+
+  supersedes:
+    type: array
+    items:
+      type: string
+
+  entities:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required:
+        - logicalName
+        - physicalName
+        - keyFields
+        - fields
+
+      properties:
+        logicalName:
+          type: string
+          pattern: "^[\\p{Script=Hiragana}\\p{Script=Katakana}\\p{Script=Han}A-Za-z0-9]+$"
+
+        physicalName:
+          type: string
+          pattern: '^[a-z][A-Za-z0-9]*$'
+
+        description:
+          type: string
+
+        glossaryTermId:
+          type: string
+          pattern: "^tm-[A-Za-z0-9\\-]+$"
+
+        relatedTerms:
+          type: array
+          items:
+            type: string
+            pattern: "^tm-[A-Za-z0-9\\-]+$"
+
+        keyFields:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            pattern: '^[a-z][A-Za-z0-9]*$'
+
+        fields:
+          type: array
+          minItems: 1
+          items:
+            type: object
+            required:
+              - logicalName
+              - physicalName
+              - type
+
+            properties:
+              logicalName:
+                type: string
+                pattern: "^[\\p{Script=Hiragana}\\p{Script=Katakana}\\p{Script=Han}A-Za-z0-9]+$"
+
+              physicalName:
+                type: string
+                pattern: '^[a-z][A-Za-z0-9]*$'
+
+              glossaryTermId:
+                type: string
+                pattern: "^tm-[A-Za-z0-9\\-]+$"
+
+              type:
+                type: string
+                enum:
+                  - integer
+                  - string
+                  - boolean
+                  - date
+                  - datetime
+                  - enum
+                  - money
+
+              description:
+                type: string
+
+              unit:
+                type: string
+
+              example:
+                type: [string, number, boolean]
+
+              constraints:
+                type: object
+                properties:
+                  required:
+                    type: boolean
+                  unique:
+                    type: boolean
+                  min:
+                    type: number
+                  max:
+                    type: number
+                  pattern:
+                    type: string
+
+              # enum (allowedValues or allowedValuesDetailed) の条件付き必須
+              allowedValues:
+                type: array
+                items:
+                  type: string
+                uniqueItems: true
+
+              allowedValuesDetailed:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - value
+                    - label
+                  properties:
+                    value:
+                      type: string
+                    label:
+                      type: string
+                uniqueItems: true
+
+      # keyFields が fields 内の physicalName に存在することを検証
+      allOf:
+        - $comment: 'keyFields must be included in fields[].physicalName'
+        - type: object
+          properties:
+            keyFields:
+              type: array
+            fields:
+              type: array
+          required: ['keyFields', 'fields']
+          allOf:
+            # keyFields の各値が fields[].physicalName に存在すること
+            - $comment: 'Check each keyField is present in fields[].physicalName'
+            - type: object
+              properties:
+                keyFields:
+                  type: array
+                  items:
+                    type: string
+                fields:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      physicalName:
+                        type: string
+              required: ['keyFields', 'fields']
+              allOf:
+                - $comment: 'Ensure each keyFields item is contained in fields[].physicalName'
+                  properties:
+                    keyFields:
+                      type: array
+                      items:
+                        type: string
+                  required: ['keyFields']
+                  allOf:
+                    - $comment: 'for each key in keyFields check membership'
+                      type: object
+                      properties:
+                        keyFields:
+                          contains:
+                            type: string
+                      # membership check is implicit via contains + const matching below
+                  # 各 keyField が fields[].physicalName のいずれかに一致
+                - type: object
+                  properties:
+                    fields:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          physicalName:
+                            type: string
+                  required: ['fields']

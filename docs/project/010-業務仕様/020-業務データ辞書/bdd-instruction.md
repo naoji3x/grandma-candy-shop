@@ -1,0 +1,74 @@
+# BDD 作成の指示テンプレート
+
+以下のルールに従って、**YAML形式の業務データ辞書（BDD）を作成**してください。
+
+## **1. ファイル形式**
+
+- 出力は **YAML形式** とし、余計な文章は書かず、YAML のみを出力してください。
+
+## **2. メタデータ**
+
+次のメタデータを必ず定義してください。
+
+```yaml
+id: bdd-XXXX # 任意の一意ID（bdd-から始める）
+type: domain
+title: 業務データ辞書(XXXX)
+status: draft
+version: 0.1.0
+owners: []
+tags: []
+supersedes: []
+```
+
+## **3. 記載ルール（遵守）**
+
+- **論理名（logicalName）は日本語単数形**で記載すること。
+- **物理名（physicalName）は lowerCamelCase** で記載すること。
+- **実装都合の属性（created_at など）は含めない**こと。
+- 用語集と連動する場合は **glossaryTermId を対応IDで記載**すること。
+- **キー項目は keyFields に、物理名の配列**で記載すること。
+- フィールドの型は以下から選択：
+  `integer / string / boolean / date / datetime / enum / money`
+- enum を使う場合、以下のどちらかの方式で許容値を記述する：
+  - `allowedValues: [A, B, C]`
+  - `allowedValuesDetailed:` 形式で `value` / `label` を列挙
+
+## **4. エンティティの記述形式（必ずこの構造）**
+
+```yaml
+entities:
+  - logicalName: 〇〇
+    physicalName: 〇〇
+    description: 〇〇（業務的な説明）
+    glossaryTermId: tm-xxxx # 任意
+    relatedTerms: [tm-xxxx] # 任意
+    keyFields: [primaryKeyField] # 必須。複合キーも可
+    fields:
+      - logicalName: 〇〇
+        physicalName: 〇〇
+        type: string
+        glossaryTermId: tm-xxx # 任意
+        description: 〇〇 # 任意
+        unit: 円 # 任意
+        constraints:
+          required: true
+          unique: true
+        example: サンプル値
+```
+
+### **5. 出力要件**
+
+- エンティティ間で名前の衝突や ID の不整合がないよう生成してください。
+- 物理名・論理名・説明は、業務シナリオに整合する自然な内容にしてください。
+
+## **6. 参考**
+
+- 必要に応じて用語集（glossary）を参照し、glossaryTermId を補完してください。
+- BDD 作成ルールはこのファイル **bdd-rules.md** を参照してください。
+
+## **7. 最終出力**
+
+- 出力は YAML コードブロックのみで、前後や途中に文章を入れないこと。
+
+**以上のルールに従って、業務データ辞書を生成してください。**
