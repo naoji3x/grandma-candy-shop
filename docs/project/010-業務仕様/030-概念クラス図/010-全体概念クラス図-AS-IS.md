@@ -8,7 +8,7 @@ classDiagram
 %% =============================
 
 class 商品 {
-  <<key>> 商品ID
+  商品ID: PK
   名称
   販売価格
 }
@@ -21,25 +21,25 @@ class 玩具 {
 }
 
 class 在庫記録 {
-  <<key>> 在庫記録ID
+  在庫記録ID: PK
   数量
   保管場所
 }
 
 class 仕入記録 {
-  <<key>> 仕入記録ID
+  仕入記録ID: PK
   日時
   仕入数量
   仕入単価
 }
 
 class 仕入先 {
-  <<key>> 仕入先ID
+  仕入先ID: PK
   名称
 }
 
 class 売上記録 {
-  <<key>> 売上ID
+  売上ID: PK
   日付
   合計金額
   %% 現金 / つけ
@@ -47,12 +47,12 @@ class 売上記録 {
 }
 
 class 顧客 {
-  <<key>> 顧客ID
+  顧客ID: PK
   氏名
 }
 
 class つけ記録 {
-  <<key>> つけID
+  つけID: PK
   日時
   金額
   支払期限
@@ -60,13 +60,13 @@ class つけ記録 {
 }
 
 class レジ記録 {
-  <<key>> レジ記録ID
+  レジ記録ID: PK
   日時
   残高
 }
 
 class レジ明細 {
-  <<key>> レジ明細ID
+  レジ明細ID: PK
   費目
   単価
   数量
