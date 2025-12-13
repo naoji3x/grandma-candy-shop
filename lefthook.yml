@@ -2,6 +2,11 @@
 pre-commit:
   parallel: true
   commands:
+    docs-build:
+      glob: 'docs/**'
+      run: npm run docs:build
+      stage_fixed: true
+
     format-markdown:
       glob: '*.md'
       run: npx markdownlint --fix {staged_files}
