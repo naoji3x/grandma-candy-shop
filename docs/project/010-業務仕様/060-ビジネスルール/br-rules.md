@@ -41,6 +41,11 @@
 | tests      | このルールを検証する業務受入条件/テスト仕様ID | 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様）                 | 任意 |
 
+### NG/OK例（抜粋）
+
+- NG例: `type: api`（列挙外）, `id: BR_LowStock`（大文字/アンダースコアNG）, `extra: foo`（未定義プロパティNG）
+- OK例: `type: rule`, `id: br-low-stock-judgment`, `status: ready`, `owners: [owner@example.com]`
+
 ## 5. 本文構成（標準テンプレ）
 
 各 BR ファイルは以下見出しを順番に並べる。
@@ -170,11 +175,6 @@ tests: [bac-low-stock-judgment]
 
 将来: 閾値を曜日別に動的化
 ```
-
-### NG/OK例（抜粋）
-
-- NG例: `type: api`（列挙外）, `id: BR_LowStock`（大文字/アンダースコアNG）, `extra: foo`（未定義プロパティNG）
-- OK例: `type: rule`, `id: br-low-stock-judgment`, `status: ready`, `owners: [owner@example.com]`
 
 ## 12. 生成 AI への指示テンプレート
 
