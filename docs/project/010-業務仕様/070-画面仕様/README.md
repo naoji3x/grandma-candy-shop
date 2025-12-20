@@ -4,5 +4,5 @@
 
 ## 利用ガイド
 
-1. 画面仕様の作成・更新ルールは [ui-rules.md](ui-rules.md) を参照してください。
-2. 生成AIを活用して画面仕様を作成する場合は [ui-instruction.md](ui-instruction.md) をプロンプトのテンプレートとして利用してください。
+1. 画面仕様の作成・更新ルールは [uis-rules.md](uis-rules.md) を参照してください。
+2. 生成AIを活用して画面仕様を作成する場合は [uis-instruction.md](uis-instruction.md) をプロンプトのテンプレートとして利用してください。

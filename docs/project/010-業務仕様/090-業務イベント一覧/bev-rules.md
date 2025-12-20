@@ -96,7 +96,7 @@ owners: []
 tags: [sale]
 depends_on:
  - bel-sale
- - ui-sale
+ - uis-sale
 implements:
  - br-sale-total-calc
 tests:

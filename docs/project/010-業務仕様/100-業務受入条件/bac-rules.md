@@ -46,7 +46,7 @@ Frontmatter は `docs/tools/schemas/spec-frontmatter.schema.yaml` の制約に�
 
 推奨:
 
-- `depends_on` に、受入対象の仕様IDを列挙します（例: `bps-...`, `br-...`, `ui-...`, `bev-...`）。
+- `depends_on` に、受入対象の仕様IDを列挙します（例: `bps-...`, `br-...`, `uis-...`, `bev-...`）。
 - BR や BPS 側の `tests` から BAC を参照できるよう、ID は安定させます（名前を変える場合は `supersedes` を使う）。
 
 ## 5. 本文構成（標準テンプレ）

@@ -12,19 +12,18 @@ idやファイル名のプレフィックスを定義します。
 | ステータス一覧       | Status List                         | stl-   | stl-product        |
 | 分類一覧             | Classification List                 | cll-   | cll-product        |
 | API                  | API                                 | api-   | api-get-order      |
-| 業務プロセス図       | Business Process Diagram            | bp-    | bp-order-flow      |
 | 概念状態遷移図       | Conceptual State Transition Diagram | cstd-  | cstd-product       |
 | 業務プロセス仕様     | Business Process Specification      | bps-   | bps-order-flow     |
 | ビジネスルール       | Business Rule                       | br-    | br-discount        |
-| 画面仕様             | UI Specification                    | ui-    | ui-order-edit      |
-| 画面仕様一覧         | UI Specification List               | uil-   | uil-main           |
+| 画面仕様             | UI Specification                    | uis-   | uis-order-edit     |
+| 帳票仕様             | Business Document Specification     | bds-   | bds-order-summary  |
 | システム化機能一覧   | System Function List                | sfl-   | sfl-inventory      |
 | 業務イベント一覧     | Business Event List                 | bel-   | bel-order-created  |
 | 業務イベント         | Business Event                      | bev-   | bev-order-approved |
 | 業務受入条件         | Business Acceptance Criteria        | bac-   | bac-order-approved |
 | 用語集               | Glossary                            | gl-    | gl-sales           |
 | 用語集の用語         | Glossary Term                       | tm-    | tm-reorder-point   |
-| コンテキスト図       | Context Diagram                     | ctx-   | ctx-customer       |
-| コンテナ図           | Container Diagram                   | ctr-   | ctr-customer       |
-| コンポーネント図     | Component Diagram                   | cpt-   | cpt-inventory      |
+| コンテキスト図       | Context Diagram                     | cxd-   | cxd-customer       |
+| コンテナ図           | Container Diagram                   | cnd-   | cnd-customer       |
+| コンポーネント図     | Component Diagram                   | cpd-   | cpd-inventory      |
 | インフラ構成図       | Infrastructure Diagram              | ifd-   | ifd-main           |
