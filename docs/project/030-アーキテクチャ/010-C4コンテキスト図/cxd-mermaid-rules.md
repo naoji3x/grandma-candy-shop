@@ -20,12 +20,62 @@ C4 コンテキスト図は「対象システム」と、その周辺の **利�
 C4 の要素を、以下のように Mermaid の記号にマッピングする。
 
 | C4要素                                   | 意味                       | Mermaid での表現例                                       |
-| ---------------------------------------- | -------------------------- | -------------------------------------------------------- |
+| ---------------------------------------- | -------------------------- | -------------------------------------------------------- | ---------- | ----------------- |
 | Person（人/ロール）                      | 利用者・関係者             | `店員["店員"]`                                           |
 | Software System（対象システム）          | この図の中心となるシステム | `販売管理システム("駄菓子屋きぬや<br>販売管理システム")` |
 | External Software System（外部システム） | 連携先システム             | `会計システム["会計システム"]`                           |
 | System Boundary（境界）                  | 対象システムの範囲         | `subgraph 境界["対象システム"] ... end`                  |
-| Relationship（関係）                     | 依存・利用・連携（概念）   | `店員 --> \| "売上登録" \| 販売管理システム`             |
+| Relationship（関係）                     | 依存・利用・連携（概念）   | `店員 -->                                                | "売上登録" | 販売管理システム` |
+
+---
+
+## 2.1 標準の色分け（推奨）
+
+C4コンテキスト図は色が必須ではありませんが、読み手が「人 / 対象システム / 外部システム」を一目で区別できるよう、以下の色分けを推奨します。
+
+- Person（人/ロール）: 暖色系
+- 対象システム（Software System）: 寒色系（主役）
+- 外部システム（External System）: 無彩色系（脇役）
+- 境界（System Boundary）: 破線枠
+
+Mermaid `flowchart` では `classDef` + `class`、境界は `style` を使用します。
+
+### 2.1.1 標準スタイル定義（コピーして利用）
+
+```mermaid
+flowchart LR
+  %% --- Standard styles (recommended) ---
+  classDef person fill:#fff3bf,stroke:#f08c00,color:#000;
+  classDef system fill:#d0ebff,stroke:#1c7ed6,color:#000;
+  classDef external fill:#e9ecef,stroke:#495057,color:#000;
+
+  %% System boundary style (subgraph)
+  %% NOTE: '境界' は subgraph のID（名前）に合わせる
+  style 境界 fill:#ffffff,fill-opacity:0,stroke:#868e96,stroke-width:1px,stroke-dasharray: 5 5;
+```
+
+### 2.1.2 適用ルール
+
+- Personノードには `person` クラスを付ける
+- 対象システムノードには `system` クラスを付ける
+- 外部システムノードには `external` クラスを付ける
+- 境界は `subgraph 境界[...]` として、`style 境界 ...` で枠線を指定する
+
+例:
+
+```mermaid
+flowchart LR
+  店員["店員"]
+  会計システム["会計システム"]
+  subgraph 境界["対象システム"]
+    販売管理システム("販売管理システム")
+  end
+
+  class 店員 person;
+  class 販売管理システム system;
+  class 会計システム external;
+  style 境界 fill:#ffffff,fill-opacity:0,stroke:#868e96,stroke-width:1px,stroke-dasharray: 5 5;
+```
 
 ---
 
@@ -40,8 +90,11 @@ C4 の要素を、以下のように Mermaid の記号にマッピングする�
 
 ```mermaid
 flowchart LR
-店員["👤店員"]
-店主["👤店主"]
+  店員["👤店員"]
+  店主["👤店主"]
+
+  classDef person fill:#fff3bf,stroke:#f08c00,color:#000;
+  class 店員,店主 person;
 ```
 
 ### 3.2 Software System（対象システム）
@@ -54,7 +107,10 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-販売管理システム("駄菓子屋きぬや<br>販売管理システム")
+  販売管理システム("駄菓子屋きぬや<br>販売管理システム")
+
+  classDef system fill:#d0ebff,stroke:#1c7ed6,color:#000;
+  class 販売管理システム system;
 ```
 
 ### 3.3 External Software System（外部システム）
@@ -66,8 +122,11 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-会計システム["会計システム"]
-決済サービス["決済サービス"]
+  会計システム["会計システム"]
+  決済サービス["決済サービス"]
+
+  classDef external fill:#e9ecef,stroke:#495057,color:#000;
+  class 会計システム,決済サービス external;
 ```
 
 ### 3.4 System Boundary（境界）
@@ -79,9 +138,13 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-subgraph 境界["対象システム"]
-販売管理システム("駄菓子屋きぬや<br>販売管理システム")
-end
+  subgraph 境界["対象システム"]
+    販売管理システム("駄菓子屋きぬや<br>販売管理システム")
+  end
+
+  classDef system fill:#d0ebff,stroke:#1c7ed6,color:#000;
+  class 販売管理システム system;
+  style 境界 fill:#ffffff,fill-opacity:0,stroke:#868e96,stroke-width:1px,stroke-dasharray: 5 5;
 ```
 
 ---
@@ -106,8 +169,15 @@ end
 
 ```mermaid
 flowchart LR
-店員["店員"] -->|"売上登録"| 販売管理システム("販売管理システム")
-販売管理システム -->|"会計仕訳<br>連携"| 会計システム["会計システム"]
+  店員["店員"] -->|"売上登録"| 販売管理システム("販売管理システム")
+  販売管理システム -->|"会計仕訳<br>連携"| 会計システム["会計システム"]
+
+  classDef person fill:#fff3bf,stroke:#f08c00,color:#000;
+  classDef system fill:#d0ebff,stroke:#1c7ed6,color:#000;
+  classDef external fill:#e9ecef,stroke:#495057,color:#000;
+  class 店員 person;
+  class 販売管理システム system;
+  class 会計システム external;
 ```
 
 ---
@@ -156,6 +226,15 @@ flowchart LR
   販売管理システム -->|"会計仕訳連携"| 会計システム
   販売管理システム -->|"決済依頼"| 決済サービス
   決済サービス -->|"決済結果"| 販売管理システム
+
+  %% Styles
+  classDef person fill:#fff3bf,stroke:#f08c00,color:#000;
+  classDef system fill:#d0ebff,stroke:#1c7ed6,color:#000;
+  classDef external fill:#e9ecef,stroke:#495057,color:#000;
+  class 店員,店主 person;
+  class 販売管理システム system;
+  class 会計システム,決済サービス external;
+  style 境界 fill:#ffffff,fill-opacity:0,stroke:#868e96,stroke-width:1px,stroke-dasharray: 5 5;
 ```
 
 ---
@@ -178,6 +257,15 @@ flowchart LR
     人 -->|"Relationship（関係）"| 対象
     対象 -->|"Relationship（関係）"| 外部
   end
+
+  %% Styles
+  classDef person fill:#fff3bf,stroke:#f08c00,color:#000;
+  classDef system fill:#d0ebff,stroke:#1c7ed6,color:#000;
+  classDef external fill:#e9ecef,stroke:#495057,color:#000;
+  class 人 person;
+  class 対象 system;
+  class 外部 external;
+  style 境界例 fill:#ffffff,fill-opacity:0,stroke:#868e96,stroke-width:1px,stroke-dasharray: 5 5;
 ```
 
 ---
@@ -186,10 +274,20 @@ flowchart LR
 
 生成 AI に C4 コンテキスト図を作らせるときは、以下のような指示を与える。
 
-> - Mermaid の `flowchart` 構文を使って、C4コンテキスト図（システムコンテキスト）を作成してください。
-> - 図の中心となる **対象システムは1つ**にしてください。
-> - 対象システムは `subgraph ... end` で囲い、境界内には原則として対象システムのノード1つだけを置いてください。
+以下をそのままプロンプトとして使用できます。
+
+> - Mermaid の `flowchart` 構文で、C4コンテキスト図（システムコンテキスト）を作成してください。
+> - 図の中心となる対象システム（Software System）は **1つ**だけにしてください。
+> - 対象システムは `subgraph 境界["対象システム"] ... end` で囲い、境界内には原則として対象システムのノード1つだけを置いてください。
 > - Person（人/ロール）と External Software System（外部システム）を必ず含めてください（該当がない場合は理由を明記）。
 > - 関係は `-->` で表現し、**すべての矢印にラベル**（短い日本語）を付けてください。
+> - 色分け（必須）:
+>   - Personノードに `person`、対象システムに `system`、外部システムに `external` を付けてください。
+>   - 境界（subgraph）は破線枠にしてください。
+>   - 以下の定義をそのまま図に含めてください（値は変更しない）：
+>     - `classDef person fill:#fff3bf,stroke:#f08c00,color:#000;`
+>     - `classDef system fill:#d0ebff,stroke:#1c7ed6,color:#000;`
+>     - `classDef external fill:#e9ecef,stroke:#495057,color:#000;`
+>     - `style 境界 fill:#ffffff,fill-opacity:0,stroke:#868e96,stroke-width:1px,stroke-dasharray: 5 5;`
 > - 禁止: 物理テーブル名・カラム名・SQL全文、APIエンドポイントやHTTP詳細、実装クラス/関数名、対象システム内部の詳細プロセス/データストア
-> - 結果は `\`\`\`mermaid ... \`\`\` ` のコードブロックとして出力してください。
+> - 出力は Mermaid のコードブロック形式（\```mermaidで開始し、\``` で終了）で提示してください。
