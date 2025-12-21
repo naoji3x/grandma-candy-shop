@@ -25,7 +25,6 @@
 - ファイル名: `uis-<番号>-<短い日本語名>.md`（例: `uis-0010-商品一覧.md`）
 - Frontmatter:
   - `id`: `uis-product-list` のように小文字ハイフン形式
-  - `type`: `screen` 固定
   - `title`: 「商品一覧」などの画面名
 
 ## 4. 推奨 Frontmatter 項目

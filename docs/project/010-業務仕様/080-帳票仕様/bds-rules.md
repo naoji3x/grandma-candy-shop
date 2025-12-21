@@ -26,7 +26,6 @@
 - ファイル名: `bds-<番号>-<短い日本語名>.md`（例: `bds-0010-日次売上サマリ.md`）
 - Frontmatter:
   - `id`: `bds-daily-sales-summary` のように小文字ハイフン形式
-  - `type`: `domain` 固定（スキーマ準拠）
   - `title`: 「日次売上サマリ」などの帳票名
 
 ## 4. 推奨 Frontmatter 項目
