@@ -1,0 +1,238 @@
+version: '0.1.0'
+scope: 'docs 配下の仕様書作成ルール（*-rules.md）横断FAQ'
+
+sources:
+  - docs/handbook/guidelines/meta-rules.md
+  - docs/handbook/guidelines/prefix-rules.md
+  - docs/project/010-業務仕様/010-概念データフロー図/cdfd-rules.md
+  - docs/project/010-業務仕様/010-概念データフロー図/cdfd-mermaid-rules.md
+  - docs/project/010-業務仕様/020-業務データ辞書/bdd-rules.md
+  - docs/project/010-業務仕様/040-概念状態遷移図/cstd-mermaid-rules.md
+  - docs/project/010-業務仕様/060-ビジネスルール/br-rules.md
+  - docs/project/010-業務仕様/070-画面仕様/uis-rules.md
+  - docs/project/010-業務仕様/100-業務受入条件/bac-rules.md
+  - docs/project/030-アーキテクチャ/010-C4コンテキスト図/cxd-rules.md
+
+faqs:
+  - id: rules-files-roles
+    question: 'rules / instruction / README はどう使い分ける？'
+    answer: |-
+      基本は次の役割分担です。
+
+      - *-rules.md: 成果物の作成ルール（命名、必須要素、禁止事項、テンプレ、判断基準）
+      - *-instruction.md: Mermaid など「書き方（手順/記法）」の詳細・作図上の細かい規約
+      - README.md: そのフォルダ/成果物群の入口（何が置かれているか、読む順番、リンク）
+
+      迷ったら「長く使うルール＝rules」「作業手順/記法＝instruction」「ナビ＝README」に寄せます。
+    tags: [docs, rules, structure]
+    related_docs:
+      - docs/handbook/guidelines/meta-rules.md
+
+  - id: id-and-prefix
+    question: 'id と prefix（例: br-, bps-, cxd-）はどう決める？'
+    answer: |-
+      - prefix は prefix 一覧（prefix-rules）に従い、成果物の種類（BR/BPS/BAC/CDFD/CXD…）で固定します。
+      - id は「prefix + lower-kebab（英小文字とハイフン）」で、将来も変えない前提の安定IDにします。
+
+      NG 例: 大文字、アンダースコア、prefix なし、用途が違う prefix の流用。
+      OK 例: br-low-stock-judgment / bac-sale-checkout など。
+    tags: [naming, id, prefix]
+    related_docs:
+      - docs/handbook/guidelines/prefix-rules.md
+      - docs/handbook/guidelines/meta-rules.md
+
+  - id: frontmatter-basics
+    question: 'Frontmatter（YAMLメタデータ）の必須項目と注意点は？'
+    answer: |-
+      多くの Markdown 仕様書は Frontmatter のスキーマ制約に従います。
+
+      - 必須になりやすい項目: id / type / title / status
+      - status は draft / ready / deprecated のいずれか
+      - type は成果物ごとに固定（例: BR は rule、BAC は test、CXD は（スキーマ制約上）flow 等）
+
+      余計なキー（スキーマ未定義のプロパティ）を追加すると、検証で落ちる可能性があるため避けます。
+    tags: [frontmatter, schema]
+    related_docs:
+      - docs/handbook/guidelines/meta-rules.md
+
+  - id: depends-on-and-tests
+    question: 'depends_on / tests / supersedes はいつ使う？'
+    answer: |-
+      仕様間のつながりを「機械的に追える」形で残すために使います。
+
+      - depends_on: 前提となる仕様ID（例: BR が参照する下位ルール、BAC が参照する BPS/BEV/BR）
+      - tests: そのルールを検証する受入条件やテスト仕様ID（例: BR → BAC）
+      - supersedes: 古い仕様を置き換えるとき（互換性/移行の追跡）
+
+      文章中のリンクだけにせず、可能なら frontmatter 側にも入れると追跡しやすくなります。
+    tags: [traceability, depends-on, tests]
+    related_docs:
+      - docs/project/010-業務仕様/060-ビジネスルール/br-rules.md
+      - docs/project/010-業務仕様/100-業務受入条件/bac-rules.md
+      - docs/handbook/guidelines/meta-rules.md
+
+  - id: granularity
+    question: '1ファイルの粒度（分割/統合）はどう判断する？'
+    answer: |-
+      原則は「1ファイル = 1つの合意単位」です。
+
+      分割を検討するサイン例:
+      - 1つのファイルで、複数の目的（例: 判断ロジック + 手順書 + UI詳細）が混ざっている
+      - 章やシナリオが増えすぎてレビューが困難
+      - 依存関係が複雑になり、変更影響が読めない
+
+      分割する場合は、IDを安定させた上で depends_on で親子関係を表現します。
+    tags: [structure, review, splitting]
+    related_docs:
+      - docs/project/010-業務仕様/060-ビジネスルール/br-rules.md
+      - docs/project/010-業務仕様/100-業務受入条件/bac-rules.md
+
+  - id: avoid-implementation-details
+    question: '仕様書に実装詳細（SQL/クラス名/API内部処理）を書いていい？'
+    answer: |-
+      多くの仕様（BR/BAC/CDFD など）では、概念レベルの合意を目的としているため、実装詳細は原則禁止です。
+
+      例（禁止になりやすい）:
+      - 物理テーブル名・物理カラム名・SQL全文
+      - 実装クラス/関数名
+      - UIのクリック手順の逐語列挙（手順書化）
+
+      実装に落とす情報は、DB設計/API仕様/実装設計の章へ寄せます。
+    tags: [scope, anti-pattern]
+    related_docs:
+      - docs/project/010-業務仕様/060-ビジネスルール/br-rules.md
+      - docs/project/010-業務仕様/100-業務受入条件/bac-rules.md
+      - docs/project/010-業務仕様/010-概念データフロー図/cdfd-rules.md
+
+  - id: terminology-consistency
+    question: '用語揺れ（同じものを別名で書く）をどう防ぐ？'
+    answer: |-
+      - まず「概念名（業務用語）」を固定し、図・表・本文で同じ名称を使います。
+      - データ項目やエンティティは BDD（業務データ辞書）と整合させます。
+      - 用語集がある場合は glossaryTermId などで対応付けます。
+
+      迷ったら、先に用語を定義（用語集/BDD）してから、図やルールを書く方が破綻しにくいです。
+    tags: [terminology, consistency]
+    related_docs:
+      - docs/project/010-業務仕様/020-業務データ辞書/bdd-rules.md
+
+  - id: mermaid-basics
+    question: 'Mermaid 図はどう書けばビルドで壊れにくい？'
+    answer: |-
+      - Mermaid は必ず ```mermaid のコードブロックで囲います。
+      - 図の記法ルール（ノード形、矢印、ラベル、命名）は各 *-mermaid-rules.md に従います。
+      - ラベルが必要な矢印（例: CDFD の情報/物の流れ）で、ラベルを省略しない。
+
+      「図の見た目」より「解釈が割れない最低限の情報」を優先します。
+    tags: [mermaid, diagrams]
+    related_docs:
+      - docs/project/010-業務仕様/010-概念データフロー図/cdfd-mermaid-rules.md
+      - docs/project/010-業務仕様/040-概念状態遷移図/cstd-mermaid-rules.md
+
+  - id: cdfd-what-to-draw
+    question: 'CDFD（概念データフロー図）で必ず入れるべきものは？'
+    answer: |-
+      CDFD は「プロセス概要表 + Mermaid 図」をセットで作り、表と図で名称を揃えます。
+
+      図の必須要素（代表）:
+      - プロセス
+      - 主要なデータストア
+      - 必要に応じて外部主体、イベント、物理保管
+      - 情報の流れ（-->）と、必要なら物の流れ（==>）
+
+      矢印はラベル必須（何が流れているか合意するため）。
+    tags: [cdfd, dfd]
+    related_docs:
+      - docs/project/010-業務仕様/010-概念データフロー図/cdfd-rules.md
+      - docs/project/010-業務仕様/010-概念データフロー図/cdfd-mermaid-rules.md
+
+  - id: cdfd-arrows
+    question: 'CDFD で --> と ==> をどう使い分ける？'
+    answer: |-
+      - --> : 情報（データ）の流れ
+      - ==> : 物（商品、現金など現物）の流れ
+
+      どちらも「ラベル必須」です（情報/物の中身が合意できないため）。
+    tags: [cdfd, mermaid]
+    related_docs:
+      - docs/project/010-業務仕様/010-概念データフロー図/cdfd-mermaid-rules.md
+
+  - id: cstd-states
+    question: 'CSTD（概念状態遷移図）の状態名・遷移ラベルはどう書く？'
+    answer: |-
+      - 状態名: 日本語の名詞句（例: 販売中、売り切れ）
+      - 遷移: 状態A --> 状態B : イベント / 条件
+      - イベント/条件は省略しない（検証可能な合意にするため）
+
+      画面遷移や実装の if 条件式そのものは、概念状態遷移図としては避けます。
+    tags: [cstd, state-machine]
+    related_docs:
+      - docs/project/010-業務仕様/040-概念状態遷移図/cstd-mermaid-rules.md
+
+  - id: cxd-scope
+    question: 'CXD（C4コンテキスト図）で描く範囲はどこまで？'
+    answer: |-
+      CXD は「対象システムと、その周辺（ユーザー/外部システム）の関係」を合意するための図です。
+
+      - 内部のコンポーネント分割やクラス構造は描かない（それは別の図に寄せる）
+      - 境界（何がシステム内で、何が外か）を明確にする
+      - 関係（依存/連携/情報のやり取り）を短い言葉で説明する
+    tags: [c4, cxd]
+    related_docs:
+      - docs/project/030-アーキテクチャ/010-C4コンテキスト図/cxd-rules.md
+
+  - id: bdd-format
+    question: 'BDD（業務データ辞書）は Markdown ではなく YAML で書くの？'
+    answer: |-
+      BDD は「業務データ（エンティティ/属性）を機械的に扱える」ことを重視し、YAML 形式で記述します。
+
+      - logicalName: 日本語の単数形
+      - physicalName: lowerCamelCase
+      - enum は allowedValues / allowedValuesDetailed で許容値を明示
+      - created_at など実装都合の技術カラムは原則含めない
+
+      BDD はドメインの辞書なので、UI/API の都合で構造体を増やしすぎないのがコツです。
+    tags: [bdd, yaml, naming]
+    related_docs:
+      - docs/project/010-業務仕様/020-業務データ辞書/bdd-rules.md
+
+  - id: br-how-to-write
+    question: 'BR（ビジネスルール）は何をどう書けばいい？'
+    answer: |-
+      BR は「複数プロセスから参照される判断・条件・計算ロジック」を、概念レベルで定義します。
+
+      コツ:
+      - 入力（概念データ）→ 判定/計算（条件と意味）→ 出力（結果）を分けて書く
+      - 必要なら TypeScript 風の擬似コードで補足してよい（ただし実装詳細に踏み込まない）
+      - 複雑ならサブルールに分割し depends_on で親子関係を表す
+    tags: [br, rules]
+    related_docs:
+      - docs/project/010-業務仕様/060-ビジネスルール/br-rules.md
+
+  - id: bac-how-to-write
+    question: 'BAC（業務受入条件）はテストケース（Gherkin等）で書く必要がある？'
+    answer: |-
+      BAC は「業務側から見て受け入れ可能か」をレビューしやすい Markdown で記述します。
+
+      推奨テンプレ（シナリオ単位）:
+      - 前提 / 操作 / 期待結果（必要なら判定方法）
+
+      重要なのは形式よりも、期待結果が「観測可能な事実」になっていることです（『正しく処理される』のような曖昧表現は避ける）。
+    tags: [bac, acceptance-criteria]
+    related_docs:
+      - docs/project/010-業務仕様/100-業務受入条件/bac-rules.md
+
+  - id: ui-spec-what-to-include
+    question: 'UIS（画面仕様）はどこまで書く？（レイアウト/手順書化の扱い）'
+    answer: |-
+      画面仕様は「業務上、画面が満たすべきこと」を中心に書き、UI変更に弱い情報に寄りすぎないのが基本です。
+
+      - クリック手順の逐語列挙は避け、業務行為として要約する
+      - 必要な入出力（項目、バリデーション、メッセージ）などを中心に合意する
+
+      迷ったら、まず BAC（期待結果）と BR（判断）を固め、その上で画面が担う責務を UIS に落とすと整合しやすいです。
+    tags: [uis, ui, scope]
+    related_docs:
+      - docs/project/010-業務仕様/070-画面仕様/uis-rules.md
+      - docs/project/010-業務仕様/100-業務受入条件/bac-rules.md
+      - docs/project/010-業務仕様/060-ビジネスルール/br-rules.md
