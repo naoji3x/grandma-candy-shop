@@ -36,7 +36,9 @@ properties:
     # test: テスト仕様
     # flow: 業務フロー仕様
     # rule: 業務ルール仕様
-    enum: ['screen', 'api', 'domain', 'data', 'test', 'flow', 'rule']
+    # architecture: 構造・構成（C4、配置、統合、ネットワーク境界など
+    # decision: 設計判断（ADR的な意思決定記録）
+    enum: ['screen', 'api', 'domain', 'data', 'test', 'flow', 'rule', 'architecture', 'decision']
     description: '仕様の種別'
   title:
     type: string
