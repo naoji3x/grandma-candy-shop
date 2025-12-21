@@ -21,9 +21,45 @@ Mermaid 記法そのもののルールは [cxd-mermaid-rules.md](cxd-mermaid-rul
 
 ---
 
-## 2. CXDで合意すること（スコープ）
+## 2. ファイル命名・ID規則
 
-### 2.1 合意したいこと
+- ファイル名: `cxd-<番号>-<短い日本語名>.md`
+  - 例: `cxd-010-駄菓子屋きぬや販売管理システム-コンテキスト.md`
+- Frontmatter:
+  - `id`: 小文字ハイフン形式（例: `cxd-candy-shop-sales-context`）
+  - `title`: 「〇〇のC4コンテキスト図」のように対象が分かる表現
+
+---
+
+## 3. 推奨 Frontmatter 項目
+
+Frontmatter の共通ルールは [docs/handbook/guidelines/meta-rules.md](../../../handbook/guidelines/meta-rules.md) に従います。
+
+| 項目       | 説明                                           | 必須 |
+| ---------- | ---------------------------------------------- | ---- |
+| id         | ドキュメントID（小文字ハイフン）               | ○    |
+| type       | `architecture` 固定                            | ○    |
+| title      | ドキュメント名                                 | ○    |
+| status     | `draft`/`ready`/`deprecated`                   | ○    |
+| version    | バージョン（SemVer）                           | 任意 |
+| owners     | 担当者                                         | 任意 |
+| tags       | タグ                                           | 任意 |
+| depends_on | 前提となる定義（用語集、外部IF、上位方針など） | 任意 |
+| implements | 満たすべきビジネスルール（br-...）             | 任意 |
+| tests      | この仕様を検証する受入条件（bac-...）等        | 任意 |
+| supersedes | 置き換え関係（古い図→新しい図）                | 任意 |
+
+### 3.1 `depends_on` の考え方（例）
+
+- 用語集（`gl-...`）や業務データ辞書（`bdd-...`）
+- 外部システムIFの仕様（IF章のドキュメント）
+- 参照する上位の方針（ADR、非機能要件など）
+
+---
+
+## 4. CXDで合意すること（スコープ）
+
+### 4.1 合意したいこと
 
 - 対象システムの名前と、責務の一言（何をするシステムか）
 - 利用者（Person）と、その利用目的（何のために使うか）
@@ -31,7 +67,7 @@ Mermaid 記法そのもののルールは [cxd-mermaid-rules.md](cxd-mermaid-rul
 - 関係（Relationship）の向きと意味（誰が主に呼び出す/依存するか）
 - 対象システムの「境界」の考え方（何を含み、何を含まないか）
 
-### 2.2 合意しないこと（この図で扱わない）
+### 4.2 合意しないこと（この図で扱わない）
 
 - 対象システムの内部の分解（コンテナ/コンポーネント、内部プロセス、内部データストア）
 - APIエンドポイント、HTTPメソッド、リクエスト/レスポンスJSONなどのIF詳細
@@ -40,11 +76,11 @@ Mermaid 記法そのもののルールは [cxd-mermaid-rules.md](cxd-mermaid-rul
 
 ---
 
-## 3. CXDの要素定義（図と文章の両方で説明する）
+## 5. CXDの要素定義（図と文章の両方で説明する）
 
 この章では、図に描いた要素について **最低限の説明**を併記し、レビュー可能にします。
 
-### 3.1 Person（人/ロール）
+### 5.1 Person（人/ロール）
 
 Personは、対象システムに対して目的をもって関わる主体（人/役割/組織）です。
 
@@ -55,7 +91,7 @@ Personは、対象システムに対して目的をもって関わる主体（�
 - 書かないこと:
   - 個人名、組織の詳細階層、UI操作手順の逐語列挙
 
-### 3.2 Software System（対象システム）
+### 5.2 Software System（対象システム）
 
 この図の中心に置くシステムです。CXDでは **対象システムは1つ**に限定します。
 
@@ -66,7 +102,7 @@ Personは、対象システムに対して目的をもって関わる主体（�
 - 書かないこと:
   - 内部モジュール/サブシステムの列挙、画面一覧、DBスキーマ
 
-### 3.3 External Software System（外部システム）
+### 5.3 External Software System（外部システム）
 
 対象システムの外側にあり、対象システムが連携する相手（既存の別システム、SaaS、決済、会計など）です。
 
@@ -77,7 +113,7 @@ Personは、対象システムに対して目的をもって関わる主体（�
 - 書かないこと:
   - API仕様の詳細、データ項目一覧（それらはIF仕様へ）
 
-### 3.4 System Boundary（システム境界）
+### 5.4 System Boundary（システム境界）
 
 境界は「対象システムが責任を持つ範囲」を表します。境界の内外が曖昧だと、責任分界（運用・障害・変更）が曖昧になります。
 
@@ -87,7 +123,7 @@ Personは、対象システムに対して目的をもって関わる主体（�
 - 注意:
   - 境界内に「対象システムのノード1つだけ」を置く運用を基本とし、内部構造は別図（コンテナ図など）へ委譲します。
 
-### 3.5 Relationship（関係）
+### 5.5 Relationship（関係）
 
 関係は「やり取りの意味」を合意するための線です。CXDでは **すべての関係にラベル**を付けます。
 
@@ -99,47 +135,6 @@ Personは、対象システムに対して目的をもって関わる主体（�
   - 重要な前提（ある場合のみ。例: 非同期、日次バッチ）
 - 書かないこと:
   - HTTP詳細、データ項目列挙、SQL、実装条件式
-
----
-
-## 4. ファイル命名・ID規則
-
-- ファイル名: `cxd-<番号>-<短い日本語名>.md`
-  - 例: `cxd-010-駄菓子屋きぬや販売管理システム-コンテキスト.md`
-- Frontmatter:
-  - `id`: 小文字ハイフン形式（例: `kinuya-sales-context`）
-  - `title`: 「〇〇のC4コンテキスト図」のように対象が分かる表現
-
-補足:
-
-- 本リポジトリの `type` は [docs/handbook/guidelines/meta-rules.md](../../../handbook/guidelines/meta-rules.md) の定義済み列挙に従う必要があります。
-- C4はアーキテクチャ図ですが、現状の列挙に `architecture` が無いため、CXD成果物の `type` は **`flow`（図表/関係性の合意）** を推奨します。
-
----
-
-## 5. 推奨 Frontmatter 項目
-
-Frontmatter の共通ルールは [docs/handbook/guidelines/meta-rules.md](../../../handbook/guidelines/meta-rules.md) に従います。
-
-| 項目       | 説明                                            | 必須 |
-| ---------- | ----------------------------------------------- | ---- |
-| id         | ドキュメントID（小文字ハイフン）                | ○    |
-| type       | `flow` 固定（現状の列挙に合わせた推奨）         | ○    |
-| title      | ドキュメント名                                  | ○    |
-| status     | `draft`/`ready`/`deprecated`                    | ○    |
-| version    | バージョン（SemVer）                            | 任意 |
-| owners     | 担当者                                          | 任意 |
-| tags       | タグ                                            | 任意 |
-| depends_on | 前提となる定義（用語集、外部IF、上位方針など）  | 任意 |
-| implements | 満たすべきビジネスルール（br-...）              | 任意 |
-| tests      | この仕様を検証する受入条件（bac-...）等         | 任意 |
-| supersedes | 置き換え関係（古い図→新しい図）                 | 任意 |
-
-### 5.1 `depends_on` の考え方（例）
-
-- 用語集（`gl-...`）や業務データ辞書（`bdd-...`）
-- 外部システムIFの仕様（IF章のドキュメント）
-- 参照する上位の方針（ADR、非機能要件など）
 
 ---
 
@@ -219,8 +214,8 @@ Frontmatter の共通ルールは [docs/handbook/guidelines/meta-rules.md](../..
 
 ````markdown
 ---
-id: kinuya-sales-context
-type: flow
+id: cxd-candy-shop-sales-context
+type: architecture
 title: 駄菓子屋きぬや販売管理システムのC4コンテキスト図
 status: draft
 depends_on: []
@@ -298,8 +293,8 @@ flowchart LR
 > - 以下のルールに従って、**C4コンテキスト図（CXD）のドキュメント**を 1 ファイル作成してください。出力は **Markdown** とします。
 > - 対象システム（Software System）は **1つ**だけにしてください（複数対象がある場合は分割する前提で、今回は1つに絞る）。
 > - 先頭に YAML Frontmatter を付けてください（項目は以下を必須とする）：
->   - `id`: 小文字ハイフン（例: `kinuya-sales-context`）
->   - `type`: `flow`
+>   - `id`: 小文字ハイフン（例: `cxd-candy-shop-sales-context`）
+>   - `type`: `architecture`
 >   - `title`: 図の対象が分かる日本語タイトル
 >   - `status`: `draft`
 >   - `depends_on`: `[]`
