@@ -13,7 +13,8 @@
     "docs:build:mermaid": "tsx docs/tools/src/gen-mermaid-svg.ts",
     "docs:rebuild:mermaid": "rm -f docs/public/mermaid/*.svg && npm run docs:build:mermaid",
     "docs:build": "npm run docs:build:mermaid && vitepress build docs",
-    "fm:lint": "remark \"docs/**/*.{md,mdx}\" --quiet --frail"
+    "lint:fm": "remark \"docs/**/*.{md,mdx}\" --quiet --frail",
+    "lint:yaml": "remark \"docs/**/*.{yaml,yml}\" --quiet --frail"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",

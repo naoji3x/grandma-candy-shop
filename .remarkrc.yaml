@@ -9,3 +9,7 @@ plugins:
     - schemas:
         ./docs/tools/schemas/spec-frontmatter.schema.yaml:
           - ./docs/**/*.md
+        ./docs/tools/schemas/bdd.schema.yaml:
+          - ./docs/**/bdd-*.yaml
+        ./docs/tools/schemas/esil.schema.yaml:
+          - ./docs/**/esil-*.yaml
