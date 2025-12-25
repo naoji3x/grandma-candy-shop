@@ -118,7 +118,7 @@ OK:
 flowchart LR
 lb["🧭 Load Balancer"]
 db[("🗄️ Relational Database")]
-cache["⚡ Cache"]
+cache{{"⚡ Cache"}}
 ```
 
 NG:
@@ -158,7 +158,7 @@ db[("🗄️ Relational Database")]
 | 🗄️ Database    | 永続DB                        | `db[("...")]`    | `🗄️ Relational Database` |
 | 🪣 Storage     | オブジェクト/ファイル保管     | `storage("...")` | `🪣 Object Storage`      |
 | 📨 Queue/Topic | 非同期連携（キュー/トピック） | `queue[["..."]]` | `📨 Message Queue`       |
-| ⚡ Cache       | 参照高速化（任意）            | `cache["..."]`   | `⚡ Cache`               |
+| ⚡ Cache       | 参照高速化（任意）            | `cache{{"..."}}` | `⚡ Cache`               |
 
 ### 例
 
@@ -167,7 +167,7 @@ flowchart LR
 db[("🗄️ Relational Database")]
 storage("🪣 Object Storage")
 queue[["📨 Message Queue"]]
-cache["⚡ Cache"]
+cache{{"⚡ Cache"}}
 ```
 
 補足:
@@ -227,12 +227,19 @@ api -->|HTTPS 443| db
 
 ```mermaid
 flowchart LR
-classDef boundary fill:#f5f7fa,stroke:#999
-classDef compute fill:#e3f2fd,stroke:#1e88e5
-classDef data fill:#e8f5e9,stroke:#43a047
+lb["🧭 Load Balancer"]
+web["🖥️ Web App"]
+api["⚙️ API Server"]
+cache{{"⚡ Cache"}}
+db[("🗄️ Relational Database")]
+storage("🪣 Object Storage")
+
+classDef boundary fill:#f5f7fa,stroke:#999,color:#000
+classDef compute fill:#e3f2fd,stroke:#1e88e5,color:#000
+classDef data fill:#e8f5e9,stroke:#43a047,color:#000
 
 class lb,web,api compute
-class db,storage data
+class cache,db,storage data
 ```
 
 ---
@@ -241,6 +248,10 @@ class db,storage data
 
 ```mermaid
 flowchart LR
+  classDef boundary fill:#f5f7fa,stroke:#999,color:#000
+  classDef compute fill:#e3f2fd,stroke:#1e88e5,color:#000
+  classDef data fill:#e8f5e9,stroke:#43a047,color:#000
+
   user["👤 User"] --> internet["🌐 Internet"]
 
   subgraph Cloud["☁️ Cloud Environment"]
@@ -252,7 +263,7 @@ flowchart LR
       subgraph Private["🔒 Private Zone"]
         web["🖥️ Web App"]
         api["⚙️ API Server"]
-        cache["⚡ Cache"]
+        cache{{"⚡ Cache"}}
         db[("🗄️ Relational Database")]
         storage("🪣 Object Storage")
       end
@@ -265,6 +276,10 @@ flowchart LR
   api --> cache
   api --> db
   api --> storage
+
+  class user,internet boundary
+  class lb,web,api compute
+  class cache,db,storage data
 ```
 
 ### この図で合意できること
@@ -294,7 +309,18 @@ flowchart LR
 > - subgraph は最大3階層（Lv1: 実行環境 / Lv2: ネットワーク / Lv3: 論理ゾーン）。
 > - まず境界（subgraph）を定義し、その中にノードを配置してください。
 > - ノードは必ず `id["Role Name"]` 形式で、表示名は役割名のみとしてください。
-> - （任意）絵文字は表示名の先頭に **1個まで** 付けてよいが、IDには付けないでください。
+> - （任意）絵文字は表示名の先頭に **1個まで** 付けてよいが、IDには付けないでください。絵文字だけに頼らず、必ず役割名テキストも併記してください。
+> - （任意）絵文字を付ける場合、次の推奨セットから選んで統一してください（例：`lb["🧭 Load Balancer"]`）：
+>   - 境界（subgraph）: `☁️ Cloud Environment` / `🛡️ VPC` / `🌍 Public Zone` / `🔒 Private Zone`
+>   - 外部: `👤 User` / `🌐 Internet`
+>   - Compute: `🧭 Load Balancer` / `🖥️ Web App` / `⚙️ API Server`
+>   - Data: `⚡ Cache` / `🗄️ Relational Database` / `🪣 Object Storage` / `📨 Message Queue`
+> - （任意）色を付ける場合は、**境界単位** または **役割の大分類（boundary / compute / data）** 単位で付けてください。
+> - 色指定は `classDef` のみ使用し、`style` は使用しないでください。ノード単位でバラバラな色付けはしないでください。
+> - （任意）色付けする場合、以下の `classDef` を図の先頭付近にそのまま記述してください：
+>   - `classDef boundary fill:#f5f7fa,stroke:#999,color:#000`
+>   - `classDef compute fill:#e3f2fd,stroke:#1e88e5,color:#000`
+>   - `classDef data fill:#e8f5e9,stroke:#43a047,color:#000`
 > - 製品名・略語（ALB / EC2 / RDS / Cloud Run / Redis / Kafka 等）は使用しないでください。
 > - 🗄️ Database は `db[("...")]`、🪣 Storage は `storage("...")`、📨 Queue/Topic は `queue[["..."]]` を使用してください。
 > - ⚡ Cache は必要な場合のみノードとして追加してください。
