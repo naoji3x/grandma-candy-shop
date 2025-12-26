@@ -32,7 +32,7 @@ Mermaid 記法そのもののルールは [cpd-mermaid-rules.md](cpd-mermaid-rul
 
 ## 3. 推奨 Frontmatter 項目
 
-Frontmatter の共通ルールは [docs/handbook/guidelines/meta-rules.md](../../../handbook/guidelines/meta-rules.md) に従います。
+Frontmatter の共通ルールは [docs/handbook/guidelines/meta-rules.md](../guidelines/meta-rules.md) に従います。
 
 | 項目       | 説明                                           | 必須 |
 | ---------- | ---------------------------------------------- | ---- |
@@ -343,11 +343,11 @@ flowchart LR
 > - 「要素の説明」は、図に登場する要素（境界/人/コンポーネント/DB/外部/関係）を `###` 小見出しで列挙し、各要素を **1〜3文**で説明してください。
 > - 禁止: 物理テーブル名・カラム名・SQL全文、APIエンドポイントやHTTP詳細、実装クラス/関数名やファイル一覧、画面手順の逐語列挙
 
-このテンプレートをコピーして、生成 AI のプロンプトに貼り付けて利用してください。なお、[cpd-instruction.md](cpd-instruction.md)として別ファイルに保存しています。
+このテンプレートをコピーして、生成 AI のプロンプトに貼り付けて利用してください。なお、[cpd-instruction.md](../instructions/cpd-instruction.md)として別ファイルに保存しています。
 
 ---
 
 ## 13. 参照
 
-- Mermaid 記法（CPD）: [cpd-mermaid-rules.md](cpd-mermaid-rules.md)
-- 生成AI向けテンプレ（CPD）: [cpd-mermaid-instruction.md](cpd-mermaid-instruction.md)
+- Mermaid 記法（CPD）: [cpd-mermaid-rules.md](../rules/cpd-mermaid-rules.md)
+- 生成AI向けテンプレ（CPD）: [cpd-mermaid-instruction.md](../instructions/cpd-mermaid-instruction.md)

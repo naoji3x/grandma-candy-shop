@@ -4,5 +4,5 @@
 
 ## 記法ガイド
 
-- 概念クラス図の作成・更新ルールは [ccd-mermaid-rules.md](ccd-mermaid-rules.md) を参照してください。
-- 生成AIを活用して概念クラス図を作成する場合は [ccd-mermaid-instruction.md](ccd-mermaid-instruction.md) をプロンプトのテンプレートとして利用してください。
+- 概念クラス図の作成・更新ルールは [ccd-mermaid-rules.md](../../../handbook/rules/ccd-mermaid-rules.md) を参照してください。
+- 生成AIを活用して概念クラス図を作成する場合は [ccd-mermaid-instruction.md](../../../handbook/instructions/ccd-mermaid-instruction.md) をプロンプトのテンプレートとして利用してください。

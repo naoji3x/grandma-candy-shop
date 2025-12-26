@@ -292,4 +292,4 @@ flowchart LR
 >     - `style 境界 fill:#ffffff,fill-opacity:0,stroke:#868e96,stroke-width:1px,stroke-dasharray: 5 5;`
 > - 出力は Mermaid のコードブロック形式（`mermaid で開始し、` で終了）で提示してください。
 
-このテンプレートをコピーして、生成 AI のプロンプトに貼り付けて利用してください。なお、[cpd-mermaid-instruction.md](cpd-mermaid-instruction.md)として別ファイルに保存しています。
+このテンプレートをコピーして、生成 AI のプロンプトに貼り付けて利用してください。なお、[cpd-mermaid-instruction.md](../instructions/cpd-mermaid-instruction.md)として別ファイルに保存しています。

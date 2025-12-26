@@ -8,7 +8,7 @@
 - **説明（Markdown）**: 図の要素（人/対象/外部/境界/関係）の意味を文章で合意する
 
 Mermaid 記法そのもののルールは [cxd-mermaid-rules.md](cxd-mermaid-rules.md) を参照してください。
-生成AI向けの短い指示テンプレは [cxd-mermaid-instruction.md](cxd-mermaid-instruction.md) を参照してください。
+生成AI向けの短い指示テンプレは [cxd-mermaid-instruction.md](../instructions/cxd-mermaid-instruction.md) を参照してください。
 
 ---
 
@@ -33,7 +33,7 @@ Mermaid 記法そのもののルールは [cxd-mermaid-rules.md](cxd-mermaid-rul
 
 ## 3. 推奨 Frontmatter 項目
 
-Frontmatter の共通ルールは [docs/handbook/guidelines/meta-rules.md](../../../handbook/guidelines/meta-rules.md) に従います。
+Frontmatter の共通ルールは [docs/handbook/guidelines/meta-rules.md](../guidelines/meta-rules.md) に従います。
 
 | 項目       | 説明                                           | 必須 |
 | ---------- | ---------------------------------------------- | ---- |
@@ -322,11 +322,11 @@ flowchart LR
 > - 「要素の説明」は、図に登場する要素（人/対象システム/外部システム/境界/関係）を `###` 小見出しで列挙し、各要素を **1〜3文**で説明してください。
 > - 禁止: 物理テーブル名・カラム名・SQL全文、APIエンドポイントやHTTP詳細、実装クラス/関数名、対象システム内部の詳細プロセス/データストア、UI操作手順の逐語列挙
 
-このテンプレートをコピーして、生成 AI のプロンプトに貼り付けて利用してください。なお、[cxd-instruction.md](cxd-instruction.md)として別ファイルに保存しています。
+このテンプレートをコピーして、生成 AI のプロンプトに貼り付けて利用してください。なお、[cxd-instruction.md](../instructions/cxd-instruction.md)として別ファイルに保存しています。
 
 ---
 
 ## 13. 参照
 
-- Mermaid 記法（CXD）: [cxd-mermaid-rules.md](cxd-mermaid-rules.md)
-- 生成AI向けテンプレ（CXD）: [cxd-mermaid-instruction.md](cxd-mermaid-instruction.md)
+- Mermaid 記法（CXD）: [cxd-mermaid-rules.md](../rules/cxd-mermaid-rules.md)
+- 生成AI向けテンプレ（CXD）: [cxd-mermaid-instruction.md](../instructions/cxd-mermaid-instruction.md)

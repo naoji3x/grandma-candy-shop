@@ -246,4 +246,4 @@ entities:
 >
 > **以上のルールに従って、業務データ辞書を生成してください。**
 
-このテンプレートをコピーして、生成 AI のプロンプトに貼り付けて利用してください。なお、[bdd-instruction.md](bdd-instruction.md)として別ファイルに保存しています。
+このテンプレートをコピーして、生成 AI のプロンプトに貼り付けて利用してください。なお、[bdd-instruction.md](../instructions/bdd-instruction.md)として別ファイルに保存しています。

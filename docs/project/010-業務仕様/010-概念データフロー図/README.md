@@ -10,12 +10,12 @@
 
 ### 概念データフロー図（CDFD）
 
-- 作成ルールは[cdfd-rules.md](cdfd-rules.md) を参照してください。
-- 生成AIへの指示はテンプレート[cdfd-instruction.md](cdfd-instruction.md) を参考にしてください。
+- 作成ルールは[cdfd-rules.md](../../../handbook/rules/cdfd-rules.md) を参照してください。
+- 生成AIへの指示はテンプレート[cdfd-instruction.md](../../../handbook/instructions/cdfd-instruction.md) を参考にしてください。
 
 ### Mermaid を用いたデータフロー図（DFD）
 
 MermaidによるCDFD図の記法単体は、
 
-- 作成ルールは[cdfd-mermaid-rules.md](cdfd-mermaid-rules.md) を参照してください。
-- 生成AIへの指示はテンプレート[cdfd-mermaid-instruction.md](cdfd-mermaid-instruction.md) を参考にしてください。
+- 作成ルールは[cdfd-mermaid-rules.md](../../../handbook/rules/cdfd-mermaid-rules.md) を参照してください。
+- 生成AIへの指示はテンプレート[cdfd-mermaid-instruction.md](../../../handbook/instructions/cdfd-mermaid-instruction.md) を参考にしてください。

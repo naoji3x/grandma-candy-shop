@@ -10,7 +10,7 @@ ESIL は「どの外部システムと」「何を」「どの方向で」「ど
 
 ## 1. 参照スキーマ
 
-- 参照スキーマ: [docs/tools/schemas/esil.schema.yaml](docs/tools/schemas/esil.schema.yaml)
+- 参照スキーマ: [docs/tools/schemas/esil.schema.yaml](../../tools/schemas/esil.schema.yaml)
 - ESIL は `docs/**/esil-*.yaml` のような YAML ファイルとして作成し、スキーマに従って記述します。
 
 ## 2. ファイル規約
