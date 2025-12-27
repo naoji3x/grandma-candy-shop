@@ -24,7 +24,9 @@
         "davidanson.vscode-markdownlint",
         "editorconfig.editorconfig",
         "esbenp.prettier-vscode",
-        "unifiedjs.vscode-remark"
+        "unifiedjs.vscode-remark",
+        "yzhang.markdown-all-in-one",
+        "emeraldwalk.runonsave"
       ]
     }
   }

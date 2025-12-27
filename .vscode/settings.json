@@ -51,9 +51,8 @@
 
   // ===== Markdown 専用設定 =====
   "[markdown]": {
-    // Markdown だけ Prettier で整形
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "unifiedjs.vscode-remark",
+    "editor.formatOnSave": false,
 
     // markdownlint の自動修正も保存時に実行
     "editor.codeActionsOnSave": {
@@ -62,5 +61,13 @@
 
     // 好み：Markdown は自動折り返しにしておくと読みやすい
     "editor.wordWrap": "on"
+  },
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "docs/.*\\.(md|mdx)$",
+        "cmd": "npm run fmt:md -- \"${file}\""
+      }
+    ]
   }
 }

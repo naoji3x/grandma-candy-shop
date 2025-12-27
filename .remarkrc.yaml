@@ -1,9 +1,17 @@
+settings:
+  rule: '-'
+  ruleRepetition: 3
+  ruleSpaces: false
+
+  bullet: '-'
+
 plugins:
   - remark-parse
   - - remark-frontmatter
     - type: yaml
       marker: '-'
-  - remark-gfm
+  - - remark-gfm
+    - tablePipeAlign: false
   - remark-lint
   - - remark-lint-frontmatter-schema
     - schemas:
