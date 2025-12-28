@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Format Markdown Table",
+      "type": "shell",
+      "command": "npx tsx docs/tools/src/fmt-md-table.ts \"${file}\" ${lineNumber}",
+      "presentation": { "reveal": "never" }
+    }
+  ]
+}
