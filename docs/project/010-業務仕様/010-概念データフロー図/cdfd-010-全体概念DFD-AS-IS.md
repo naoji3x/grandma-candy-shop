@@ -1,7 +1,5 @@
 # 全体概念データフロー図（現状）
 
-凡例と記号の意味は[cdfd-mermaid-rules.md](../../../handbook/rules/cdfd-mermaid-rules.md)を参照してください。
-
 ## プロセスグループ概要
 
 | プロセスグループ | 主な業務                                 | 業務目的                                           |
@@ -11,6 +9,8 @@
 | 会計             | レジ締め・売上記録・仕入支払い・帳簿管理 | お金の流れを正確に把握し、商いの継続を可能にする。 |
 
 ## 外部主体と物理保管に着目した概要フロー
+
+凡例は[こちら(cdfd-mermaid-rules#6.凡例)](../../../handbook/rules/cdfd-mermaid-rules.md#6-凡例)を参照してください。
 
 ```mermaid
 flowchart LR

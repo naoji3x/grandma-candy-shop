@@ -28,7 +28,8 @@
     "Stocktake",
     "systemization",
     "TAXCLASS",
-    "vitepress"
+    "vitepress",
+    "xychart"
   ],
 
   // ===== ファイル全体の共通設定 =====
