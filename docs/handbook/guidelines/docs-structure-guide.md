@@ -93,7 +93,7 @@ flowchart TB
 
       subgraph Development[プロダクトの要件〜設計]
       direction TB
-        subgraph BusinessSpec[業務仕様（要件含む）]
+        subgraph BusinessSpec[業務仕様群（要件含む）]
           BS["業務仕様<br>🧭"]
           EI["外部I/F仕様<br>🧭 / ⚙️"]
         end
@@ -135,3 +135,8 @@ flowchart TB
   class OBJ,SCP,CS,PM,MYG projectWise;
   class BS,EI,ACH,SD,NFR,BAC,SAC,TST,BM,Data,Srv,OPS productSpec;
 ```
+
+※補足事項
+
+- 図中のアーキテクチャ設計は、個別仕様に先立つ全体構造の設計を表します。
+- 「要件含む」とは、業務仕様の冒頭に業務要件相当（対象範囲・成功条件・制約等）を含めることを指します。
