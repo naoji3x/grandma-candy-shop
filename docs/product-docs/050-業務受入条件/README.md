@@ -4,5 +4,5 @@
 
 ## 記法ガイド
 
-1. 受入条件の作成・更新ルールは [bac-rules.md](../../handbook/ja/rules/bac-rules.md) を参照してください。
-2. 生成AIを活用して受入条件を作成する場合は [bac-instruction.md](../../handbook/ja/instructions/bac-instruction.md) をプロンプトのテンプレートとして利用してください。
+1. ドキュメントの作成・更新ルールは [bac-rules.md](../../handbook/ja/rules/bac-rules.md) を参照してください。
+2. 生成AIを活用してドキュメントを作成する場合は [bac-instruction.md](../../handbook/ja/instructions/bac-instruction.md) をプロンプトのテンプレートとして利用してください。
