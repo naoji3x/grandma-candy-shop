@@ -144,7 +144,7 @@ NFR は **一覧表** を基本とし、必要に応じて補足を続けます�
 
 ### メタ情報
 
-```frontmatter
+```yaml
 ---
 id: nfr-performance
 type: architecture

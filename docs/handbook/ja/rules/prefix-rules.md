@@ -34,3 +34,4 @@ idやファイル名のプレフィックスを定義します。
 | インフラ構成図       | Infrastructure Diagram               | ifd-   | ifd-main            |
 | 技術スタック一覧     | Technology Stack List                | tsl-   | tsl-main            |
 | 非機能要件           | Non-Functional Requirements          | nfr-   | nfr-performance     |
+| システム受入条件     | System Acceptance Criteria           | sac-   | sac-performance     |
