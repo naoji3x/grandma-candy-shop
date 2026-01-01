@@ -5,7 +5,7 @@ pre-commit:
   commands:
     docs-build:
       glob: 'docs/**'
-      run: npx tsx docs/tools/src/lefthook-docs-build.ts
+      run: npx tsx tools/docs/src/lefthook-docs-build.ts
       stage_fixed: true
 
     format-markdown:

@@ -30,7 +30,7 @@ BAC は「業務側から見て、このシステムで業務が回せる」こ�
 
 ## 4. 推奨 Frontmatter 項目
 
-Frontmatter は `docs/tools/schemas/spec-frontmatter.schema.yaml` の制約に従います。
+Frontmatter は `tools/docs/schemas/spec-frontmatter.schema.yaml` の制約に従います。
 
 | 項目       | 説明                                     | 必須 |
 | ---------- | ---------------------------------------- | ---- |

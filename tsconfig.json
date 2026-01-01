@@ -9,5 +9,5 @@
     "types": ["node"],
     "skipLibCheck": true
   },
-  "include": ["docs/tools/src/**/*.ts", "docs/.vitepress/**/*.ts"]
+  "include": ["/tools/docs/src/**/*.ts", "docs/.vitepress/**/*.ts"]
 }

@@ -38,7 +38,7 @@ BEV は、BEL（業務イベント一覧）の各イベントについて、**�
 
 ## 3. メタデータ（Frontmatter）
 
-Frontmatter は `docs/tools/schemas/spec-frontmatter.schema.yaml` の制約に従います。
+Frontmatter は `tools/docs/schemas/spec-frontmatter.schema.yaml` の制約に従います。
 
 | 項目       | 説明                                                 | 必須 |
 | ---------- | ---------------------------------------------------- | ---- |

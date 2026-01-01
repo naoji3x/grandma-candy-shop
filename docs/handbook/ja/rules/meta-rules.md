@@ -4,7 +4,7 @@
 
 機械可読性を向上する目的で、各ドキュメントのヘッダー部に属性情報を記述します。
 
-- 参照スキーマ: `docs/tools/schemas/spec-frontmatter.schema.yaml`
+- 参照スキーマ: `tools/docs/schemas/spec-frontmatter.schema.yaml`
 - Markdownの場合は、記述は YAML Front Matter を想定（各仕様ドキュメントの先頭）。
 - YAML/JSON や他フォーマットの場合は、同等のメタ情報を持つこと。
 
