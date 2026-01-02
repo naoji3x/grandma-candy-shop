@@ -1,4 +1,4 @@
-# Mermaid 概念クラス図図（CCD）作成指示テンプレート
+# Mermaid 概念クラス図（CCD）作成指示テンプレート
 
 - Mermaid の `classDiagram` 構文を使って、概念クラス図（Conceptual Class Diagram, CCD）を作成してください。
 - 図は **概念レベルのモデル**とし、実装要素（可視性記号、型、メソッド、継承キーワード等）は記述しないでください。
