@@ -35,3 +35,4 @@ idやファイル名のプレフィックスを定義します。
 | 技術スタック一覧     | Technology Stack List                | tsl-   | tsl-main            |
 | 非機能要件           | Non-Functional Requirements          | nfr-   | nfr-performance     |
 | システム受入条件     | System Acceptance Criteria           | sac-   | sac-performance     |
+| テスト戦略・方針     | Test Strategy and Policy             | tsp-   | tsp-overview        |
