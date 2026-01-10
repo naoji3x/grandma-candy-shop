@@ -25,7 +25,7 @@ export default {
       if (!overlayImg) return
 
       // オーバーレイを閉じる
-      const hide = () => overlay!.classList.remove('is-active')
+      const hide: () => void = () => overlay!.classList.remove('is-active')
       overlay.addEventListener('click', hide)
 
       // 各 mermaid-image にクリックハンドラを付与
