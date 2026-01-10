@@ -1,4 +1,4 @@
-# 外部ファイル連携仕様（EFES）作成の指示テンプレート
+# 外部ファイル連携仕様 (EFES) 作成の指示テンプレート
 
 - 以下のルールに従って EFES を **YAML 1ファイル**で作成してください（**出力はYAMLのみ**）。
 - `x-spec-meta.id` は `efes-...`、`x-spec-meta.type` は `file`、`status` は `draft|ready|deprecated`。

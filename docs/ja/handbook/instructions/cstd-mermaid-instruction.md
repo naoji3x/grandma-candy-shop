@@ -1,4 +1,4 @@
-# Mermaid 概念状態遷移図（CSTD）作成指示テンプレート
+# Mermaid 概念状態遷移図 (CSTD) 作成指示テンプレート
 
 - Mermaid の `stateDiagram-v2` 構文を使って、概念状態遷移図（Conceptual State Transition Diagram, CSTD）を作成してください。
 - 図は **概念レベルの状態遷移**を表し、画面遷移や実装レベルの条件式は記述しないでください。

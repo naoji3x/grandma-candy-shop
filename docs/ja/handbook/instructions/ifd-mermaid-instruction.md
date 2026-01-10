@@ -1,4 +1,4 @@
-# インフラ構成図（IFD）作成の指示テンプレート
+# インフラ構成図 (IFD) 作成の指示テンプレート
 
 - Mermaid `flowchart` で IFD を作成してください。先頭は必ず `flowchart LR`。
 - subgraph は最大3階層（Lv1: 実行環境 / Lv2: ネットワーク / Lv3: 論理ゾーン）。

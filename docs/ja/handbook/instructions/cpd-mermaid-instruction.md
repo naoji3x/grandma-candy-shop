@@ -1,4 +1,4 @@
-# Mermaid C4コンポーネント図（CPD）作成指示テンプレート
+# Mermaid C4コンポーネント図 (CPD) 作成指示テンプレート
 
 - Mermaid の `flowchart` 構文で、C4コンポーネント図（Component Diagram）を作成してください。
 - 図の中心となる対象コンテナ（Container Boundary）は **1つ**だけにしてください（`subgraph 境界["対象コンテナ"] ... end`）。
