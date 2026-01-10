@@ -10,7 +10,9 @@ const handbookItems = {
     items: [
       {
         text: 'ガイドライン',
+        collapsed: false,
         items: [
+          { text: 'はじめに', link: '/ja/handbook/guidelines/README' },
           { text: 'ドキュメントの構成', link: '/ja/handbook/guidelines/docs-structure-guide' },
           { text: 'ドキュメントの内容', link: '/ja/handbook/guidelines/docs-contents-guide' },
           { text: 'ドキュメントの書き方', link: '/ja/handbook/guidelines/docs-editing-guide' },
