@@ -19,7 +19,7 @@ idやファイル名のプレフィックスを定義します。
 | システム化機能一覧          | System Function List                               | sfl-   | sfl-inventory       |
 | システム化機能              | System Function                                    | sf-    | sf-product-register |
 | 業務イベント一覧            | Business Event List                                | bel-   | bel-order-created   |
-| 業務イベント                | Business Event                                     | bev-   | bev-order-approved  |
+| 業務イベント仕様            | Business Event Specification                       | bes-   | bes-order-approved  |
 | 業務受入条件                | Business Acceptance Criteria                       | bac-   | bac-order-approved  |
 | 用語集                      | Glossary                                           | gl-    | gl-sales            |
 | 用語集の用語                | Glossary Term                                      | tm-    | tm-reorder-point    |

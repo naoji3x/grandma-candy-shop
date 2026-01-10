@@ -38,12 +38,12 @@ Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の�
 | type       | `test` 固定                              | ○    |
 | title      | 受入条件名（例: 業務受入条件: 商品販売） | ○    |
 | status     | `draft`/`ready`/`deprecated`             | ○    |
-| depends_on | 参照する仕様ID（BPS/BR/UI/BEV/BEL 等）   | 任意 |
+| depends_on | 参照する仕様ID（BPS/BR/UI/BES/BEL 等）   | 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様）            | 任意 |
 
 推奨:
 
-- `depends_on` に、受入対象の仕様IDを列挙します（例: `bps-...`, `br-...`, `uis-...`, `bev-...`）。
+- `depends_on` に、受入対象の仕様IDを列挙します（例: `bps-...`, `br-...`, `uis-...`, `bes-...`）。
 - BR や BPS 側の `tests` から BAC を参照できるよう、ID は安定させます（名前を変える場合は `supersedes` を使う）。
 
 ## 5. 本文構成（標準テンプレ）
@@ -139,7 +139,7 @@ title: 業務受入条件: 商品販売
 status: draft
 depends_on:
  - bps-sale-checkout
- - bev-sale-checkout
+ - bes-sale-checkout
  - br-sale-total-calc
 supersedes: []
 ---
@@ -187,10 +187,10 @@ depends_on:
  - bps-procurement-order
  - bps-procurement-receive
  - bps-accounting-payment
- - bev-purchase-order-confirmed
- - bev-goods-receipt-confirmed
- - bev-invoice-received
- - bev-payment-confirmed
+ - bes-purchase-order-confirmed
+ - bes-goods-receipt-confirmed
+ - bes-invoice-received
+ - bes-payment-confirmed
 supersedes: []
 ---
 
