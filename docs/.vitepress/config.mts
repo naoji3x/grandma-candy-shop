@@ -15,6 +15,18 @@ type SidebarItem = {
   collapsed?: boolean
 }
 
+/**
+ * 追加したいロケールはここに足すだけでOK
+ * - locale: URL と docs/<locale>/ のディレクトリ名に使う
+ * - label: 言語セレクター表示名
+ * - lang: <html lang="..."> に使う
+ */
+const LOCALES = [
+  { locale: 'ja', label: '日本語', lang: 'ja' },
+  { locale: 'en', label: 'English', lang: 'en' },
+] as const
+type Locale = (typeof LOCALES)[number]['locale']
+
 // link から末尾要素（拡張子なし想定）を取り出す："/foo/010-bar" -> "010-bar"
 const getBaseFromLink = (link?: string): string => {
   if (!link) return ''
@@ -40,6 +52,11 @@ const isInstruction = (item: SidebarItem): boolean => {
   return getBaseFromLink(item.link).toLowerCase().endsWith('instruction')
 }
 
+// 既に /<locale>/ が付いているかを LOCALES から判定（将来増えてもOK）
+const isAlreadyPrefixedByAnyLocale = (path: string): boolean => {
+  return LOCALES.some(({ locale }) => path === `/${locale}` || path.startsWith(`/${locale}/`))
+}
+
 // ソート用のキー：
 // 1) README（最優先）
 // 2) *rules（次）
@@ -52,25 +69,30 @@ const sortKey = (item: SidebarItem): { bucket: number; name: string } => {
   return { bucket: 3, name: stripLeadingXxxDash(getBaseFromLink(item.link)).toLowerCase() }
 }
 
-const normalizeLink = (link?: string): string | undefined => {
-  if (!link) return link
-
+const normalizeAndPrefixLink = (link: string, locale: Locale): string => {
   // hash は保持して、パス部分だけ正規化
-  const [path, hash] = link.split('#')
-  const normalizedPath = path.startsWith('/') ? path : `/${path}`
-  return hash ? `${normalizedPath}#${hash}` : normalizedPath
+  const [path0, hash] = link.split('#')
+  const path = path0.startsWith('/') ? path0 : `/${path0}`
+
+  const prefixedPath = isAlreadyPrefixedByAnyLocale(path)
+    ? path
+    : path === '/'
+      ? `/${locale}/`
+      : `/${locale}${path}`
+
+  return hash ? `${prefixedPath}#${hash}` : prefixedPath
 }
 
-// 再帰的に：instruction除外、表示名整形（xxx-削除）、並び替え
-const transformSidebar = (items: SidebarItem[]): SidebarItem[] => {
+// 再帰的に: 表示名整形（xxx-削除）、並び替え
+const transformSidebar = (items: SidebarItem[], locale: Locale): SidebarItem[] => {
   const transformed = items.map(it => {
     const next: SidebarItem = { ...it }
 
     // prev/next 解決
-    if (next.link) next.link = normalizeLink(next.link)
+    if (next.link) next.link = normalizeAndPrefixLink(next.link, locale)
 
     // 子も同じルールで処理
-    if (next.items) next.items = transformSidebar(next.items)
+    if (next.items) next.items = transformSidebar(next.items, locale)
 
     // 表示テキストの先頭 xxx- を削除（README も rules も含めて削除してOKならこのまま）
     if (
@@ -97,26 +119,22 @@ const transformSidebar = (items: SidebarItem[]): SidebarItem[] => {
 }
 
 // ★ここ重要：言語フォルダを documentRootPath にする
-const makeSidebar = (localeDir: 'ja' | 'en'): SidebarItem[] =>
+const makeSidebar = (locale: Locale): SidebarItem[] =>
   transformSidebar(
     generateSidebar({
-      documentRootPath: `docs/${localeDir}`,
-      scanStartPath: '.', // localeDir の中をスキャン
+      documentRootPath: 'docs',
+      scanStartPath: locale, // locale の中をスキャン
       useTitleFromFileHeading: false,
       collapseDepth: 2,
       collapsed: true,
-    }) as SidebarItem[]
+    }) as SidebarItem[],
+    locale
   )
 
 export default defineConfig({
   title: 'Grandma Candy Shop Docs',
   description: 'Documentation for Grandma Candy Shop',
   base,
-
-  // ★日本語(ja)フォルダをURL上は root(/) に見せる
-  // rewrites: {
-  //  'ja/:rest*': ':rest*',
-  //},
 
   locales: {
     ja: {

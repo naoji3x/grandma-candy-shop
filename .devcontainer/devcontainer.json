@@ -25,7 +25,8 @@
         "editorconfig.editorconfig",
         "esbenp.prettier-vscode",
         "unifiedjs.vscode-remark",
-        "yzhang.markdown-all-in-one"
+        "yzhang.markdown-all-in-one",
+        "vue.volar"
       ]
     }
   }
