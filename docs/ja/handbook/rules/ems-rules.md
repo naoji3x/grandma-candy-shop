@@ -53,7 +53,6 @@ ESIL 側の `spec_ref: ems-...` は、このEMSのID（およびファイル名�
 | type       | `message` 固定                                          | ○    |
 | status     | `draft` / `ready` / `deprecated`                        | ○    |
 | depends_on | 依存する他仕様のIDリスト（例: `["eapis-auth"]`）        | 任意 |
-| implements | 実装するビジネスルールIDリスト（例: `["br-012"]`）      | 任意 |
 
 ## 5. CloudEventsルール（必須）
 
@@ -82,8 +81,6 @@ x-spec-meta:
   type: message
   status: draft
   depends_on: []
-  implements:
-    - br-012
 
 defaultContentType: application/json
 

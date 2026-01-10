@@ -88,10 +88,7 @@ ATD-D の作成単位は以下のいずれかです。
 | type       | `test` 固定                             | ○        |
 | title      | 受入テスト設計: <業務条件名>            | ○        |
 | status     | `draft / ready / deprecated`            | ○        |
-| owners     | 業務側／QA                              | 任意     |
-| tags       | `acceptance-test`, `business`           | 任意     |
 | depends_on | `atd-main`, `ats-*`, `ats-d-*`, `bac-*` | **必須** |
-| tests      | 受入テスト実施・結果 ID                 | 任意     |
 | supersedes | 置換関係                                | 任意     |
 
 ---

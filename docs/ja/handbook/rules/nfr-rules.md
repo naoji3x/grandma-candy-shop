@@ -33,18 +33,14 @@ NFR は「性能・可用性・セキュリティ等の品質要求」を、**�
 
 Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の制約に従います。
 
-| 項目       | 説明                                                    | 必須 |
-| ---------- | ------------------------------------------------------- | ---- |
-| id         | NFR ID（`nfr-...`）                                     | ○    |
-| type       | `architecture` 固定（品質要求の合意文書として扱う）     | ○    |
-| title      | 非機能要件名（例: 非機能要件: 性能）                    | ○    |
-| status     | `draft`/`ready`/`deprecated`                            | ○    |
-| owners     | 担当者                                                  | 任意 |
-| tags       | タグ・分類                                              | 任意 |
-| depends_on | 参照する仕様ID（BPS/BR/UIS/EAPIS/TSL/ADR 等）           | 任意 |
-| implements | 満たすべき上位方針（ルール/ポリシー）があれば           | 任意 |
-| tests      | この NFR を検証する仕様/受入条件ID（SAC/テスト仕様 等） | 任意 |
-| supersedes | 置き換え関係（古仕様→新仕様）                           | 任意 |
+| 項目       | 説明                                                | 必須 |
+| ---------- | --------------------------------------------------- | ---- |
+| id         | NFR ID（`nfr-...`）                                 | ○    |
+| type       | `architecture` 固定（品質要求の合意文書として扱う） | ○    |
+| title      | 非機能要件名（例: 非機能要件: 性能）                | ○    |
+| status     | `draft`/`ready`/`deprecated`                        | ○    |
+| depends_on | 参照する仕様ID（BPS/BR/UIS/EAPIS/TSL/ADR 等）       | 任意 |
+| supersedes | 置き換え関係（古仕様→新仕様）                       | 任意 |
 
 推奨:
 
@@ -149,11 +145,7 @@ id: nfr-performance
 type: architecture
 title: 非機能要件: 性能
 status: draft
-owners: []
-tags: [quality]
 depends_on: []
-implements: []
-tests: []
 supersedes: []
 ---
 ```
@@ -196,11 +188,7 @@ supersedes: []
 >   type: architecture
 >   title: 非機能要件: <対象名>
 >   status: draft # draft / ready / deprecated
->   owners: []
->   tags: []
 >   depends_on: []
->   implements: []
->   tests: []
 >   supersedes: []
 >   ---
 >   ```

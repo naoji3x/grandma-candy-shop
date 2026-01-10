@@ -42,8 +42,6 @@
 | type       | `domain` 固定                    | ○    |
 | title      | 分類一覧名                       | ○    |
 | status     | `draft` / `ready` / `deprecated` | ○    |
-| owners     | 担当者                           | 任意 |
-| tags       | タグ・分類                       | 任意 |
 | supersedes | 置き換え関係（旧仕様→新仕様）    | 任意 |
 
 ### 1.1 ID規約
@@ -164,8 +162,6 @@ id: cll-product-type
 type: domain
 title: 商品区分
 status: draft
-owners: []
-tags: []
 supersedes: []
 ---
 ```
@@ -203,8 +199,6 @@ supersedes: []
 >   type: domain
 >   title: <分類一覧名> # 例: 商品区分
 >   status: draft # draft / ready / deprecated のいずれか
->   owners: []
->   tags: []
 >   supersedes: []
 >   ---
 >   ```

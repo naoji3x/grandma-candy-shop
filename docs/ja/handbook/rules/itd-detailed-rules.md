@@ -87,16 +87,14 @@ TSP（戦略）
 
 ## 4. 推奨 Frontmatter 項目
 
-| 項目       | 説明                    | 必須     |
-| ---------- | ----------------------- | -------- |
-| id         | ITD-D ID                | ○        |
-| type       | `test`                  | ○        |
-| title      | 設計名                  | ○        |
-| status     | 状態                    | ○        |
-| owners     | 担当                    | 任意     |
-| depends_on | ITS-D / ITD             | **必須** |
-| tests      | テスト実装ID（JUnit等） | 任意     |
-| supersedes | 置換関係                | 任意     |
+| 項目       | 説明        | 必須     |
+| ---------- | ----------- | -------- |
+| id         | ITD-D ID    | ○        |
+| type       | `test`      | ○        |
+| title      | 設計名      | ○        |
+| status     | 状態        | ○        |
+| depends_on | ITS-D / ITD | **必須** |
+| supersedes | 置換関係    | 任意     |
 
 ---
 
@@ -248,8 +246,6 @@ status: draft
 depends_on:
   - its-inventory
   - itd-main
-tests:
-  - junit-inventory-integration
 ---
 ```
 

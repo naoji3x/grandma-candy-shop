@@ -11,8 +11,6 @@
   type: test
   title: 業務受入条件: <受入対象名>
   status: draft # draft / ready / deprecated
-  owners: []
-  tags: []
   depends_on: []
   supersedes: []
   ---

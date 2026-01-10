@@ -52,7 +52,6 @@ ESIL 側の `spec_ref: eapis-...` は、このEAPISのID（およびファイル
 | type       | `api` 固定                                         | ○    |
 | status     | `draft` / `ready` / `deprecated`                   | ○    |
 | depends_on | 依存する他仕様のIDリスト（例: `["eapis-auth"]`）   | 任意 |
-| implements | 実装するビジネスルールIDリスト（例: `["br-012"]`） | 任意 |
 
 ## 5. エラー定義（推奨）
 
@@ -83,8 +82,6 @@ x-spec-meta:
   type: api
   status: draft
   depends_on: []
-  implements:
-    - br-012
 
 servers:
   - url: https://api.payment.example.com

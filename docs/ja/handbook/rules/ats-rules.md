@@ -85,10 +85,7 @@ ATS の対象は以下です。
 | type       | `test` 固定                  | ○        |
 | title      | 受入テスト仕様               | ○        |
 | status     | `draft / ready / deprecated` | ○        |
-| owners     | 受入主体（業務側）           | 任意     |
-| tags       | `acceptance-test` 等         | 任意     |
 | depends_on | `bac-*`, `sts-*`, `std-*`    | **必須** |
-| tests      | 下位の ATS-D / ATD           | 任意     |
 | supersedes | 置換関係                     | 任意     |
 
 ---

@@ -41,11 +41,7 @@ Frontmatter の共通ルールは [meta-rules.md](meta-rules.md) に従います
 | type       | `architecture` 固定                            | ○    |
 | title      | ドキュメント名                                 | ○    |
 | status     | `draft`/`ready`/`deprecated`                   | ○    |
-| owners     | 担当者                                         | 任意 |
-| tags       | タグ                                           | 任意 |
 | depends_on | 前提となる定義（用語集、外部IF、上位方針など） | 任意 |
-| implements | 満たすべきビジネスルール（br-...）             | 任意 |
-| tests      | この仕様を検証する受入条件（bac-...）等        | 任意 |
 | supersedes | 置き換え関係（古い図→新しい図）                | 任意 |
 
 ### 3.1 `depends_on` の考え方（例）
@@ -218,8 +214,6 @@ type: architecture
 title: 駄菓子屋きぬや販売管理システムのC4コンテキスト図
 status: draft
 depends_on: []
-implements: []
-tests: []
 ---
 
 ## 概要

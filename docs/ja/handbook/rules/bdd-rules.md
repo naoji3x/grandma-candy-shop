@@ -12,8 +12,6 @@
 | type       | `domain` 固定                 | ○    |
 | title      | データ辞書名                  | ○    |
 | status     | `draft`/`ready`/`deprecated`  | ○    |
-| owners     | 担当者                        | 任意 |
-| tags       | タグ・分類                    | 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様） | 任意 |
 
 ### 1.1 ID規約
@@ -96,8 +94,6 @@ id: bdd-main
 type: domain
 title: 業務データ辞書(main)
 status: draft
-owners: []
-tags: []
 supersedes: []
 
 entities:
@@ -186,8 +182,6 @@ entities:
 > type: domain
 > title: 業務データ辞書(XXXX)
 > status: draft
-> owners: []
-> tags: []
 > supersedes: []
 > ```
 >

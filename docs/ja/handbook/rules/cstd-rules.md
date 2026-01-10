@@ -49,11 +49,7 @@ Frontmatter の共通ルールは [meta-rules.md](meta-rules.md) に従います
 | type       | `domain` 固定                               | ○    |
 | title      | ドキュメント名                              | ○    |
 | status     | `draft`/`ready`/`deprecated`                | ○    |
-| owners     | 担当者                                      | 任意 |
-| tags       | タグ                                        | 任意 |
 | depends_on | 前提となる定義（ステータス定義/用語集など） | 任意 |
-| implements | 満たすべきビジネスルール（br-...）          | 任意 |
-| tests      | この仕様を検証する業務受入条件（bac-...）等 | 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様）               | 任意 |
 
 ### 4.1 `depends_on` の考え方（例）
@@ -143,8 +139,6 @@ type: domain
 title: 商品の概念状態遷移図 (AS-IS)
 status: draft
 depends_on: []
-implements: []
-tests: []
 ---
 
 ## 概要

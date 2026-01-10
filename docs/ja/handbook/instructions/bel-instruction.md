@@ -11,8 +11,6 @@
   type: domain
   title: <業務イベント一覧名> # 例: 業務イベント一覧(main)
   status: draft # draft / ready / deprecated のいずれか
-  owners: []
-  tags: []
   supersedes: []
   ---
   ```

@@ -23,18 +23,14 @@ TSL は実装に直接関わる機械判読用途ではないため、**表（Ma
 
 Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の制約に従います。
 
-| 項目       | 説明                                    | 必須 |
-| ---------- | --------------------------------------- | ---- |
-| id         | TSL ID（例: `tsl-main`）                | ○    |
-| type       | `architecture` 固定                     | ○    |
-| title      | ドキュメント名（例: 技術スタック一覧）  | ○    |
-| status     | `draft`/`ready`/`deprecated`            | ○    |
-| owners     | 担当者（メールアドレス）                | 任意 |
-| tags       | タグ・分類                              | 任意 |
-| depends_on | 参照する仕様ID（ADR/非機能/設計など）   | 任意 |
-| implements | 実現したい方針/ルールID（あれば）       | 任意 |
-| tests      | 検証するテスト仕様/受入条件ID（あれば） | 任意 |
-| supersedes | 置き換え関係（古仕様→新仕様）           | 任意 |
+| 項目       | 説明                                   | 必須 |
+| ---------- | -------------------------------------- | ---- |
+| id         | TSL ID（例: `tsl-main`）               | ○    |
+| type       | `architecture` 固定                    | ○    |
+| title      | ドキュメント名（例: 技術スタック一覧） | ○    |
+| status     | `draft`/`ready`/`deprecated`           | ○    |
+| depends_on | 参照する仕様ID（ADR/非機能/設計など）  | 任意 |
+| supersedes | 置き換え関係（古仕様→新仕様）          | 任意 |
 
 ### 2.1 ID規約
 
@@ -63,11 +59,7 @@ id: tsl-main
 type: architecture
 title: 技術スタック一覧
 status: draft
-owners: []
-tags: []
 depends_on: []
-implements: []
-tests: []
 supersedes: []
 ---
 

@@ -42,18 +42,14 @@ SAC は「システム全体としての合格基準（機能・非機能・障�
 
 Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の制約に従います。
 
-| 項目       | 説明                                          | 必須 |
-| ---------- | --------------------------------------------- | ---- |
-| id         | 受入条件ID（`sac-...`）                       | ○    |
-| type       | `test` 固定                                   | ○    |
-| title      | 受入条件名（例: システム受入条件: 性能）      | ○    |
-| status     | `draft`/`ready`/`deprecated`                  | ○    |
-| owners     | 担当者（メール）                              | 任意 |
-| tags       | タグ・分類                                    | 任意 |
-| depends_on | 参照する仕様ID（NFR/BAC/BR/BPS/ADR/TSL 等）   | 任意 |
-| implements | 満たすべき上位方針（ルール/ポリシー）があれば | 任意 |
-| tests      | 下位のテスト仕様 ID（TST など）があれば       | 任意 |
-| supersedes | 置き換え関係（古仕様→新仕様）                 | 任意 |
+| 項目       | 説明                                        | 必須 |
+| ---------- | ------------------------------------------- | ---- |
+| id         | 受入条件ID（`sac-...`）                     | ○    |
+| type       | `test` 固定                                 | ○    |
+| title      | 受入条件名（例: システム受入条件: 性能）    | ○    |
+| status     | `draft`/`ready`/`deprecated`                | ○    |
+| depends_on | 参照する仕様ID（NFR/BAC/BR/BPS/ADR/TSL 等） | 任意 |
+| supersedes | 置き換え関係（古仕様→新仕様）               | 任意 |
 
 推奨:
 
@@ -147,8 +143,6 @@ id: sac-performance
 type: test
 title: システム受入条件: 性能
 status: draft
-owners: []
-tags: [quality]
 depends_on:
   - nfr-performance
 supersedes: []
@@ -211,11 +205,7 @@ supersedes: []
 >   type: test
 >   title: システム受入条件: <対象名>
 >   status: draft # draft / ready / deprecated
->   owners: []
->   tags: []
 >   depends_on: []
->   implements: []
->   tests: []
 >   supersedes: []
 >   ---
 >   ```

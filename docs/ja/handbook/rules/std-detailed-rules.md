@@ -88,10 +88,7 @@ STD-D の作成単位は、STD で定義した分割単位に従います。
 | type       | `test` 固定                    | ○        |
 | title      | 総合テスト設計: <対象名>       | ○        |
 | status     | `draft / ready / deprecated`   | ○        |
-| owners     | 担当                           | 任意     |
-| tags       | `system-test` 等               | 任意     |
 | depends_on | `std-main`, `sts-*`, `sts-d-*` | **必須** |
-| tests      | 実装・実行記録 ID              | 任意     |
 | supersedes | 置換関係                       | 任意     |
 
 ---

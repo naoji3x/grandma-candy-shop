@@ -22,11 +22,7 @@
   type: domain
   title: <帳票名> # 例: 日次売上サマリ
   status: draft # draft / ready / deprecated のいずれか
-  owners: []
-  tags: []
   depends_on: []
-  implements: []
-  tests: []
   supersedes: []
   ---
   ```

@@ -53,23 +53,18 @@ TSP は「個別のテストケース集」ではありません。
 
 Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の制約に従います。
 
-| 項目       | 説明                                                                  | 必須 |
-| ---------- | --------------------------------------------------------------------- | ---- |
-| id         | TSP ID（`tsp-...`）                                                   | ○    |
-| type       | `test` 固定                                                           | ○    |
-| title      | 方針名（例: テスト戦略・方針: 全体）                                  | ○    |
-| status     | `draft`/`ready`/`deprecated`                                          | ○    |
-| owners     | 担当者                                                                | 任意 |
-| tags       | タグ・分類                                                            | 任意 |
-| depends_on | 参照する仕様ID（BAC/NFR/SAC/ADR/TSL/UIS/EAPIS 等）                    | 任意 |
-| implements | 満たすべき上位方針（ルール/ポリシー）があれば                         | 任意 |
-| tests      | 下位のテスト仕様 ID（テスト条件一覧・各レベルのテスト仕様等）があれば | 任意 |
-| supersedes | 置き換え関係（古仕様→新仕様）                                         | 任意 |
+| 項目       | 説明                                               | 必須 |
+| ---------- | -------------------------------------------------- | ---- |
+| id         | TSP ID（`tsp-...`）                                | ○    |
+| type       | `test` 固定                                        | ○    |
+| title      | 方針名（例: テスト戦略・方針: 全体）               | ○    |
+| status     | `draft`/`ready`/`deprecated`                       | ○    |
+| depends_on | 参照する仕様ID（BAC/NFR/SAC/ADR/TSL/UIS/EAPIS 等） | 任意 |
+| supersedes | 置き換え関係（古仕様→新仕様）                      | 任意 |
 
 推奨:
 
 - `depends_on` に、方針の根拠となる主要仕様（例: `bac-...`, `nfr-...`, `adr-...`）を列挙し、スコープを明確にします。
-- TSP が下位の成果物へ分解される場合は、`tests` から参照できるよう ID は安定させます。
 
 ## 5. 本文構成（標準テンプレ）
 
@@ -211,11 +206,7 @@ id: tsp-overview
 type: test
 title: テスト戦略・方針: 全体
 status: draft
-owners: []
-tags: [quality]
 depends_on: []
-implements: []
-tests: []
 supersedes: []
 ---
 ```
@@ -269,11 +260,7 @@ supersedes: []
 >   type: test
 >   title: テスト戦略・方針: <対象名>
 >   status: draft # draft / ready / deprecated
->   owners: []
->   tags: []
 >   depends_on: []
->   implements: []
->   tests: []
 >   supersedes: []
 >   ---
 >   ```

@@ -28,22 +28,19 @@
 
 ## 4. 推奨 Frontmatter 項目
 
-| 項目       | 説明                                          | 必須 |
-| ---------- | --------------------------------------------- | ---- |
-| id         | ルールID (br-xxx-xxxx)                        | ○    |
-| type       | `rule` 固定                                   | ○    |
-| title      | ルール名                                      | ○    |
-| status     | `draft`/`ready`/`deprecated`                  | ○    |
-| owners     | 担当者                                        | 任意 |
-| depends_on | 前提となる他ルールやデータストア、イベント等  | 任意 |
-| implements | 満たすべき上位ポリシー/コンプライアンス要件等 | 任意 |
-| tests      | このルールを検証する業務受入条件/テスト仕様ID | 任意 |
-| supersedes | 置き換え関係（古仕様→新仕様）                 | 任意 |
+| 項目       | 説明                                         | 必須 |
+| ---------- | -------------------------------------------- | ---- |
+| id         | ルールID (br-xxx-xxxx)                       | ○    |
+| type       | `rule` 固定                                  | ○    |
+| title      | ルール名                                     | ○    |
+| status     | `draft`/`ready`/`deprecated`                 | ○    |
+| depends_on | 前提となる他ルールやデータストア、イベント等 | 任意 |
+| supersedes | 置き換え関係（古仕様→新仕様）                | 任意 |
 
 ### NG/OK例（抜粋）
 
 - NG例: `type: api`（列挙外）, `id: BR_LowStock`（大文字/アンダースコアNG）, `extra: foo`（未定義プロパティNG）
-- OK例: `type: rule`, `id: br-low-stock-judgment`, `status: ready`, `owners: [owner@example.com]`
+- OK例: `type: rule`, `id: br-low-stock-judgment`, `status: ready`
 
 ## 5. 本文構成（標準テンプレ）
 
@@ -145,8 +142,6 @@ type: rule
 title: 在庫不足判定
 status: draft
 depends_on: []
-implements: []
-tests: [bac-low-stock-judgment]
 ---
 
 ## 概要
@@ -197,10 +192,7 @@ tests: [bac-low-stock-judgment]
 >   type: rule
 >   title: <ビジネスルール名> # 例: 在庫不足判定
 >   status: draft # draft / ready / deprecated のいずれか
->   owners: []
 >   depends_on: []
->   implements: []
->   tests: []
 >   supersedes: []
 >   ---
 >   ```

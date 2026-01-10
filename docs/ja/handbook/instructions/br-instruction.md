@@ -18,10 +18,6 @@
   type: rule
   title: <ビジネスルール名> # 例: 在庫不足判定
   status: draft # draft / ready / deprecated のいずれか
-  owners: []
-  depends_on: []
-  implements: []
-  tests: []
   supersedes: []
   ---
   ```

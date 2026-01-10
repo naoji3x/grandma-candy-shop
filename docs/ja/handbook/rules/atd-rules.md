@@ -85,10 +85,7 @@ ATD の対象は以下です。
 | type       | `test` 固定                  | ○        |
 | title      | 受入テスト設計               | ○        |
 | status     | `draft / ready / deprecated` | ○        |
-| owners     | 業務側／QA                   | 任意     |
-| tags       | `acceptance-test`            | 任意     |
 | depends_on | `ats-main`, `ats-*`, `bac-*` | **必須** |
-| tests      | 下位の ATD-D                 | 任意     |
 | supersedes | 置換関係                     | 任意     |
 
 ---

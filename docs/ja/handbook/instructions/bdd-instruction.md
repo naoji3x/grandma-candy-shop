@@ -15,8 +15,6 @@ id: bdd-XXXX # 任意の一意ID（bdd-から始める）
 type: domain
 title: 業務データ辞書(XXXX)
 status: draft
-owners: []
-tags: []
 supersedes: []
 ```
 

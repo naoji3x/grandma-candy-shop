@@ -85,10 +85,7 @@ UTD-D（単体テスト設計・個別） ← 本ドキュメント
 | type       | `test` 固定                                                       | ○    |
 | title      | 単体テスト設計: <対象名>                                          | ○    |
 | status     | `draft` / `ready` / `deprecated`                                  | ○    |
-| owners     | 担当者                                                            | 任意 |
-| tags       | タグ（例: unit, design, inventory）                               | 任意 |
 | depends_on | 上位仕様（`utd-main`, `uts-<term>`, `tpc-*`, `br-*`, `bac-*` 等） | ○    |
-| tests      | テストコード参照（論理名、パス、実行ターゲット等）                | 任意 |
 | supersedes | 置き換え関係                                                      | 任意 |
 
 推奨:
@@ -265,8 +262,6 @@ depends_on:
   - utd-main
   - uts-inventory
   - tpc-order-process
-tests:
-  - unit-test-inventory
 ---
 ```
 

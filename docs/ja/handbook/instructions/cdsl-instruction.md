@@ -11,8 +11,6 @@
   type: domain
   title: <概念データストア一覧名> # 例: 概念データストア一覧(main)
   status: draft # draft / ready / deprecated のいずれか
-  owners: []
-  tags: []
   supersedes: []
   ---
   ```

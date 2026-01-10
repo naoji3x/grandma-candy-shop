@@ -32,18 +32,14 @@
 
 Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の制約に従います。
 
-| 項目       | 説明                                    | 必須 |
-| ---------- | --------------------------------------- | ---- |
-| id         | 帳票ID（`bds-...`）                     | ○    |
-| type       | `domain` 固定                           | ○    |
-| title      | 帳票名                                  | ○    |
-| status     | `draft`/`ready`/`deprecated`            | ○    |
-| owners     | 担当者（メールアドレス）                | 任意 |
-| tags       | タグ・分類                              | 任意 |
-| depends_on | 参照する仕様ID（BPS/UI/BR/BEV 等）      | 任意 |
-| implements | 参照するビジネスルールID（`br-...` 等） | 任意 |
-| tests      | この帳票を検証するテスト仕様/受入条件ID | 任意 |
-| supersedes | 置き換え関係（古仕様→新仕様）           | 任意 |
+| 項目       | 説明                               | 必須 |
+| ---------- | ---------------------------------- | ---- |
+| id         | 帳票ID（`bds-...`）                | ○    |
+| type       | `domain` 固定                      | ○    |
+| title      | 帳票名                             | ○    |
+| status     | `draft`/`ready`/`deprecated`       | ○    |
+| depends_on | 参照する仕様ID（BPS/UI/BR/BEV 等） | 任意 |
+| supersedes | 置き換え関係（古仕様→新仕様）      | 任意 |
 
 ### 4.1 ID規約
 
@@ -146,11 +142,7 @@ id: bds-daily-sales-summary
 type: domain
 title: 日次売上サマリ
 status: draft
-owners: []
-tags: [sales, daily]
 depends_on: [bps-closing-daily, uis-closing, bev-sale-checkout]
-implements: [br-tax-rounding]
-tests: [bac-daily-closing]
 supersedes: []
 ---
 
@@ -222,11 +214,7 @@ supersedes: []
 >   type: domain
 >   title: <帳票名> # 例: 日次売上サマリ
 >   status: draft # draft / ready / deprecated のいずれか
->   owners: []
->   tags: []
 >   depends_on: []
->   implements: []
->   tests: []
 >   supersedes: []
 >   ---
 >   ```

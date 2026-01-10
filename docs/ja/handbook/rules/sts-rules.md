@@ -97,10 +97,7 @@ TSP（テスト戦略・方針）
 | type       | `test` 固定                                 | ○        |
 | title      | 総合テスト仕様: <対象>                      | ○        |
 | status     | `draft / ready / deprecated`                | ○        |
-| owners     | 担当                                        | 任意     |
-| tags       | 分類                                        | 任意     |
 | depends_on | `tsp-*`, `bac-*`, `nfr-*`, `sac-*`, `adr-*` | **必須** |
-| tests      | 下位設計（`std-*`）                         | 任意     |
 | supersedes | 置換関係                                    | 任意     |
 
 ---
@@ -252,8 +249,6 @@ depends_on:
   - tsp-overview
   - bac-main
   - nfr-main
-tests:
-  - std-main
 ---
 ```
 

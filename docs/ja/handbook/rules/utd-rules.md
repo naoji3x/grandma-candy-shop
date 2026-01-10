@@ -84,10 +84,7 @@ UTD（単体テスト設計） ← 本ドキュメント
 | type       | `test` 固定                                      | ○    |
 | title      | 単体テスト設計: <対象名>                         | ○    |
 | status     | `draft` / `ready` / `deprecated`                 | ○    |
-| owners     | 担当者                                           | 任意 |
-| tags       | タグ（例: unit, design, inventory）              | 任意 |
 | depends_on | 上位仕様（`uts-*`, `tpc-*`, `br-*`, `bac-*` 等） | 必須 |
-| tests      | 実装・実行ドキュメントやテストコード参照         | 任意 |
 | supersedes | 置き換え関係                                     | 任意 |
 
 ### 推奨
@@ -246,8 +243,6 @@ status: draft
 depends_on:
   - uts-inventory
   - tpc-order-process
-tests:
-  - inventory-unit-test
 ---
 ```
 

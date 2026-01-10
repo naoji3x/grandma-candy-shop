@@ -27,10 +27,8 @@ ESIL は「どの外部システムと」「何を」「どの方向で」「ど
 | type       | `api` 固定                    | ○    |
 | title      | 外部システムIF一覧名          | ○    |
 | status     | `draft`/`ready`/`deprecated`  | ○    |
-| owners     | 担当者（メールアドレス）      | 任意 |
-| tags       | タグ・分類                    | 任意 |
-| supersedes | 置き換え関係（古仕様→新仕様） | 任意 |
 | interfaces | 外部連携の配列（1件以上）     | ○    |
+| supersedes | 置き換え関係（古仕様→新仕様） | 任意 |
 
 ※ ルートは `additionalProperties: false` です。上記以外のキーは追加しません。
 
@@ -57,8 +55,6 @@ id: esil-main
 type: api
 title: 外部システムIF一覧(main)
 status: draft
-owners: []
-tags: []
 supersedes: []
 
 interfaces:

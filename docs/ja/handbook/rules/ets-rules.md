@@ -79,10 +79,7 @@ TSP（テスト戦略・方針）
 | type       | `test` 固定                                          | ○    |
 | title      | 仕様名                                               | ○    |
 | status     | `draft` / `ready` / `deprecated`                     | ○    |
-| owners     | 担当                                                 | 任意 |
-| tags       | 分類                                                 | 任意 |
 | depends_on | 根拠仕様ID（ESIL/EAPIS/EFES/EMS/NFR/SAC/ADR/BAC 等） | 推奨 |
-| tests      | 下位の ETD（設計）や実装・実行への参照               | 任意 |
 | supersedes | 置き換え関係                                         | 任意 |
 
 推奨:
@@ -244,14 +241,12 @@ id: ets-main
 type: test
 title: 外部結合テスト仕様: 全体
 status: draft
-tags: [test, integration, external]
 depends_on:
   - tsp-overview
   - esil-supplier
   - eapis-inventory
   - nfr-security
   - sac-performance
-tests: [etd-main]
 ---
 ```
 

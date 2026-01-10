@@ -87,10 +87,7 @@ UTD（単体テスト設計）
 | type       | `test` 固定                                                  | ○    |
 | title      | 単体テスト仕様: <対象名>                                     | ○    |
 | status     | `draft` / `ready` / `deprecated`                             | ○    |
-| owners     | 担当者                                                       | 任意 |
-| tags       | タグ（例: unit, domain, inventory）                          | 任意 |
 | depends_on | 上位仕様（`uts-main`, `tpc-*`, `br-*`, `bac-*`, `nfr-*` 等） | 必須 |
-| tests      | 下位設計（`utd-*`）や実装参照                                | 任意 |
 | supersedes | 置き換え関係                                                 | 任意 |
 
 ### 推奨ルール
@@ -245,14 +242,10 @@ id: uts-inventory
 type: test
 title: 単体テスト仕様: 在庫
 status: draft
-owners: []
-tags: [unit, inventory]
 depends_on:
   - uts-main
   - tpc-order-process
   - br-inventory-allocation
-tests:
-  - utd-inventory
 supersedes: []
 ---
 ```

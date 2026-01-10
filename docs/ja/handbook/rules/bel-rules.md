@@ -12,8 +12,6 @@
 | type       | `domain` 固定                     | ○    |
 | title      | 業務イベント一覧名                | ○    |
 | status     | `draft`/`ready`/`deprecated`      | ○    |
-| owners     | 担当者（メールアドレス）          | 任意 |
-| tags       | タグ・分類                        | 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様）     | 任意 |
 
 ### 1.1 ID規約
@@ -82,8 +80,6 @@ id: bel-main
 type: domain
 title: 業務イベント一覧(main)
 status: draft
-owners: []
-tags: []
 supersedes: []
 ---
 ```
@@ -111,8 +107,6 @@ supersedes: []
 >   type: domain
 >   title: <業務イベント一覧名> # 例: 業務イベント一覧(main)
 >   status: draft # draft / ready / deprecated のいずれか
->   owners: []
->   tags: []
 >   supersedes: []
 >   ---
 >   ```

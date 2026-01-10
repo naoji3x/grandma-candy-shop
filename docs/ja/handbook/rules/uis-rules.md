@@ -29,22 +29,18 @@
 
 ## 4. 推奨 Frontmatter 項目
 
-| 項目       | 説明                                        | 必須 |
-| ---------- | ------------------------------------------- | ---- |
-| id         | 画面ID（小文字ハイフン）                    | ○    |
-| type       | `screen` 固定                               | ○    |
-| title      | 画面名                                      | ○    |
-| status     | `draft`/`ready`/`deprecated`                | ○    |
-| owners     | 担当者（メールアドレス）                    | 任意 |
-| tags       | タグ                                        | 任意 |
-| depends_on | 参照する仕様ID（API/ドメイン/他画面など）   | 任意 |
-| implements | 満たすべき業務ルールID（br-xxx-xxx など）   | 任意 |
-| tests      | この画面仕様を検証するテスト仕様/受入条件ID | 任意 |
+| 項目       | 説明                                      | 必須 |
+| ---------- | ----------------------------------------- | ---- |
+| id         | 画面ID（小文字ハイフン）                  | ○    |
+| type       | `screen` 固定                             | ○    |
+| title      | 画面名                                    | ○    |
+| status     | `draft`/`ready`/`deprecated`              | ○    |
+| depends_on | 参照する仕様ID（API/ドメイン/他画面など） | 任意 |
 
 ### NG/OK例（抜粋）
 
 - NG例: `id: UI_ProductList`（大文字/アンダースコアNG）, `type: domain`（`screen`以外NG）, `extra: foo`（未定義プロパティNG）
-- OK例: `id: uis-product-list`, `type: screen`, `status: ready`, `owners: [owner@example.com]`
+- OK例: `id: uis-product-list`, `type: screen`, `status: ready`
 
 ## 5. 本文構成（標準テンプレ）
 
@@ -152,8 +148,6 @@ type: screen
 title: 商品一覧
 status: draft
 depends_on: []
-implements: []
-tests: []
 ---
 
 ## 概要
@@ -224,10 +218,7 @@ tests: []
 >   type: screen
 >   title: <画面名> # 例: 商品一覧
 >   status: draft # draft / ready / deprecated のいずれか
->   owners: []
 >   depends_on: []
->   implements: []
->   tests: []
 >   ---
 >   ```
 >

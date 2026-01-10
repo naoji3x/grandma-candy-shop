@@ -45,28 +45,7 @@ properties:
     # ready: 公開済み
     # deprecated: 廃止済み
     enum: ['draft', 'ready', 'deprecated']
-
-  owners:
-    type: array
-    items:
-      type: string
-      format: email
-    uniqueItems: true
-
-  tags:
-    type: array
-    items:
-      type: string
-      minLength: 1
-    uniqueItems: true
-
   depends_on:
-    $ref: '#/definitions/idRefArray'
-    default: []
-  implements:
-    $ref: '#/definitions/idRefArray'
-    default: []
-  tests:
     $ref: '#/definitions/idRefArray'
     default: []
   supersedes:

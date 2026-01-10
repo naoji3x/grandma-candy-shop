@@ -20,10 +20,7 @@
   type: domain
   title: <業務プロセス名> # 例: 在庫不足検知
   status: draft # draft / ready / deprecated のいずれか
-  owners: []
   depends_on: [] # 関連する他プロセスIDやイベントIDなど
-  implements: [] # 参照するビジネスルールID(br-xxx-xxxなど)
-  tests: [] # 業務受入条件ID(bac-xxx-xxxなど)
   supersedes: []
   ---
   ```

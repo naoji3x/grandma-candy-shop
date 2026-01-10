@@ -37,10 +37,7 @@
 | type       | `domain` 固定                                  | ○    |
 | title      | プロセス名                                     | ○    |
 | status     | `draft`/`ready`/`deprecated`                   | ○    |
-| owners     | 担当者                                         | 任意 |
 | depends_on | 前提となる他プロセスやデータストア、イベント等 | 任意 |
-| implements | 満たすべきビジネスルール                       | 任意 |
-| tests      | この仕様を検証する業務受入条件のID一覧         | 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様）                  | 任意 |
 
 ## 5. 本文構成（標準テンプレ）
@@ -185,8 +182,6 @@ type: domain
 title: 発注候補生成
 status: draft
 depends_on: [bev-stock-amount-updated]
-implements: [br-low-stock-judgment]
-tests: [bac-low-stock-judgment, bac-order-candidate-generation]
 ---
 
 ## 概要
@@ -283,10 +278,7 @@ function 在庫数更新イベントを処理する(イベント: 在庫数更�
 >   type: domain
 >   title: <業務プロセス名> # 例: 在庫不足検知
 >   status: draft # draft / ready / deprecated のいずれか
->   owners: []
 >   depends_on: [] # 関連する他プロセスIDやイベントIDなど
->   implements: [] # 参照するビジネスルールID(br-xxx-xxxなど)
->   tests: [] # 業務受入条件ID(bac-xxx-xxxなど)
 >   supersedes: []
 >   ---
 >   ```

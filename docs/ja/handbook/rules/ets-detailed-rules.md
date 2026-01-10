@@ -94,10 +94,7 @@ TSP（テスト戦略・方針）
 | type       | `test` 固定                                          | ○        |
 | title      | 仕様名                                               | ○        |
 | status     | 状態                                                 | ○        |
-| owners     | 担当                                                 | 任意     |
-| tags       | 分類                                                 | 任意     |
 | depends_on | ETS（全体）, ESIL, EAPIS / EMS / EFES, NFR, SAC, ADR | **必須** |
-| tests      | 対応する ETD / 実装                                  | 任意     |
 | supersedes | 置換関係                                             | 任意     |
 
 ---
@@ -249,8 +246,6 @@ depends_on:
   - eapis-payment
   - nfr-security
   - adr-payment-retry
-tests:
-  - etd-payment
 ---
 ```
 

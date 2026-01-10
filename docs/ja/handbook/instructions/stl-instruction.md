@@ -11,8 +11,6 @@
   type: domain
   title: <ステータス一覧名> # 例: お金のステータス
   status: draft # draft / ready / deprecated のいずれか
-  owners: []
-  tags: []
   supersedes: []
   ---
   ```

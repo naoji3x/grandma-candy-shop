@@ -84,10 +84,7 @@ STD の対象は以下です。
 | type       | `test` 固定                  | ○        |
 | title      | 総合テスト設計               | ○        |
 | status     | `draft / ready / deprecated` | ○        |
-| owners     | 担当                         | 任意     |
-| tags       | `system-test` 等             | 任意     |
 | depends_on | `tsp-*`, `sts-main`, `sts-*` | **必須** |
-| tests      | 下位の STD-D                 | 任意     |
 | supersedes | 置換関係                     | 任意     |
 
 ---

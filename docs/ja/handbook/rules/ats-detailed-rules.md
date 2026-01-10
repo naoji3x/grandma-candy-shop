@@ -82,17 +82,14 @@ ATS-D の作成単位は、次のいずれかです。
 
 ## 4. 推奨 Frontmatter 項目
 
-| 項目       | 説明                             | 必須     |
-| ---------- | -------------------------------- | -------- |
-| id         | ATS-D ID（`ats-*`）              | ○        |
-| type       | `test` 固定                      | ○        |
-| title      | 受入テスト仕様: <業務条件名>     | ○        |
-| status     | `draft / ready / deprecated`     | ○        |
-| owners     | 業務側オーナー                   | 任意     |
-| tags       | `acceptance-test`, `business` 等 | 任意     |
-| depends_on | `ats-main`, `bac-*`              | **必須** |
-| tests      | 対応する ATD / ATD-D             | 任意     |
-| supersedes | 置換関係                         | 任意     |
+| 項目       | 説明                         | 必須     |
+| ---------- | ---------------------------- | -------- |
+| id         | ATS-D ID（`ats-*`）          | ○        |
+| type       | `test` 固定                  | ○        |
+| title      | 受入テスト仕様: <業務条件名> | ○        |
+| status     | `draft / ready / deprecated` | ○        |
+| depends_on | `ats-main`, `bac-*`          | **必須** |
+| supersedes | 置換関係                     | 任意     |
 
 ---
 

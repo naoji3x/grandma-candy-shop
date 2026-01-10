@@ -95,10 +95,7 @@ TSP（テスト戦略・方針）
 | type       | `test` 固定                                                                    | ○        |
 | title      | 設計名                                                                         | ○        |
 | status     | 状態                                                                           | ○        |
-| owners     | 担当                                                                           | 任意     |
-| tags       | 分類                                                                           | 任意     |
 | depends_on | `ets-...`（個別仕様）, `etd-main`（全体設計）, `eapis/ems/efes`, `adr/nfr/sac` | **必須** |
-| tests      | 実装（Postmanコレクション、CIジョブ、テストコード参照）                        | 任意     |
 | supersedes | 置換関係                                                                       | 任意     |
 
 ---
@@ -264,8 +261,6 @@ depends_on:
   - ets-payment
   - eapis-payment
   - adr-payment-idempotency
-tests:
-  - postman-payment-collection
 ---
 ```
 

@@ -84,15 +84,13 @@ TSP（戦略）
 
 ## 4. 推奨 Frontmatter 項目
 
-| 項目       | 説明         | 必須 |
-| ---------- | ------------ | ---- |
-| id         | ITD ID       | ○    |
-| type       | `test`       | ○    |
-| title      | 設計名       | ○    |
-| status     | 状態         | ○    |
-| owners     | 担当         | 任意 |
-| depends_on | ITS / ITS-D  | 推奨 |
-| tests      | テスト実装ID | 任意 |
+| 項目       | 説明        | 必須 |
+| ---------- | ----------- | ---- |
+| id         | ITD ID      | ○    |
+| type       | `test`      | ○    |
+| title      | 設計名      | ○    |
+| status     | 状態        | ○    |
+| depends_on | ITS / ITS-D | 推奨 |
 
 ---
 

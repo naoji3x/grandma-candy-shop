@@ -14,11 +14,7 @@
   type: domain
   title: 業務イベント: <イベント名>
   status: draft
-  owners: []
-  tags: []
   depends_on: []
-  implements: []
-  tests: []
   supersedes: []
   ---
   ```

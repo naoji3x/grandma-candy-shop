@@ -95,10 +95,7 @@ TSP（テスト戦略・方針）
 | type       | `test` 固定                           | ○        |
 | title      | 総合テスト仕様: <シナリオ名>          | ○        |
 | status     | `draft / ready / deprecated`          | ○        |
-| owners     | 担当                                  | 任意     |
-| tags       | 業務/非機能/運用 等                   | 任意     |
 | depends_on | `sts-main`, `bac-*`, `nfr-*`, `sac-*` | **必須** |
-| tests      | 対応する STD / STD-D                  | 任意     |
 | supersedes | 置換関係                              | 任意     |
 
 ---
@@ -231,8 +228,6 @@ depends_on:
   - sts-main
   - bac-order
   - nfr-performance
-tests:
-  - std-order-flow
 ---
 ```
 
