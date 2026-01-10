@@ -45,7 +45,7 @@ export default {
     // 初回
     window.addEventListener('load', setupMermaidLightbox)
     // ルート変更ごと（VitePress は SPA）
-    router.onAfterRouteChanged = () => {
+    router.onAfterRouteChange = () => {
       setTimeout(setupMermaidLightbox, 0)
     }
   },
