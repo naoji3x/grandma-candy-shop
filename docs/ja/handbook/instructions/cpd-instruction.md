@@ -7,7 +7,8 @@
   - `type`: `architecture`
   - `title`: 図の対象が分かる日本語タイトル
   - `status`: `draft`
-  - `depends_on`: `[]`
+  - `part_of`: `[]`
+  - `based_on`: `[]`
   - `implements`: `[]`
   - `tests`: `[]`
 - 本文構成は、次の見出し（日本語）をこの順序で必ず出力してください：

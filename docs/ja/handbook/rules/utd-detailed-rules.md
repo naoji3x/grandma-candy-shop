@@ -88,12 +88,14 @@ UTD-D（単体テスト設計・個別） ← 本ドキュメント
 | type       | `test` 固定                                                       | ○    |
 | title      | 単体テスト設計: <対象名>                                          | ○    |
 | status     | `draft` / `ready` / `deprecated`                                  | ○    |
-| depends_on | 上位仕様（`utd-main`, `uts-<term>`, `tpc-*`, `br-*`, `bac-*` 等） | ○    |
+| part_of    | 集約ドキュメントへの所属（必ず `utd-main` を含む）                | ○    |
+| based_on   | 根拠仕様（`uts-<term>`, `tpc-*`, `br-*`, `bac-*` 等）             | ○    |
 | supersedes | 置き換え関係                                                      | 任意 |
 
 推奨:
 
-- `depends_on` には最低限 **`utd-main` と対応する `uts-<term>`** を含めます。
+- `part_of` には最低限 **`utd-main`** を含めます。
+- `based_on` には最低限 **対応する `uts-<term>`** を含めます。
 - 観点根拠がある場合は `tpc-*`, `br-*`, `bac-*` を併記します。
 
 ---
@@ -261,8 +263,8 @@ id: utd-inventory-allocation
 type: test
 title: 単体テスト設計: 在庫引当（店頭販売）
 status: draft
-depends_on:
-  - utd-main
+part_of: [utd-main]
+based_on:
   - uts-inventory
   - uts-inventory-allocation
   - tpc-sale-checkout

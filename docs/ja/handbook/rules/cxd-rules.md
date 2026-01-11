@@ -41,10 +41,11 @@ Frontmatter の共通ルールは [meta-rules.md](meta-rules.md) に従います
 | type       | `architecture` 固定                            | ○    |
 | title      | ドキュメント名                                 | ○    |
 | status     | `draft`/`ready`/`deprecated`                   | ○    |
-| depends_on | 前提となる定義（用語集、外部IF、上位方針など） | 任意 |
+| part_of    | 上位ドキュメントID（分割している場合）         | 任意 |
+| based_on   | 根拠となる定義（用語集、外部IF、上位方針など） | 任意 |
 | supersedes | 置き換え関係（古い図→新しい図）                | 任意 |
 
-### 3.1 `depends_on` の考え方（例）
+### 3.1 `based_on` の考え方（例）
 
 - 用語集（`gl-...`）や業務データ辞書（`bdd-...`）
 - 外部システムIFの仕様（IF章のドキュメント）
@@ -213,7 +214,8 @@ id: cxd-candy-shop-sales-context
 type: architecture
 title: 駄菓子屋きぬや販売管理システムのC4コンテキスト図
 status: draft
-depends_on: []
+part_of: []
+based_on: []
 ---
 
 ## 概要
@@ -290,7 +292,8 @@ flowchart LR
 >   - `type`: `architecture`
 >   - `title`: 図の対象が分かる日本語タイトル
 >   - `status`: `draft`
->   - `depends_on`: `[]`
+>   - `part_of`: `[]`
+>   - `based_on`: `[]`
 >   - `implements`: `[]`
 >   - `tests`: `[]`
 > - 本文構成は、次の見出し（日本語）をこの順序で必ず出力してください：

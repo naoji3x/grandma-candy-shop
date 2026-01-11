@@ -45,7 +45,10 @@ properties:
     # ready: 公開済み
     # deprecated: 廃止済み
     enum: ['draft', 'ready', 'deprecated']
-  depends_on:
+  part_of:
+    $ref: '#/definitions/idRefArray'
+    default: []
+  based_on:
     $ref: '#/definitions/idRefArray'
     default: []
   supersedes:

@@ -25,7 +25,8 @@
   type: test
   title: テスト戦略・方針: <対象名>
   status: draft # draft / ready / deprecated
-  depends_on: []
+  part_of: []
+  based_on: []
   supersedes: []
   ---
   ```
@@ -40,7 +41,7 @@
 ### 1. 概要
 
 - 1〜3文で「何の品質を、どの範囲に対して、どのように担保するか」を書いてください。
-- `depends_on` に列挙した仕様（BAC/NFR/SAC等）と矛盾しない内容にしてください。
+- `based_on` に列挙した仕様（BAC/NFR/SAC等）と矛盾しない内容にしてください。
 
 ### 2. テスト戦略・方針（必須要素）
 

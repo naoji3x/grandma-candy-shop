@@ -13,7 +13,7 @@ NFR は「性能・可用性・セキュリティ等の品質要求」を、**�
 - NFR は「守るべき制約・合格基準」です。**運用で実現するもの**（監視、バックアップ、手順）も NFR として扱ってよいですが、要件は“結果”として書き、手順は最小限に要約します。
 - 1ファイル = 1 受入対象（品質要求のまとまり）を基本とします。
   - 例: `性能（主要画面/API）`, `可用性・復旧`, `セキュリティ`, `運用性・監視` など
-  - 肥大化する場合は、カテゴリやサブシステム単位で分割し、`depends_on` で関連付けします。
+  - 肥大化する場合は、カテゴリやサブシステム単位で分割し、下位文書側で `part_of` に上位NFRを指定します。
 
 ## 2. ファイル命名・ID規則
 
@@ -25,9 +25,7 @@ NFR は「性能・可用性・セキュリティ等の品質要求」を、**�
 推奨:
 
 - カテゴリ別に分割する場合、`nfr-performance-api`, `nfr-security-access-control` のように **範囲が分かる ID** にします。
-- 上位の NFR（例: `nfr-performance`）が下位文書（例: `nfr-performance-api`, `nfr-performance-ui`）を持つ場合は、上位の `depends_on` に下位 ID を列挙するのではなく、次のどちらかに統一してください（参照方向を混在させない）。
-  - 下位側が上位を `depends_on` で参照する（“前提”として参照）
-  - もしくは分割せずに 1 ファイルで管理する
+- 上位の NFR（例: `nfr-performance`）が下位文書（例: `nfr-performance-api`, `nfr-performance-ui`）を持つ場合、下位側で `part_of: [nfr-performance]` を指定します（上位側に下位IDを列挙しない）。
 
 ## 3. 推奨 Frontmatter 項目
 
@@ -39,13 +37,14 @@ Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の�
 | type       | `architecture` 固定（品質要求の合意文書として扱う） | ○    |
 | title      | 非機能要件名（例: 非機能要件: 性能）                | ○    |
 | status     | `draft`/`ready`/`deprecated`                        | ○    |
-| depends_on | 参照する仕様ID（BPS/BR/UIS/EAPIS/TSL/ADR 等）       | 任意 |
+| part_of    | 上位NFR ID（分割している場合）                      | 任意 |
+| based_on   | 根拠となる仕様ID（BPS/BR/UIS/EAPIS/TSL/ADR 等）     | 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様）                       | 任意 |
 
 推奨:
 
 - `tests` に、NFR を満たすことを判定する **システム受入条件（SAC）** やテスト仕様 ID を列挙します。
-- `depends_on` に、対象となる主要仕様 ID（例: `eapis-...`, `uis-...`, `bps-...`）を列挙し、範囲を明確にします。
+- `based_on` に、対象となる主要仕様 ID（例: `eapis-...`, `uis-...`, `bps-...`）を列挙し、範囲を明確にします。
 
 ## 4. 本文構成（標準テンプレ）
 
@@ -76,7 +75,7 @@ Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の�
 ### 5.2 概要
 
 - 1〜3文で「どの品質を、どの範囲に対して、何のために」定めるかを書きます。
-- 可能なら、対象仕様（API/画面/業務プロセス等）を言及し、`depends_on` と整合させます。
+- 可能なら、対象仕様（API/画面/業務プロセス等）を言及し、`based_on` と整合させます。
 
 任意（レビューが速くなる場合のみ）:
 
@@ -145,7 +144,8 @@ id: nfr-performance
 type: architecture
 title: 非機能要件: 性能
 status: draft
-depends_on: []
+part_of: []
+based_on: []
 supersedes: []
 ---
 ```
@@ -188,7 +188,8 @@ supersedes: []
 >   type: architecture
 >   title: 非機能要件: <対象名>
 >   status: draft # draft / ready / deprecated
->   depends_on: []
+>   part_of: []
+>   based_on: []
 >   supersedes: []
 >   ---
 >   ```

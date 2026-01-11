@@ -35,7 +35,7 @@
 | type       | `screen` 固定                             | ○    |
 | title      | 画面名                                    | ○    |
 | status     | `draft`/`ready`/`deprecated`              | ○    |
-| depends_on | 参照する仕様ID（API/ドメイン/他画面など） | 任意 |
+| based_on   | 根拠となる仕様ID（API/ドメイン/他画面など） | 任意 |
 
 ### NG/OK例（抜粋）
 
@@ -147,7 +147,8 @@ id: uis-product-list
 type: screen
 title: 商品一覧
 status: draft
-depends_on: []
+part_of: []
+based_on: []
 ---
 
 ## 概要
@@ -218,7 +219,8 @@ depends_on: []
 >   type: screen
 >   title: <画面名> # 例: 商品一覧
 >   status: draft # draft / ready / deprecated のいずれか
->   depends_on: []
+>   part_of: []
+>   based_on: []
 >   ---
 >   ```
 >

@@ -29,7 +29,7 @@ TPC は **テスト戦略・方針（TSP）を具体化する中間成果物**�
   - **何を、どの状態で、何を確認するか**を明示します。
 
 - 1ファイル = 1 つの観点整理単位を原則とします。
-  - 肥大化する場合は分割し、`depends_on` で関係を明示します。
+  - 肥大化する場合は分割し、`part_of` で集約ドキュメントへの所属を明示します。
 
 ---
 
@@ -66,12 +66,13 @@ Frontmatter は共通スキーマに従います。
 | type       | `test` 固定                                     | ○    |
 | title      | ドキュメント名                                  | ○    |
 | status     | `draft` / `ready` / `deprecated`                | ○    |
-| depends_on | 上位仕様（TSP / BAC / NFR / SAC / BPS / BR 等） | 任意 |
+| part_of    | 集約ドキュメントへの所属（任意）                | 任意 |
+| based_on   | 上位仕様（TSP / BAC / NFR / SAC / BPS / BR 等） | 任意 |
 | supersedes | 置き換え関係                                    | 任意 |
 
 推奨:
 
-- `depends_on` には **観点の根拠となる仕様**を必ず入れます。
+- `based_on` には **観点の根拠となる仕様**を必ず入れます。
 
 ---
 
@@ -194,7 +195,8 @@ id: tpc-sale-checkout
 type: test
 title: テスト観点・条件: 店頭販売（レジ会計・在庫連動）
 status: draft
-depends_on: [tsp-overview, bac-sale-checkout, bac-inventory-replenishment, nfr-performance, nfr-security]
+part_of: []
+based_on: [tsp-overview, bac-sale-checkout, bac-inventory-replenishment, nfr-performance, nfr-security]
 supersedes: []
 ---
 ```

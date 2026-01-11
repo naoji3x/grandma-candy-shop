@@ -14,7 +14,8 @@
   type: architecture
   title: 非機能要件: <対象名>
   status: draft # draft / ready / deprecated
-  depends_on: []
+  part_of: []
+  based_on: []
   supersedes: []
   ---
   ```

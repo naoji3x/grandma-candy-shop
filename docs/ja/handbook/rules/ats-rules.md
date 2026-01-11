@@ -85,7 +85,7 @@ ATS の対象は以下です。
 | type       | `test` 固定                  | ○        |
 | title      | 受入テスト仕様               | ○        |
 | status     | `draft / ready / deprecated` | ○        |
-| depends_on | `bac-*`, `sts-*`, `std-*`    | **必須** |
+| based_on   | `bac-*`, `sts-*`, `std-*`    | **必須** |
 | supersedes | 置換関係                     | 任意     |
 
 ---
@@ -226,7 +226,7 @@ id: ats-main
 type: test
 title: 受入テスト仕様
 status: draft
-depends_on:
+based_on:
   - bac-main
   - sts-main
 ---

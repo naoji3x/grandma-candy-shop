@@ -24,7 +24,8 @@
   type: test
   title: 単体テスト仕様: <対象>
   status: draft # draft / ready / deprecated
-  depends_on: []
+  part_of: []
+  based_on: []
   supersedes: []
   ---
   ```
@@ -43,8 +44,8 @@
 ### トレースの扱い
 
 - UTS には **トレース表（観点ID↔上位仕様IDの表）を書きません**。
-- 追跡は Frontmatter の `depends_on` で行います。
-  - `depends_on` には最低限 `tpc-...` を含め、必要に応じて `bac-...` / `br-...` / `nfr-...` を追加してください。
+- 追跡は Frontmatter の `based_on` で行います。
+  - `based_on` には最低限 `tpc-...` を含め、必要に応じて `bac-...` / `br-...` / `nfr-...` を追加してください。
 
 ### 1. 概要
 
@@ -85,4 +86,5 @@
 - 観点が「保証範囲（What）」として書けている（ケース集になっていない）
 - 対象と境界（モック/スタブ方針）が明確
 - 合格基準が判定可能で、エビデンスが紐づいている
-- トレース表を書いていない（`depends_on` で追跡している）
+- トレース表を書いていない（`based_on` で追跡している）
+- トレース表を書いていない（`based_on` で追跡している）

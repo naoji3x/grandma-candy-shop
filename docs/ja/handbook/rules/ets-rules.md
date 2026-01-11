@@ -31,7 +31,7 @@ TSP（テスト戦略・方針）
 - ETS は **外部システムとの連携**を対象とします。
   - 例: 決済、配送、IdP、会計SaaS、仕入先システム、外部ストレージ、外部メッセージ基盤 等
 
-- ETS は上位方針（TSP）と整合し、`depends_on` で根拠仕様（EAPIS / EMS / EFES / ESIL / NFR / SAC / ADR 等）を追跡可能にします。
+- ETS は上位方針（TSP）と整合し、`based_on` で根拠仕様（EAPIS / EMS / EFES / ESIL / NFR / SAC / ADR 等）を追跡可能にします。
 - 曖昧表現は禁止します。
   - 「連携できること」ではなく、**入力／連携点／期待結果／観測点／リトライ・補償**を記述します。
 
@@ -79,12 +79,12 @@ TSP（テスト戦略・方針）
 | type       | `test` 固定                                          | ○    |
 | title      | 仕様名                                               | ○    |
 | status     | `draft` / `ready` / `deprecated`                     | ○    |
-| depends_on | 根拠仕様ID（ESIL/EAPIS/EFES/EMS/NFR/SAC/ADR/BAC 等） | 推奨 |
+| based_on   | 根拠仕様ID（ESIL/EAPIS/EFES/EMS/NFR/SAC/ADR/BAC 等） | 推奨 |
 | supersedes | 置き換え関係                                         | 任意 |
 
 推奨:
 
-- 外部連携は「仕様の根拠」が重要なので、`depends_on` に以下を優先的に入れます。
+- 外部連携は「仕様の根拠」が重要なので、`based_on` に以下を優先的に入れます。
   - 連携種別ごと：`eapis-*`（API）, `ems-*`（メッセージ）, `efes-*`（ファイル）
   - 外部一覧：`esil-*`
   - 非機能：`nfr-*`, `sac-*`
@@ -241,7 +241,7 @@ id: ets-main
 type: test
 title: 外部結合テスト仕様: 全体
 status: draft
-depends_on:
+based_on:
   - tsp-overview
   - esil-supplier
   - eapis-inventory

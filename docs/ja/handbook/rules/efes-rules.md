@@ -52,7 +52,7 @@ ESIL 側の `spec_ref: efes-...` は、このEFESのID（およびファイル�
 | id         | ファイル仕様ID（`efes-...`）、ESILの `spec_ref` と対応 | ○    |
 | type       | `file` 固定                                            | ○    |
 | status     | `draft` / `ready` / `deprecated`                       | ○    |
-| depends_on | 依存する他仕様のIDリスト（例: `["eapis-auth"]`）       | 任意 |
+| based_on   | 根拠となる他仕様のIDリスト（例: `["eapis-auth"]`）     | 任意 |
 
 ## 4. 主要項目
 
@@ -139,7 +139,7 @@ x-spec-meta:
   id: efes-orders
   type: file
   status: draft
-  depends_on: []
+  based_on: []
 
 file:
   name: orders.csv
@@ -205,7 +205,7 @@ x-spec-meta:
   id: efes-inventory-snapshot
   type: file
   status: draft
-  depends_on: []
+  based_on: []
 
 file:
   name: inventory.json
@@ -255,7 +255,7 @@ x-spec-meta:
   id: efes-payment-result
   type: file
   status: draft
-  depends_on: []
+  based_on: []
 
 file:
   name: payment_result.xml

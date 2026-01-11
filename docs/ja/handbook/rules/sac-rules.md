@@ -35,8 +35,8 @@ SAC は「システム全体としての合格基準（機能・非機能・障�
 
 推奨:
 
-- 受入対象が肥大化する場合は、カテゴリやサブシステム単位で分割し、`depends_on` で関連付けします。
-- `depends_on` には、根拠となる仕様 ID（例: `nfr-...`, `bac-...`, `br-...`, `bps-...`）を列挙します。
+- 受入対象が肥大化する場合は、カテゴリやサブシステム単位で分割し、下位文書側で `part_of` に上位SACを指定します。
+- `based_on` には、根拠となる仕様 ID（例: `nfr-...`, `bac-...`, `br-...`, `bps-...`）を列挙します。
 
 ## 4. 推奨 Frontmatter 項目
 
@@ -48,12 +48,13 @@ Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の�
 | type       | `test` 固定                                 | ○    |
 | title      | 受入条件名（例: システム受入条件: 性能）    | ○    |
 | status     | `draft`/`ready`/`deprecated`                | ○    |
-| depends_on | 参照する仕様ID（NFR/BAC/BR/BPS/ADR/TSL 等） | 任意 |
+| part_of    | 上位SAC ID（分割している場合）              | 任意 |
+| based_on   | 根拠となる仕様ID（NFR/BAC/BR/BPS/ADR/TSL 等）| 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様）               | 任意 |
 
 推奨:
 
-- `depends_on` に、受入条件の根拠となる NFR/BAC を必ず紐づけます。
+- `based_on` に、受入条件の根拠となる NFR/BAC を必ず紐づけます。
 - SAC が下位のテスト設計（テスト条件一覧、システムテスト仕様など）へ分解される場合、`tests` から参照できるよう ID は安定させます。
 
 ## 5. 本文構成（標準テンプレ）
@@ -69,7 +70,7 @@ Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の�
 ### 6.1 概要
 
 - 1〜3文で「何を合格とするか（出口条件）」を書きます。
-- 可能なら対象仕様（NFR/BAC/主要機能）を言及し、`depends_on` と整合させます。
+- 可能なら対象仕様（NFR/BAC/主要機能）を言及し、`based_on` と整合させます。
 
 ### 6.2 受入条件
 
@@ -143,7 +144,8 @@ id: sac-performance
 type: test
 title: システム受入条件: 性能
 status: draft
-depends_on:
+part_of: []
+based_on:
   - nfr-performance
 supersedes: []
 ---
@@ -205,7 +207,8 @@ supersedes: []
 >   type: test
 >   title: システム受入条件: <対象名>
 >   status: draft # draft / ready / deprecated
->   depends_on: []
+>   part_of: []
+>   based_on: []
 >   supersedes: []
 >   ---
 >   ```

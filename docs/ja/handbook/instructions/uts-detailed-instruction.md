@@ -34,14 +34,15 @@
   type: test
   title: 単体テスト仕様: <論理名>
   status: draft # draft / ready / deprecated
-  depends_on:
-    - uts-main
+  part_of: [uts-main]
+  based_on:
     - tpc-<...>
   supersedes: []
   ---
   ```
 
-- `depends_on` には **必ず** `uts-main` と関連する `tpc-*` を含めてください。
+- `part_of` には **必ず** `uts-main` を含めてください。
+- `based_on` には **必ず** 関連する `tpc-*` を含めてください。
 - 対象が業務ルールや受入条件に依存する場合は、`bac-*` / `br-*` / `nfr-*` も追加してください。
 
 ### 本文の見出し（必須・順序固定）
@@ -63,7 +64,8 @@
 
 - 観点・条件は **TPC からの派生であることが追跡可能**でなければなりません。
 - 追跡は次で担保してください。
-  - Frontmatter の `depends_on`（必須: `uts-main` と `tpc-*`）
+  - Frontmatter の `part_of`（必須: `uts-main`）
+  - Frontmatter の `based_on`（必須: `tpc-*`）
   - 表の「根拠」列に、根拠となる ID（`tpc-*` / `bac-*` / `br-*` など）を記載
 
 ### 観点ID・条件IDの扱い
@@ -113,7 +115,8 @@
 ## 最終チェック（自己検査）
 
 - `id` が `uts-<term>` 形式で、`type: test` になっている
-- `depends_on` に `uts-main` と関連する `tpc-*` が入っている
+- `part_of` に `uts-main` が入っている
+- `based_on` に関連する `tpc-*` が入っている
 - 観点/条件の「根拠」に上位仕様 ID が入っていて追跡可能
 - 観点が保証範囲（What）として書けている（ケース集になっていない）
 - 禁止事項（コード/SQL/実装名/曖昧表現）を含めていない

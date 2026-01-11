@@ -16,7 +16,8 @@
 | type       | ドキュメントの種類            | ○    |
 | title      | ドキュメント名                | ○    |
 | status     | ドキュメントの状態            | ○    |
-| depends_on | 技術的・定義的な土台（前提）  | 任意 |
+| part_of    | 集約ドキュメント（一覧/親）への所属リンク | 任意 |
+| based_on   | 技術的・定義的な土台（前提）/根拠となるドキュメント | 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様） | 任意 |
 
 ## 3. 各項目の詳細ルール
@@ -65,13 +66,24 @@
 | ready      | 公開済み |
 | deprecated | 廃止済み |
 
-### 3.5. depends_on
+### 3.5. part_of
 
 - 任意項目
-- 技術的・定義的な土台（前提）、上位概念となるドキュメント
+- 自分が「どの集約ドキュメント（一覧/親）」の一部かを示す
 - `id` の配列（重複不可、未指定時は空配列）
 
-### 3.6. supersedes
+例:
+
+- `uts-inventory` は `uts-main` の一部 → `part_of: [uts-main]`
+- `utd-inventory` は `utd-main` の一部 → `part_of: [utd-main]`
+
+### 3.6. based_on
+
+- 任意項目
+- 技術的・定義的な土台（前提）や根拠となるドキュメント
+- `id` の配列（重複不可、未指定時は空配列）
+
+### 3.7. supersedes
 
 - 任意項目
 - 置き換え関係（古仕様→新仕様）を示すドキュメント
@@ -82,7 +94,7 @@
 - スキーマに準拠しない場合は PR をブロック（lint/CI で検知）
 - 未定義プロパティは不可（`additionalProperties: false`）。
 - `id` 配列項目は重複禁止（`uniqueItems: true`）。
-- 省略可能項目（owners/tags/depends_on 等）は、未指定時に空配列 `[]` を許容。
+- 省略可能項目（owners/tags/part_of/based_on 等）は、未指定時に空配列 `[]` を許容。
 
 ## 5. 記述例
 
@@ -92,7 +104,8 @@ id: api-get-order-v1
 type: api
 title: 注文API仕様
 status: ready
-depends_on: []
+part_of: []
+based_on: []
 supersedes: [api-get-order-v0]
 ---
 ```

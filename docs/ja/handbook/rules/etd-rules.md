@@ -89,7 +89,7 @@ TSP（テスト戦略・方針）
 | type       | `test` 固定 | ○        |
 | title      | 設計名      | ○        |
 | status     | 状態        | ○        |
-| depends_on | ETS / ETS-D | **必須** |
+| based_on   | ETS / ETS-D | **必須** |
 
 ---
 
@@ -249,7 +249,7 @@ id: etd-main
 type: test
 title: 外部結合テスト設計
 status: draft
-depends_on:
+based_on:
   - ets-main
   - ets-payment
 ---

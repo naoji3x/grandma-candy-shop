@@ -38,7 +38,7 @@ Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の�
 | type       | `domain` 固定                      | ○    |
 | title      | 帳票名                             | ○    |
 | status     | `draft`/`ready`/`deprecated`       | ○    |
-| depends_on | 参照する仕様ID（BPS/UI/BR/BES 等） | 任意 |
+| based_on   | 根拠となる仕様ID（BPS/UIS/BR/BES 等） | 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様）      | 任意 |
 
 ### 4.1 ID規約
@@ -142,7 +142,8 @@ id: bds-daily-sales-summary
 type: domain
 title: 日次売上サマリ
 status: draft
-depends_on: [bps-closing-daily, uis-closing, bes-sale-checkout]
+part_of: []
+based_on: [bps-closing-daily, uis-closing, bes-sale-checkout]
 supersedes: []
 ---
 
@@ -214,12 +215,13 @@ supersedes: []
 >   type: domain
 >   title: <帳票名> # 例: 日次売上サマリ
 >   status: draft # draft / ready / deprecated のいずれか
->   depends_on: []
+>   part_of: []
+>   based_on: []
 >   supersedes: []
 >   ---
 >   ```
 >
-> - `depends_on` には、関連する仕様の `id`（例: `bps-...` / `uis-...` / `br-...` / `bes-...` / `bac-...`）を列挙してください。該当がなければ `[]` としてください。
+> - `based_on` には、関連する仕様の `id`（例: `bps-...` / `uis-...` / `br-...` / `bes-...` / `bac-...`）を列挙してください。該当がなければ `[]` としてください。
 > - **表示項目** はテーブル形式で列挙してください（レイアウト指定は禁止）。少なくとも次の列を含めてください：
 >   - `No` / `区分` / `項目名` / `意味/定義` / `型・書式` / `出力例` / `備考`
 > - **集計/算出ルール** は、集計単位（店舗別/商品別/日別等）、算出式、税・端数処理（四捨五入/切り捨て等）が分かるように記述してください。

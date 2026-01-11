@@ -88,7 +88,8 @@ STD-D の作成単位は、STD で定義した分割単位に従います。
 | type       | `test` 固定                    | ○        |
 | title      | 総合テスト設計: <対象名>       | ○        |
 | status     | `draft / ready / deprecated`   | ○        |
-| depends_on | `std-main`, `sts-*`, `sts-d-*` | **必須** |
+| part_of    | `std-main`                     | **必須** |
+| based_on   | `sts-*`, `sts-d-*`             | **必須** |
 | supersedes | 置換関係                       | 任意     |
 
 ---
@@ -222,8 +223,8 @@ id: std-order-flow
 type: test
 title: 総合テスト設計: 受注〜出荷
 status: draft
-depends_on:
-  - std-main
+part_of: [std-main]
+based_on:
   - sts-order-flow
 ---
 ```

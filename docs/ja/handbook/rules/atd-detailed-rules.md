@@ -88,7 +88,8 @@ ATD-D の作成単位は以下のいずれかです。
 | type       | `test` 固定                             | ○        |
 | title      | 受入テスト設計: <業務条件名>            | ○        |
 | status     | `draft / ready / deprecated`            | ○        |
-| depends_on | `atd-main`, `ats-*`, `ats-d-*`, `bac-*` | **必須** |
+| part_of    | `atd-main`                              | **必須** |
+| based_on   | `ats-*`, `ats-d-*`, `bac-*`             | **必須** |
 | supersedes | 置換関係                                | 任意     |
 
 ---
@@ -225,8 +226,8 @@ id: atd-order-complete
 type: test
 title: 受入テスト設計: 受注完了
 status: draft
-depends_on:
-  - atd-main
+part_of: [atd-main]
+based_on:
   - ats-order-complete
   - bac-order-complete
 ---

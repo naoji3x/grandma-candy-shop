@@ -20,7 +20,8 @@
   type: domain
   title: <業務プロセス名> # 例: 在庫不足検知
   status: draft # draft / ready / deprecated のいずれか
-  depends_on: [] # 関連する他プロセスIDやイベントIDなど
+  part_of: [] # 子プロセスの場合、親プロセスIDを指定
+  based_on: [] # トリガーとなるイベントIDや参照する仕様IDなど
   supersedes: []
   ---
   ```

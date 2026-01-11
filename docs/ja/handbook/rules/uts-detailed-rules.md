@@ -87,14 +87,14 @@ UTD-D（単体テスト設計・個別）
 | type       | `test` 固定                                                  | ○    |
 | title      | 単体テスト仕様: <対象名>                                     | ○    |
 | status     | `draft` / `ready` / `deprecated`                             | ○    |
-| depends_on | 上位仕様（`uts-main`, `tpc-*`, `br-*`, `bac-*`, `nfr-*` 等） | 必須 |
+| part_of    | 集約ドキュメントへの所属（必ず `uts-main` を含む）           | 必須 |
+| based_on   | 根拠仕様（`tpc-*`, `br-*`, `bac-*`, `nfr-*` 等）             | 必須 |
 | supersedes | 置き換え関係                                                 | 任意 |
 
 ### 推奨ルール
 
-- `depends_on` には **必ず以下を含めます**
-  - `uts-main`
-  - 関連する `tpc-*`
+- `part_of` には **必ず** `uts-main` を含めます
+- `based_on` には **必ず** 関連する `tpc-*` を含めます
 
 - 業務ルール・受入条件に依存する場合は明示します。
 
@@ -242,8 +242,8 @@ id: uts-inventory-allocation
 type: test
 title: 単体テスト仕様: 在庫引当（店頭販売）
 status: draft
-depends_on:
-  - uts-main
+part_of: [uts-main]
+based_on:
   - tpc-sale-checkout
   - bac-sale-checkout
   - bac-inventory-replenishment

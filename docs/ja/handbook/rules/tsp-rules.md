@@ -20,7 +20,7 @@ TSP は「個別のテストケース集」ではありません。
 - クリック手順の逐語列挙は避け、**業務行為/入力/期待結果**として要約します。
 - 実装詳細（例: 物理テーブル名、SQL全文、実装クラス/関数名、特定ライブラリの設定値）は記載しません。
 - 1ファイル = 1 方針（原則）です。
-  - 肥大化する場合は、`tsp-...` を目的別（例: 全体方針/回帰方針/非機能試験方針）に分割し、`depends_on` で関連付けします。
+  - 肥大化する場合は、`tsp-...` を目的別（例: 全体方針/回帰方針/非機能試験方針）に分割し、`part_of` で集約ドキュメントへの所属を明示します（根拠の参照は `based_on`）。
 
 ## 2. 用語定義
 
@@ -59,12 +59,14 @@ Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の�
 | type       | `test` 固定                                        | ○    |
 | title      | 方針名（例: テスト戦略・方針: 全体）               | ○    |
 | status     | `draft`/`ready`/`deprecated`                       | ○    |
-| depends_on | 参照する仕様ID（BAC/NFR/SAC/ADR/TSL/UIS/EAPIS 等） | 任意 |
+| part_of    | 集約ドキュメントへの所属（例: `tsp-overview`）     | 任意 |
+| based_on   | 参照する仕様ID（BAC/NFR/SAC/ADR/TSL/UIS/EAPIS 等） | 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様）                      | 任意 |
 
 推奨:
 
-- `depends_on` に、方針の根拠となる主要仕様（例: `bac-...`, `nfr-...`, `adr-...`）を列挙し、スコープを明確にします。
+- `based_on` に、方針の根拠となる主要仕様（例: `bac-...`, `nfr-...`, `adr-...`）を列挙し、スコープを明確にします。
+- 方針を複数ファイルに分割する場合、各ファイルは `part_of` で集約ドキュメント（例: `tsp-overview`）への所属を明示します。
 
 ## 5. 本文構成（標準テンプレ）
 
@@ -79,7 +81,7 @@ Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の�
 ### 6.1 概要
 
 - 1〜3文で「何の品質を、どの範囲に対して、どのように担保するか（全体方針）」を書きます。
-- 可能なら対象仕様（BAC/NFR/主要機能）を言及し、`depends_on` と整合させます。
+- 可能なら対象仕様（BAC/NFR/主要機能）を言及し、`based_on` と整合させます。
 
 ### 6.2 テスト戦略・方針
 
@@ -206,7 +208,8 @@ id: tsp-overview
 type: test
 title: テスト戦略・方針: 全体（駄菓子屋販売管理システム）
 status: draft
-depends_on:
+part_of: []
+based_on:
   - bac-sale-checkout
   - bac-inventory-replenishment
   - nfr-performance

@@ -55,7 +55,10 @@ properties:
       minLength: 1
     uniqueItems: true
 
-  depends_on:
+  part_of:
+    $ref: '#/definitions/idRefArray'
+    default: []
+  based_on:
     $ref: '#/definitions/idRefArray'
     default: []
   implements:

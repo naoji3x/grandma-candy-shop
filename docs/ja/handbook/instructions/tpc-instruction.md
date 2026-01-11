@@ -23,7 +23,8 @@ id: tpc-<英小文字とハイフンで構成したID>
 type: test
 title: テスト観点・条件: <対象>
 status: draft # draft / ready / deprecated
-depends_on: []
+part_of: []
+based_on: []
 supersedes: []
 ---
 ```

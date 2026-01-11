@@ -84,7 +84,7 @@ STD の対象は以下です。
 | type       | `test` 固定                  | ○        |
 | title      | 総合テスト設計               | ○        |
 | status     | `draft / ready / deprecated` | ○        |
-| depends_on | `tsp-*`, `sts-main`, `sts-*` | **必須** |
+| based_on   | `tsp-*`, `sts-main`, `sts-*` | **必須** |
 | supersedes | 置換関係                     | 任意     |
 
 ---
@@ -216,7 +216,7 @@ id: std-main
 type: test
 title: 総合テスト設計
 status: draft
-depends_on:
+based_on:
   - tsp-overview
   - sts-main
 ---

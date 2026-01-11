@@ -97,7 +97,8 @@ TSP（テスト戦略・方針）
 | type       | `test` 固定                                 | ○        |
 | title      | 総合テスト仕様: <対象>                      | ○        |
 | status     | `draft / ready / deprecated`                | ○        |
-| depends_on | `tsp-*`, `bac-*`, `nfr-*`, `sac-*`, `adr-*` | **必須** |
+| part_of    | 集約ドキュメントへの所属（分割時のみ）      | 任意     |
+| based_on   | `tsp-*`, `bac-*`, `nfr-*`, `sac-*`, `adr-*` | **必須** |
 | supersedes | 置換関係                                    | 任意     |
 
 ---
@@ -245,7 +246,8 @@ id: sts-main
 type: test
 title: 総合テスト仕様: 全体
 status: draft
-depends_on:
+part_of: []
+based_on:
   - tsp-overview
   - bac-main
   - nfr-main

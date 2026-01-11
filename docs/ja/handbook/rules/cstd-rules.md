@@ -49,10 +49,11 @@ Frontmatter の共通ルールは [meta-rules.md](meta-rules.md) に従います
 | type       | `domain` 固定                               | ○    |
 | title      | ドキュメント名                              | ○    |
 | status     | `draft`/`ready`/`deprecated`                | ○    |
-| depends_on | 前提となる定義（ステータス定義/用語集など） | 任意 |
+| part_of    | 上位ドキュメントID（分割している場合）      | 任意 |
+| based_on   | 根拠となる定義（ステータス定義/用語集など） | 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様）               | 任意 |
 
-### 4.1 `depends_on` の考え方（例）
+### 4.1 `based_on` の考え方（例）
 
 - 状態名の根拠となる「ステータス定義」（例: `stl-...`）
 - 対象の概念定義（用語集 `tm-...`、業務データ辞書 `bdd-...` など）
@@ -138,7 +139,8 @@ id: product-cstd-as-is
 type: domain
 title: 商品の概念状態遷移図 (AS-IS)
 status: draft
-depends_on: []
+part_of: []
+based_on: []
 ---
 
 ## 概要

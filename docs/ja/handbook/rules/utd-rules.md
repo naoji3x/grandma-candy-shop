@@ -80,12 +80,12 @@ UTD（単体テスト設計） ← 本ドキュメント
 | type       | `test` 固定                                      | ○    |
 | title      | 単体テスト設計: <対象名>                         | ○    |
 | status     | `draft` / `ready` / `deprecated`                 | ○    |
-| depends_on | 上位仕様（`uts-*`, `tpc-*`, `br-*`, `bac-*` 等） | 必須 |
+| based_on   | 上位仕様（`uts-*`, `tpc-*`, `br-*`, `bac-*` 等） | 必須 |
 | supersedes | 置き換え関係                                     | 任意 |
 
 ### 推奨
 
-- `depends_on` には `uts-main` を必ず含めます。
+- `based_on` には `uts-main` を必ず含めます。
 - `tests` にはテストコードの場所（パスや論理名）を記載可能です。
 
 ---
@@ -236,7 +236,7 @@ id: utd-main
 type: test
 title: 単体テスト設計: 全体（店頭販売＋在庫連動）
 status: draft
-depends_on:
+based_on:
   - uts-main
   - tsp-overview
   - tpc-sale-checkout
@@ -273,7 +273,7 @@ supersedes: []
 | uts-price-calculation | utd-price-calculation | 税/割引の組み合わせは代表集合で設計し、総当たりを避ける          |
 | uts-transaction-state | utd-transaction-state | 状態遷移（確定/取消/返品など）を代表遷移で担保し、禁止遷移も含む |
 
-> 補足: UTS-D（個別詳細）がある場合は、対応する UTD-D の根拠として `depends_on` に追加して構いません（例: `uts-inventory-allocation`）。
+> 補足: UTS-D（個別詳細）がある場合は、対応する UTD-D の根拠として `based_on` に追加して構いません（例: `uts-inventory-allocation`）。
 
 ### テストコード構成・命名
 

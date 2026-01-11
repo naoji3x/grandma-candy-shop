@@ -90,7 +90,7 @@ TSP（戦略）
 | type       | `test`      | ○    |
 | title      | 設計名      | ○    |
 | status     | 状態        | ○    |
-| depends_on | ITS / ITS-D | 推奨 |
+| based_on   | ITS / ITS-D | 推奨 |
 
 ---
 
@@ -251,7 +251,7 @@ id: itd-main
 type: test
 title: 内部結合テスト設計
 status: draft
-depends_on:
+based_on:
   - its-main
   - its-inventory
 ---

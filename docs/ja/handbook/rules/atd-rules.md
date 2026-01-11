@@ -85,7 +85,7 @@ ATD の対象は以下です。
 | type       | `test` 固定                  | ○        |
 | title      | 受入テスト設計               | ○        |
 | status     | `draft / ready / deprecated` | ○        |
-| depends_on | `ats-main`, `ats-*`, `bac-*` | **必須** |
+| based_on   | `ats-main`, `ats-*`, `bac-*` | **必須** |
 | supersedes | 置換関係                     | 任意     |
 
 ---
@@ -223,7 +223,7 @@ id: atd-main
 type: test
 title: 受入テスト設計
 status: draft
-depends_on:
+based_on:
   - ats-main
   - bac-main
 ---

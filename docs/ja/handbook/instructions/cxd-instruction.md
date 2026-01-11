@@ -7,7 +7,8 @@
   - `type`: `architecture`
   - `title`: 図の対象が分かる日本語タイトル
   - `status`: `draft`
-  - `depends_on`: `[]`
+  - `part_of`: `[]`
+  - `based_on`: `[]`
 - 本文構成は、次の見出し（日本語）をこの順序で必ず出力してください：
   1. 概要
   2. C4コンテキスト図（Mermaid）

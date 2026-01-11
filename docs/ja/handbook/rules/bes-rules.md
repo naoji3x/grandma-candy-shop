@@ -46,7 +46,7 @@ Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の�
 | type       | `domain` 固定                                        | ○    |
 | title      | 業務イベント名（例: 業務イベント: 会計確定（販売）） | ○    |
 | status     | `draft`/`ready`/`deprecated`                         | ○    |
-| depends_on | 参照する仕様ID（BEL/UI/BPS 等）                      | 任意 |
+| based_on   | 根拠となる仕様ID（BEL/UIS/BPS 等）                   | 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様）                        | 任意 |
 
 ### 3.1 ID規約
@@ -86,7 +86,8 @@ id: bes-sale-checkout
 type: domain
 title: 業務イベント: 会計確定（販売）
 status: draft
-depends_on:
+part_of: []
+based_on:
  - bel-sale
  - uis-sale
 supersedes: []
@@ -131,7 +132,8 @@ supersedes: []
 >   type: domain
 >   title: 業務イベント: <イベント名>
 >   status: draft
->   depends_on: []
+>   part_of: []
+>   based_on: []
 >   supersedes: []
 >   ---
 >   ```

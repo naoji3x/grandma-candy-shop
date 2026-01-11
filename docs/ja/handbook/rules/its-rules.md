@@ -14,14 +14,14 @@ ITS は「テストコード」ではありません。
   - 例: UI ↔ API、API ↔ Domain、API ↔ DB（論理I/Fとして）、Batch ↔ Domain、Service ↔ Queue（内部）など
 
 - 外部システム（他社SaaS、決済、配送、IdP 等）との結合は **外部結合テスト仕様（ETS）**へ分離します。
-- ITS は上位方針（TSP）と整合し、`depends_on` で根拠仕様（TPC/NFR/SAC/BAC/ADR/EAPIS 等）を追跡可能にします。
+- ITS は上位方針（TSP）と整合し、`based_on` で根拠仕様（TPC/NFR/SAC/BAC/ADR/EAPIS 等）を追跡可能にします。
 - 曖昧表現は禁止します。
   - 「正常に連携できること」ではなく、**入力／連携点／期待結果／観測点**を記述します。
 
 - クリック手順の逐語列挙は避け、**業務行為／入力／期待結果**として要約します。
 - 実装詳細（SQL全文、内部クラス名、特定ライブラリ設定の列挙）は書きません。
 - 1ファイル = 1 仕様（原則）です。
-  - 肥大化する場合は、`its-...` を連携対象（例: order-api, inventory-api）で分割し、`depends_on` で関連付けします。
+  - 肥大化する場合は、`its-...` を連携対象（例: order-api, inventory-api）で分割し、個別仕様は `part_of` で `its-main` への所属を明示します。
 
 ---
 
@@ -61,12 +61,13 @@ ITS は「テストコード」ではありません。
 | type       | `test` 固定                                             | ○            |
 | title      | 仕様名（例: 内部結合テスト仕様: 在庫）                  | ○            |
 | status     | `draft` / `ready` / `deprecated`                        | ○            |
-| depends_on | 根拠となる仕様ID（TPC/NFR/SAC/BAC/EAPIS/UIS/BR/ADR 等） | 任意（推奨） |
+| part_of    | 集約ドキュメントへの所属（個別仕様は `its-main`）       | 任意         |
+| based_on   | 根拠となる仕様ID（TPC/NFR/SAC/BAC/EAPIS/UIS/BR/ADR 等） | 任意（推奨） |
 | supersedes | 置き換え関係                                            | 任意         |
 
 推奨:
 
-- `depends_on` に `tsp-overview` と関連 `tpc-*` を含め、結合で確認すべき観点と対応させます。
+- `based_on` に `tsp-overview` と関連 `tpc-*` を含め、結合で確認すべき観点と対応させます。
 - API連携なら `eapis-*`、画面なら `uis-*`、非機能なら `nfr-*`/`sac-*` を含めます。
 
 ---
@@ -91,7 +92,7 @@ ITS は「テストコード」ではありません。
 ### 6.1 概要
 
 - 1〜3文で「どの内部連携を、何のために保証するか」を書きます。
-- 可能なら対象仕様（BAC/NFR/主要機能）に言及し、`depends_on` と整合させます。
+- 可能なら対象仕様（BAC/NFR/主要機能）に言及し、`based_on` と整合させます。
 
 ---
 
@@ -203,7 +204,8 @@ id: its-main
 type: test
 title: 内部結合テスト仕様: 全体
 status: draft
-depends_on: [tsp-overview, tpc-order-process]
+part_of: []
+based_on: [tsp-overview, tpc-order-process]
 supersedes: []
 ---
 ```

@@ -6,7 +6,7 @@
 
 - 対象は「判断・条件・計算ロジック」であり、**概念レベルの入力条件＋判定結果（または出力）** を明確化する。
 - 実装詳細（例: 物理テーブル名、SQL、UI操作、実装クラス/関数名）は記載しない（詳細は「9. 禁止事項」参照）。
-- 1ファイル = 1 ビジネスルール。複雑な場合はサブルールへ分解し、親子関係を `depends_on` で表現する。
+- 1ファイル = 1 ビジネスルール。複雑な場合はサブルールへ分解し、親子関係はサブルール側の `part_of` で表現する。
 
 ## 2. 用語定義
 
@@ -24,7 +24,7 @@
 - Frontmatter:
   - `id`: `br-low-stock-judgment` のように小文字ハイフン形式。
   - `title`: 「在庫不足判定」など。
-  - サブルールへ分割する場合: `br-low-stock-threshold`, `br-stock-reservation-deduction` などの id を付与し、親の `depends_on` に列挙。
+  - サブルールへ分割する場合: `br-low-stock-threshold`, `br-stock-reservation-deduction` などの id を付与し、サブルール側で `part_of: [br-low-stock-judgment]` を指定。
 
 ## 4. 推奨 Frontmatter 項目
 
@@ -34,7 +34,8 @@
 | type       | `rule` 固定                                  | ○    |
 | title      | ルール名                                     | ○    |
 | status     | `draft`/`ready`/`deprecated`                 | ○    |
-| depends_on | 前提となる他ルールやデータストア、イベント等 | 任意 |
+| part_of    | 親ルールID（サブルールの場合）               | 任意 |
+| based_on   | 根拠となる仕様ID（BPS/UIS/BEL/BES 等）       | 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様）                | 任意 |
 
 ### NG/OK例（抜粋）
@@ -115,7 +116,7 @@ function 在庫不足判定(商品: 商品, 在庫: 在庫): boolean {
 | 出力が多種（>3）       | 目的別再編           |
 | 複数ドメインに跨る参照 | 参照境界で分割       |
 
-親から子へ `depends_on` で関連付けする。
+親子関係は、サブルール側で `part_of` を指定します（親ルール側に子を列挙しない）。
 
 ## 9. 禁止事項
 
@@ -141,7 +142,8 @@ id: br-low-stock-judgment
 type: rule
 title: 在庫不足判定
 status: draft
-depends_on: []
+part_of: []
+based_on: []
 ---
 
 ## 概要
@@ -192,7 +194,8 @@ depends_on: []
 >   type: rule
 >   title: <ビジネスルール名> # 例: 在庫不足判定
 >   status: draft # draft / ready / deprecated のいずれか
->   depends_on: []
+>   part_of: []
+>   based_on: []
 >   supersedes: []
 >   ---
 >   ```

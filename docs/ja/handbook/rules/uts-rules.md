@@ -16,9 +16,9 @@ UTS は「テストコード」ではありません。
 - 単体テストの主対象は **ドメインロジック/計算/バリデーション/分岐**です。
   - UI 表示・外部サービスの実体・DB の物理I/Oは原則対象外（必要ならモック/スタブで境界を切る）。
 
-- UTS は上位成果物（TSP/TPC/NFR/SAC/BAC）に整合し、`depends_on` で根拠を追跡可能にします。
+- UTS は上位成果物（TSP/TPC/NFR/SAC/BAC）に整合し、`based_on` で根拠を追跡可能にします。
 - トレース表（観点ID↔上位仕様IDの表）は **UTS には原則記載しません**。
-  - トレースは TPC で集約して管理し、UTS は Frontmatter の `depends_on` に根拠となる仕様ID（最低限 `tpc-...`）を列挙して追跡可能にします。
+  - トレースは TPC で集約して管理し、UTS は Frontmatter の `based_on` に根拠となる仕様ID（最低限 `tpc-...`）を列挙して追跡可能にします。
 - UTS は下位成果物（単体テスト設計/実装）を導く上位仕様であり、**個別テストケースの羅列は禁止**です。
 - 曖昧表現（例:「十分に」「基本的に」「適切に」）は禁止し、
   - 対象（含む/除外）
@@ -27,7 +27,7 @@ UTS は「テストコード」ではありません。
     を明確に書きます。
 
 - 1ファイル = 1 仕様（原則）です。
-  - 肥大化する場合は `uts-...` を対象単位（例: コンポーネント/モジュール）で分割し、`depends_on` で関連付けします。
+  - 肥大化する場合は `uts-...` を対象単位（例: コンポーネント/モジュール）で分割し、個別仕様は `part_of` で `uts-main` への所属を明示します。
 
 ---
 
@@ -72,12 +72,14 @@ Frontmatter は共通スキーマに従います。
 | type       | `test` 固定                                       | ○    |
 | title      | 仕様名（例: 単体テスト仕様: 在庫）                | ○    |
 | status     | `draft` / `ready` / `deprecated`                  | ○    |
-| depends_on | 根拠となる仕様ID（TPC/NFR/SAC/BAC/BPS/BR/ADR 等） | 任意 |
+| part_of    | 集約ドキュメントへの所属（個別仕様は `uts-main`） | 任意 |
+| based_on   | 根拠となる仕様ID（TPC/NFR/SAC/BAC/BPS/BR/ADR 等） | 任意 |
 | supersedes | 置き換え関係                                      | 任意 |
 
 推奨:
 
-- `depends_on` に `tpc-...`（観点・条件）を必ず含めます。
+- 個別仕様（`uts-<term>`）は `part_of` に `uts-main` を必ず含めます。
+- `based_on` に `tpc-...`（観点・条件）を必ず含めます。
 - `tests` に `utd-...`（単体テスト設計）や実装・実行への参照を置けるように ID を安定させます。
 
 ---
@@ -101,7 +103,7 @@ Frontmatter は共通スキーマに従います。
 ### 6.1 概要
 
 - 1〜3文で「この単体テストで何を保証するか」を書きます。
-- `depends_on` に含めた上位仕様（TPC/NFR/BAC等）との整合を意識します。
+- `based_on` に含めた上位仕様（TPC/NFR/BAC等）との整合を意識します。
 
 ---
 
@@ -236,7 +238,8 @@ id: uts-main
 type: test
 title: 単体テスト仕様: 全体（駄菓子屋販売管理システム）
 status: draft
-depends_on: [tsp-overview, tpc-sale-checkout, bac-sale-checkout, bac-inventory-replenishment, br-discount, nfr-security]
+part_of: []
+based_on: [tsp-overview, tpc-sale-checkout, bac-sale-checkout, bac-inventory-replenishment, br-discount, nfr-security]
 supersedes: []
 ---
 ```

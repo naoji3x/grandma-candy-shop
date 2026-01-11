@@ -14,7 +14,8 @@
   type: domain
   title: 業務イベント: <イベント名>
   status: draft
-  depends_on: []
+  part_of: []
+  based_on: []
   supersedes: []
   ---
   ```

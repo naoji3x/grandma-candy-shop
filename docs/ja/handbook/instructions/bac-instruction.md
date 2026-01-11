@@ -11,7 +11,8 @@
   type: test
   title: 業務受入条件: <受入対象名>
   status: draft # draft / ready / deprecated
-  depends_on: []
+  part_of: []
+  based_on: []
   supersedes: []
   ---
   ```

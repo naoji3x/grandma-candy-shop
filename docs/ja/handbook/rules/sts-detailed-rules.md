@@ -95,7 +95,8 @@ TSP（テスト戦略・方針）
 | type       | `test` 固定                           | ○        |
 | title      | 総合テスト仕様: <シナリオ名>          | ○        |
 | status     | `draft / ready / deprecated`          | ○        |
-| depends_on | `sts-main`, `bac-*`, `nfr-*`, `sac-*` | **必須** |
+| part_of    | `sts-main`                            | **必須** |
+| based_on   | `bac-*`, `nfr-*`, `sac-*`             | **必須** |
 | supersedes | 置換関係                              | 任意     |
 
 ---
@@ -224,8 +225,8 @@ id: sts-order-flow
 type: test
 title: 総合テスト仕様: 受注〜出荷
 status: draft
-depends_on:
-  - sts-main
+part_of: [sts-main]
+based_on:
   - bac-order
   - nfr-performance
 ---

@@ -95,7 +95,8 @@ TSP（テスト戦略・方針）
 | type       | `test` 固定                              | ○    |
 | title      | 仕様名                                   | ○    |
 | status     | 状態                                     | ○    |
-| depends_on | ITS（全体）、TPC、UIS、EAPIS、BR、ADR 等 | 推奨 |
+| part_of    | ITS（全体）（`its-main`）                | 推奨 |
+| based_on   | TPC、UIS、EAPIS、BR、ADR 等              | 推奨 |
 | supersedes | 置換関係                                 | 任意 |
 
 ---
@@ -225,8 +226,8 @@ id: its-inventory
 type: test
 title: 内部結合テスト仕様: 在庫
 status: draft
-depends_on:
-  - its-main
+part_of: [its-main]
+based_on:
   - tpc-order-process
 ---
 ```
