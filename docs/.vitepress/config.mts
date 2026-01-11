@@ -26,7 +26,13 @@ const handbookItems = {
             text: '業務仕様',
             collapsed: true,
             items: [
-              { text: '概念データフロー図', link: '/ja/handbook/rules/cdfd-rules' },
+              {
+                text: '概念データフロー図',
+                items: [
+                  { text: '全体ルール', link: '/ja/handbook/rules/cdfd-rules' },
+                  { text: '図の記法ルール', link: '/ja/handbook/rules/cdfd-mermaid-rules' },
+                ],
+              },
               {
                 text: 'データモデル',
                 collapsed: true,
