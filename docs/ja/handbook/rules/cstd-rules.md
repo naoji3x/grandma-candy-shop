@@ -41,7 +41,7 @@ Mermaid 記法そのもののルールは [cstd-mermaid-rules.md](cstd-mermaid-r
 
 ## 4. 推奨 Frontmatter 項目
 
-Frontmatter の共通ルールは [meta-rules.md](meta-rules.md) に従います。
+Frontmatter の共通ルールは [meta-document-metadata-rules.md](meta-document-metadata-rules.md) に従います。
 
 | 項目       | 説明                                        | 必須 |
 | ---------- | ------------------------------------------- | ---- |
