@@ -21,6 +21,20 @@ const handbookItems = {
       {
         text: 'ルール',
         items: [
+          {
+            text: '共通',
+            collapsed: true,
+            items: [
+              {
+                text: 'ドキュメントID命名ルール',
+                link: '/ja/handbook/rules/meta-id-naming-rules',
+              },
+              {
+                text: 'メタ情報記述ルール',
+                link: '/ja/handbook/rules/meta-document-metadata-rules',
+              },
+            ],
+          },
           { text: 'プロジェクト' },
           {
             text: '業務仕様',
