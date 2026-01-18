@@ -1,4 +1,6 @@
-# 受入テスト仕様（ATS）作成ルール
+# 受入テスト仕様 全体構成 作成ルール
+
+Acceptance Test Specification Index (ATS Index) Documentation Rules
 
 本ドキュメントは、
 **業務受入条件（BAC）および総合テストの結果を前提に、

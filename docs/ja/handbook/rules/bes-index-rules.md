@@ -1,4 +1,6 @@
-# 業務イベント一覧 （Business Event List）作成ルール
+# 業務イベント仕様 全体構成 作成ルール
+
+Business Event Specification Index (BES Index) Documentation Rules
 
 業務で発生する主要なイベント（販売、仕入、在庫調整など）を一覧で整理します。業務イベントを明確にすることで、BPS（業務プロセス仕様）や UI 仕様、BR（ビジネスルール）との対応付けを明確にします。
 

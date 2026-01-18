@@ -1,6 +1,8 @@
-# 帳票仕様（Business Document Specification, BDS）作成ルール
+# 帳票仕様 作成ルール
 
-本ドキュメントは、業務分析・要求定義のために **帳票仕様（Business Document Specification: BDS）を統一形式で記述する標準ルール**です。
+Business Document Specification (BDS) Documentation Rules
+
+本ドキュメントは、業務分析・要求定義のために **帳票仕様を統一形式で記述する標準ルール**です。
 
 帳票仕様は、業務ユーザーが利用する「出力物」（印刷物/PDF/CSV/Excel等）の内容を、**業務用語でレビュー可能な形**で定義します。
 
@@ -32,14 +34,14 @@
 
 Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の制約に従います。
 
-| 項目       | 説明                               | 必須 |
-| ---------- | ---------------------------------- | ---- |
-| id         | 帳票ID（`bds-...`）                | ○    |
-| type       | `domain` 固定                      | ○    |
-| title      | 帳票名                             | ○    |
-| status     | `draft`/`ready`/`deprecated`       | ○    |
+| 項目       | 説明                                  | 必須 |
+| ---------- | ------------------------------------- | ---- |
+| id         | 帳票ID（`bds-...`）                   | ○    |
+| type       | `domain` 固定                         | ○    |
+| title      | 帳票名                                | ○    |
+| status     | `draft`/`ready`/`deprecated`          | ○    |
 | based_on   | 根拠となる仕様ID（BPS/UIS/BR/BES 等） | 任意 |
-| supersedes | 置き換え関係（古仕様→新仕様）      | 任意 |
+| supersedes | 置き換え関係（古仕様→新仕様）         | 任意 |
 
 ### 4.1 ID規約
 

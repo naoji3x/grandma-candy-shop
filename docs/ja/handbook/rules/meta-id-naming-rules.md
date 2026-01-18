@@ -257,48 +257,48 @@ supersedes:
 
 ## 16. ドキュメント種別とプレフィックスの対応表
 
-| 種別                          | English                                            | prefix | 例                       | 特記                   |
-| ----------------------------- | -------------------------------------------------- | ------ | ------------------------ | ---------------------- |
-| 概念データフロー図            | Conceptual Data Flow Diagram                       | cdfd-  | cdfd-overview            |                        |
-| 概念クラス図                  | Conceptual Class Diagram                           | ccd-   | ccd-customer             |                        |
-| 業務データ辞書                | Business Data Dictionary                           | bdd-   | bdd-main                 |                        |
-| 概念データストア定義          | Conceptual Data Store Definition                   | cdsd-  | cdsd-main                |                        |
-| 保管場所定義                  | Storage Location Definition                        | sld-   | sld-main                 |                        |
-| ステータス定義                | Status Definition                                  | stsd-  | stsd-product             |                        |
-| 分類定義                      | Classification Definition                          | cld-   | cld-product              |                        |
-| 概念状態遷移図                | Conceptual State Transition Diagram                | cstd-  | cstd-product             |                        |
-| 業務プロセス仕様              | Business Process Specification                     | bps-   | bps-order-flow           |                        |
-| ビジネスルール                | Business Rule                                      | br-    | br-discount              |                        |
-| 画面仕様                      | UI Specification                                   | uis-   | uis-order-edit           |                        |
-| 帳票仕様                      | Business Document Specification                    | bds-   | bds-order-summary        |                        |
-| システム化機能(-個別仕様)     | System Function(-個別仕様)                         | sf-    | sf-product-register      | 一覧はsf-index（注１） |
-| 業務イベント仕様(-個別仕様)   | Business Event Specification (Detailed)            | bes-   | bes-order-approved       | 一覧はbes-index        |
-| 業務受入条件                  | Business Acceptance Criteria                       | bac-   | bac-order-approved       |                        |
-| 用語集                        | Glossary                                           | gl-    | gl-sales                 |                        |
-| 用語集の用語                  | Glossary Term                                      | tm-    | tm-reorder-point         |                        |
-| 外部システムI/F               | External System Interface                          | ei-    | ei-index                 | 一覧はei-index         |
-| 外部API仕様                   | External API Specification                         | ei-    | ei-inventory-api         | 種別はsuffixで持つ     |
-| 外部ファイル連携仕様          | External File Exchange Specification               | ei-    | ei-order-file            | 種別はsuffixで持つ     |
-| 外部メッセージ仕様            | External Message Specification                     | ei-    | ei-stock-changed-message | 種別はsuffixで持つ     |
-| コンテキスト図                | Context Diagram                                    | cxd-   | cxd-customer             |                        |
-| コンテナ図                    | Container Diagram                                  | cnd-   | cnd-customer             |                        |
-| コンポーネント図              | Component Diagram                                  | cpd-   | cpd-inventory            |                        |
-| インフラ構成図                | Infrastructure Diagram                             | ifd-   | ifd-overview             |                        |
-| 技術スタック定義              | Technology Stack Definition                        | tsd-   | tsd-overview             |                        |
-| 非機能要件                    | Non-Functional Requirements                        | nfr-   | nfr-performance          |                        |
-| システム受入条件              | System Acceptance Criteria                         | sac-   | sac-performance          |                        |
-| テスト戦略・方針              | Test Strategy and Policy                           | tsp-   | tsp-overview             |                        |
-| テスト観点・条件              | Test Perspectives and Conditions                   | tpc-   | tpc-order-process        |                        |
-| 単体テスト仕様(-個別仕様)     | Unit Test Specification (Detailed)                 | uts-   | uts-product-service      | 全体・一覧はuts-index  |
-| 単体テスト設計(-個別設計)     | Unit Test Design (Detailed)                        | utd-   | utd-product-service      | 全体・一覧はutd-index  |
-| 内部結合テスト仕様(-個別仕様) | Internal Integration Test Specification (Detailed) | its-   | its-order-api            | 全体・一覧はits-index  |
-| 内部結合テスト設計(-個別設計) | Internal Integration Test Design (Detailed)        | itd-   | itd-order-api            | 全体・一覧はitd-index  |
-| 外部結合テスト仕様(-個別仕様) | External Integration Test Specification (Detailed) | ets-   | ets-order-process        | 全体・一覧はets-index  |
-| 外部結合テスト設計(-個別設計) | External Integration Test Design (Detailed)        | etd-   | etd-order-process        | 全体・一覧はetd-index  |
-| 総合テスト仕様(-個別仕様)     | System Test Specification (Detailed)               | sts-   | sts-order-flow           | 全体・一覧はsts-index  |
-| 総合テスト設計(-個別設計)     | System Test Design (Detailed)                      | std-   | std-order-flow           | 全体・一覧はstd-index  |
-| 受入テスト仕様(-個別仕様)     | Acceptance Test Specification (Detailed)           | ats-   | ats-order-payment        | 全体・一覧はats-index  |
-| 受入テスト設計(-個別設計)     | Acceptance Test Design (Detailed)                  | atd-   | atd-order-payment        | 全体・一覧はatd-index  |
+| 種別                 | English                                            | prefix | 例                                  |
+| -------------------- | -------------------------------------------------- | ------ | ----------------------------------- |
+| 概念データフロー図   | Conceptual Data Flow Diagram                       | cdfd-  | cdfd-overview                       |
+| 概念クラス図         | Conceptual Class Diagram                           | ccd-   | ccd-customer                        |
+| 業務データ辞書       | Business Data Dictionary                           | bdd-   | bdd-main                            |
+| 概念データストア定義 | Conceptual Data Store Definition                   | cdsd-  | cdsd-main                           |
+| 保管場所定義         | Storage Location Definition                        | sld-   | sld-main                            |
+| ステータス定義       | Status Definition                                  | stsd-  | stsd-product                        |
+| 分類定義             | Classification Definition                          | cld-   | cld-product                         |
+| 概念状態遷移図       | Conceptual State Transition Diagram                | cstd-  | cstd-product                        |
+| 業務プロセス仕様     | Business Process Specification                     | bps-   | bps-order-flow                      |
+| ビジネスルール       | Business Rule                                      | br-    | br-discount                         |
+| 画面仕様             | UI Specification                                   | uis-   | uis-order-edit                      |
+| 帳票仕様             | Business Document Specification                    | bds-   | bds-order-summary                   |
+| システム化機能       | System Function                                    | sf-    | sf-index, sf-product-register (注1) |
+| 業務イベント仕様     | Business Event Specification                       | bes-   | bes-index, bes-order-approved       |
+| 業務受入条件         | Business Acceptance Criteria                       | bac-   | bac-order-approved                  |
+| 用語集               | Glossary                                           | gl-    | gl-sales                            |
+| 用語集の用語         | Glossary Term                                      | tm-    | tm-reorder-point                    |
+| 外部システムI/F      | External System Interface                          | ei-    | ei-index                            |
+| 外部API仕様          | External API Specification                         | ei-    | ei-inventory-api                    |
+| 外部ファイル連携仕様 | External File Exchange Specification               | ei-    | ei-order-file                       |
+| 外部メッセージ仕様   | External Message Specification                     | ei-    | ei-stock-changed-message            |
+| コンテキスト図       | Context Diagram                                    | cxd-   | cxd-customer                        |
+| コンテナ図           | Container Diagram                                  | cnd-   | cnd-customer                        |
+| コンポーネント図     | Component Diagram                                  | cpd-   | cpd-inventory                       |
+| インフラ構成図       | Infrastructure Diagram                             | ifd-   | ifd-overview                        |
+| 技術スタック定義     | Technology Stack Definition                        | tsd-   | tsd-overview                        |
+| 非機能要件           | Non-Functional Requirements                        | nfr-   | nfr-performance                     |
+| システム受入条件     | System Acceptance Criteria                         | sac-   | sac-performance                     |
+| テスト戦略・方針     | Test Strategy and Policy                           | tsp-   | tsp-overview                        |
+| テスト観点・条件     | Test Perspectives and Conditions                   | tpc-   | tpc-order-process                   |
+| 単体テスト仕様       | Unit Test Specification (Detailed)                 | uts-   | uts-index, uts-product-service      |
+| 単体テスト設計       | Unit Test Design (Detailed)                        | utd-   | utd-index, utd-product-service      |
+| 内部結合テスト仕様   | Internal Integration Test Specification (Detailed) | its-   | its-index, its-order-api            |
+| 内部結合テスト設計   | Internal Integration Test Design (Detailed)        | itd-   | itd-index, itd-order-api            |
+| 外部結合テスト仕様   | External Integration Test Specification (Detailed) | ets-   | ets-index, ets-order-process        |
+| 外部結合テスト設計   | External Integration Test Design (Detailed)        | etd-   | etd-index, etd-order-process        |
+| 総合テスト仕様       | System Test Specification (Detailed)               | sts-   | sts-index, sts-order-flow           |
+| 総合テスト設計       | System Test Design (Detailed)                      | std-   | std-index, std-order-flow           |
+| 受入テスト仕様       | Acceptance Test Specification (Detailed)           | ats-   | ats-index, ats-order-payment        |
+| 受入テスト設計       | Acceptance Test Design (Detailed)                  | atd-   | atd-index, atd-order-payment        |
 
 （注１）sf- プレフィックスのIDは「システム化機能」という概念を表す識別子であり、業務仕様・システム設計の双方で共通に使用する。
 各ドキュメントにおける記述粒度は、ドキュメント種別に従う。

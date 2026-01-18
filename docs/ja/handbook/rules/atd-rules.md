@@ -1,4 +1,6 @@
-# 受入テスト設計 − 個別設計（ATD-D）作成ルール
+# 受入テスト設計 作成ルール
+
+Acceptance Test Design (ATD) Documentation Rules
 
 本ドキュメントは、
 **受入テスト設計（ATD）で定義された分割方針・観点を、
@@ -82,15 +84,15 @@ ATD-D の作成単位は以下のいずれかです。
 
 ## 4. 推奨 Frontmatter 項目
 
-| 項目       | 説明                                    | 必須     |
-| ---------- | --------------------------------------- | -------- |
-| id         | ATD-D ID（`atd-*`）                     | ○        |
-| type       | `test` 固定                             | ○        |
-| title      | 受入テスト設計: <業務条件名>            | ○        |
-| status     | `draft / ready / deprecated`            | ○        |
-| part_of    | `atd-main`                              | **必須** |
-| based_on   | `ats-*`, `ats-d-*`, `bac-*`             | **必須** |
-| supersedes | 置換関係                                | 任意     |
+| 項目       | 説明                         | 必須     |
+| ---------- | ---------------------------- | -------- |
+| id         | ATD-D ID（`atd-*`）          | ○        |
+| type       | `test` 固定                  | ○        |
+| title      | 受入テスト設計: <業務条件名> | ○        |
+| status     | `draft / ready / deprecated` | ○        |
+| part_of    | `atd-main`                   | **必須** |
+| based_on   | `ats-*`, `ats-d-*`, `bac-*`  | **必須** |
+| supersedes | 置換関係                     | 任意     |
 
 ---
 

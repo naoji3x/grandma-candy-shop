@@ -1,6 +1,6 @@
 # 単体テスト仕様 個別仕様 作成ルール
 
-(Unit Test Specification Rules: UTS Rules)
+(Unit Test Specification (UTS) Documentation Rules)
 
 本ドキュメントは、単体テスト仕様の
 **特定の対象（コンポーネント／ドメイン単位）に対する個別仕様** を統一形式で記述するための標準ルールです。

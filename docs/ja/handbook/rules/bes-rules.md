@@ -1,4 +1,6 @@
-# 業務イベント仕様（BES）作成ルール
+# 業務イベント仕様 作成ルール
+
+Business Event Specification (BES) Documentation Rules
 
 BES は、BEL（業務イベント一覧）の各イベントについて、**重要/複雑なものだけ** を詳細化するための仕様です。
 

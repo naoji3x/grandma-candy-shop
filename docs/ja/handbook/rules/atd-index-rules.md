@@ -1,4 +1,6 @@
-# 受入テスト設計（ATD）作成ルール
+# 受入テスト設計 作成ルール
+
+Acceptance Test Design (ATD) Documentation Rules
 
 本ドキュメントは、
 **受入テスト仕様（ATS / ATS-D）で定義された「受け入れ可能かどうか」を、

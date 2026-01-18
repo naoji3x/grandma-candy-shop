@@ -1,4 +1,4 @@
-# テスト戦略・方針（TSP）作成ルール
+# テスト戦略・方針 作成ルール
 
 （Test Strategy and Policy: TSP）
 

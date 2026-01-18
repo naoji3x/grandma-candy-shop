@@ -1,6 +1,8 @@
-# 業務プロセス仕様書（BPS）作成ルール
+# 業務プロセス仕様書 作成ルール
 
-本ドキュメントは、業務分析・要求定義のために **業務プロセス仕様（Business Process Specification: BPS）を統一形式で記述する標準ルール**です。
+Business Process Specification (BPS) Documentation Rules
+
+本ドキュメントは、業務分析・要求定義のために **業務プロセス仕様を統一形式で記述する標準ルール**です。
 業務プロセス仕様は、概念データフローで定義された各プロセスについて、開始条件・手順・入出力・例外処理などを詳細に記述します。
 
 ## 1. 全体方針
@@ -31,15 +33,15 @@
 
 ## 4. 推奨 Frontmatter 項目
 
-| 項目       | 説明                                           | 必須 |
-| ---------- | ---------------------------------------------- | ---- |
-| id         | プロセスID (bps-xxx-xxxx)                      | ○    |
-| type       | `domain` 固定                                  | ○    |
-| title      | プロセス名                                     | ○    |
-| status     | `draft`/`ready`/`deprecated`                   | ○    |
-| part_of    | 親プロセスID（子プロセスの場合）               | 任意 |
-| based_on   | 根拠となる仕様ID（BES/BEL/BR/UIS 等）          | 任意 |
-| supersedes | 置き換え関係（古仕様→新仕様）                  | 任意 |
+| 項目       | 説明                                  | 必須 |
+| ---------- | ------------------------------------- | ---- |
+| id         | プロセスID (bps-xxx-xxxx)             | ○    |
+| type       | `domain` 固定                         | ○    |
+| title      | プロセス名                            | ○    |
+| status     | `draft`/`ready`/`deprecated`          | ○    |
+| part_of    | 親プロセスID（子プロセスの場合）      | 任意 |
+| based_on   | 根拠となる仕様ID（BES/BEL/BR/UIS 等） | 任意 |
+| supersedes | 置き換え関係（古仕様→新仕様）         | 任意 |
 
 ## 5. 本文構成（標準テンプレ）
 

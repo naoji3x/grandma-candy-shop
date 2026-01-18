@@ -1,4 +1,6 @@
-# 受入テスト仕様 − 個別仕様（ATS-D）作成ルール
+# 受入テスト仕様 作成ルール
+
+Acceptance Test Specification (ATS) Documentation Rules
 
 本ドキュメントは、
 **受入テスト仕様（ATS）で定義された受入方針・基準を、

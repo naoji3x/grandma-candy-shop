@@ -1,6 +1,8 @@
 # 概念データフロー図 作成ルール
 
-本ドキュメントは、業務分析・要求定義のために **概念データフロー図（Conceptual Data Flow Diagram: CDFD）** を、統一形式で作成するためのルールです。
+Conceptual Data Flow Diagram (CDFD) Documentation Rules
+
+本ドキュメントは、業務分析・要求定義のために **概念データフロー図** を、統一形式で作成するためのルールです。
 
 このドキュメントの成果物は次の2つをセットで扱います。
 

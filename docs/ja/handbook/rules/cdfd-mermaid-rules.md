@@ -1,4 +1,6 @@
-# Mermaid を用いたデータフロー図（DFD）作成ルール
+# Mermaid を用いたデータフロー図 作成ルール
+
+Conceptual Data Flow Diagram (CDFD) Documentation Rules using Mermaid
 
 本ドキュメントは、業務分析・要求定義のために、**Mermaid の `flowchart` 構文を使って DFD（データフロー図）を描く際の標準ルール**です。
 

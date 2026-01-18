@@ -1,6 +1,6 @@
 # 単体テスト仕様 全体構成 作成ルール
 
-(Unit Test Specification Index Rules: UTS Index Rules)
+(Unit Test Specification Index (UTS Index) Documentation Rules)
 
 本ドキュメントは、単体テスト仕様のうち **全体構成（Index）= `uts-index`** を統一形式で記述するための標準ルールです。
 `uts-index` は、TPC で整理された観点・条件を単体テストの責務として解釈し、個別単体テスト仕様（`uts-<term>`）へ分配するための **入口（ナビゲーション）** になります。

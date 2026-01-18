@@ -1,4 +1,4 @@
-# テスト観点・条件（TPC）作成ルール
+# テスト観点・条件 作成ルール
 
 （Test Perspectives and Conditions: TPC）
 
