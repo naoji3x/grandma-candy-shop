@@ -68,10 +68,10 @@
 4. **設計 個別** (`<level>d-<term>`)
    - 観点（TP）×条件（TC）を組み合わせてテストケースを具体化し、実行可能粒度まで落とす
 
-注記
+※注記:
 
 - `<level>`はテストレベル略号（ut/it/et/st/at）を表す。s は Specification、d は Design を表す。
-- `<term>` は対象単位を表す識別子（例：inventory, product-register）とする。
+- `<term>` は対象単位を表す識別子（例：`inventory`, `product-register`）とする。
 - 文書IDの prefix は小文字（ut/it/...）を用い、表示上の略称は大文字（UT/IT/...）を用いてよい。
 
 ### 3.3. テストレベル別 責務一覧
