@@ -44,7 +44,7 @@ Unit Test Design (UTD) Documentation Rules
 
 ## 3. 位置づけ（他ドキュメントとの関係）
 
-`utd-index`と他ドキュメントの関係を以下に示します。
+`utd-<term>`と他ドキュメントの関係を以下に示します。
 
 ```mermaid
 flowchart BT

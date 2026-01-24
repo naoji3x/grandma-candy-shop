@@ -24,7 +24,7 @@ Unit Test Design Index (UTD Index) Documentation Rules
 - `utd-index` は **テストコードそのものではありません**（ただし、コードへ落とせる具体性は必要）。
 - トレースは Frontmatter の `based_on` を基本とし、上位成果物（UTS/TPC/BAC/NFR 等）への追跡可能性を担保します。
 - 曖昧表現（例:「十分に」「適切に」）は禁止し、判定可能な言葉（対象/境界/基準/エビデンス）で書きます。
-- 未定義プロパティの追加は禁止です（`additionalProperties: false`）。
+- スキーマ未定義のメタ情報プロパティ追加は禁止です（`additionalProperties: false`）。
 
 ## 3. 位置づけ（他ドキュメントとの関係）
 
@@ -51,12 +51,12 @@ flowchart BT
 
   TPC -->|based_on| TSP
   UTSDetail -->|part_of| UTSIndex
-  UTD -->|based_on| UTS
-  TC -->|based_on| UTD
-
-  UTS -->|based_on| TSP
-  UTS -->|based_on| TPC
+  UTSIndex -->|based_on| TSP
+  UTSIndex -->|based_on| TPC
+  UTDIndex -->|based_on| UTSIndex
+  UTDDetail -->|based_on| UTSDetail
   UTDDetail -->|part_of| UTDIndex
+  TC -->|based_on| UTDDetail
 
   classDef target stroke-width:4px
   class UTDIndex target
