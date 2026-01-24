@@ -32,7 +32,7 @@ Unit Test Specification (UTS) Documentation Rules
 
 ## 2. 位置づけ（他ドキュメントとの関係）
 
-個別 UTS（`uts-<term>`）は以下の関係にあります。
+個別 UTS（`uts-<term>`）と他ドキュメントの関係を以下に示します。
 
 ```mermaid
 flowchart BT

@@ -1,6 +1,10 @@
-# 外部結合テスト仕様（ETS）作成ルール
+# 外部結合テスト仕様 全体構成 作成ルール
 
-本ドキュメントは、品質保証・テスト設計のために **外部結合テスト仕様（External Integration Test Specification: ETS）** を統一形式で記述する標準ルールです。
+本ドキュメントは、外部結合テスト仕様のうち **全体構成（`ets-index`）** を統一形式で記述するための標準ルールです。
+`ets-index` は、上位方針（TSP/TPC 等）や外部I/F仕様（EAPIS/EMS/EFES/ESIL 等）で整理された観点・条件を「外部結合（契約・管理範囲外を含む連携）」の責務として解釈し、個別の外部結合テスト仕様（`ets-<term>`）へ分配するための **入口（ナビゲーション）** になります。
+
+個別仕様（`ets-<term>`）の記述ルールは [ets-rules.md](ets-rules.md) で定義します。
+
 ETS は「**自システムと外部システム（契約・管理範囲外）との連携**が、仕様どおり成立すること」を **Markdown でレビュー可能**な形に落とし込み、外部連携起因の障害・手戻りを最小化します。
 
 ETS は「テストコード」ではありません。
@@ -65,7 +69,7 @@ TSP（テスト戦略・方針）
 
 ### Frontmatter
 
-- `id`: `ets-main`, `ets-supplier`, `ets-payment` のように小文字ハイフン
+- `id`: 全体構成は `ets-index` 固定、個別仕様は `ets-<term>`（例: `ets-supplier`, `ets-payment`）
 - `type`: `test`
 - `title`: `外部結合テスト仕様: 全体` / `外部結合テスト仕様: 決済` など
 
@@ -73,14 +77,20 @@ TSP（テスト戦略・方針）
 
 ## 4. 推奨 Frontmatter 項目
 
-| 項目       | 説明                                                 | 必須 |
-| ---------- | ---------------------------------------------------- | ---- |
-| id         | ETS ID（`ets-...`）                                  | ○    |
-| type       | `test` 固定                                          | ○    |
-| title      | 仕様名                                               | ○    |
-| status     | `draft` / `ready` / `deprecated`                     | ○    |
-| based_on   | 根拠仕様ID（ESIL/EAPIS/EFES/EMS/NFR/SAC/ADR/BAC 等） | 推奨 |
-| supersedes | 置き換え関係                                         | 任意 |
+Frontmatter は共通スキーマに従います（あわせてメタ情報ルールも参照）。
+
+- 参照スキーマ: [docs/shared/schemas/spec-frontmatter.schema.yaml](../../../shared/schemas/spec-frontmatter.schema.yaml)
+- メタ情報ルール: [meta-document-metadata-rules.md](meta-document-metadata-rules.md)
+
+| 項目       | 説明                                                   | 必須 |
+| ---------- | ------------------------------------------------------ | ---- |
+| id         | ETS ID（`ets-...`）                                    | ○    |
+| type       | `test` 固定                                            | ○    |
+| title      | 仕様名                                                 | ○    |
+| status     | `draft` / `ready` / `deprecated`                       | ○    |
+| part_of    | 集約ドキュメントへの所属（個別仕様は `ets-index`）     | 任意 |
+| based_on   | 根拠となる仕様ID（ESIL/EAPIS/EFES/EMS/NFR/SAC/ADR 等） | 推奨 |
+| supersedes | 置き換え関係（ID配列。未指定時は `[]` を許容）         | 任意 |
 
 推奨:
 
@@ -89,6 +99,9 @@ TSP（テスト戦略・方針）
   - 外部一覧：`esil-*`
   - 非機能：`nfr-*`, `sac-*`
   - 判断根拠：`adr-*`
+
+- `part_of` / `based_on` / `supersedes` は ID の配列で記載し、未指定の場合も `[]` として明示してよいです。
+- 未定義プロパティの追加は禁止です（`additionalProperties: false`）。
 
 ---
 
@@ -237,16 +250,18 @@ ETS のキモです（外部結合はここで差が出ます）。
 
 ```yaml
 ---
-id: ets-main
+id: ets-index
 type: test
 title: 外部結合テスト仕様: 全体
 status: draft
+part_of: []
 based_on:
   - tsp-overview
   - esil-supplier
   - eapis-inventory
   - nfr-security
   - sac-performance
+supersedes: []
 ---
 ```
 

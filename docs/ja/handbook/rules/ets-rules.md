@@ -88,15 +88,15 @@ TSP（テスト戦略・方針）
 
 ## 4. 推奨 Frontmatter 項目
 
-| 項目       | 説明                                                 | 必須     |
-| ---------- | ---------------------------------------------------- | -------- |
-| id         | ETS-D ID                                             | ○        |
-| type       | `test` 固定                                          | ○        |
-| title      | 仕様名                                               | ○        |
-| status     | 状態                                                 | ○        |
-| part_of    | ETS（全体）（`ets-main`）                            | **必須** |
-| based_on   | ESIL, EAPIS / EMS / EFES, NFR, SAC, ADR              | **必須** |
-| supersedes | 置換関係                                             | 任意     |
+| 項目       | 説明                                    | 必須     |
+| ---------- | --------------------------------------- | -------- |
+| id         | ETS-D ID                                | ○        |
+| type       | `test` 固定                             | ○        |
+| title      | 仕様名                                  | ○        |
+| status     | 状態                                    | ○        |
+| part_of    | ETS（全体）（`ets-index`）              | **必須** |
+| based_on   | ESIL, EAPIS / EMS / EFES, NFR, SAC, ADR | **必須** |
+| supersedes | 置換関係                                | 任意     |
 
 ---
 
@@ -241,7 +241,7 @@ id: ets-payment
 type: test
 title: 外部結合テスト仕様: 決済
 status: draft
-part_of: [ets-main]
+part_of: [ets-index]
 based_on:
   - esil-payment
   - eapis-payment
