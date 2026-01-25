@@ -1,6 +1,6 @@
 ---
-title: 作成ルールの章立てルール
 id: meta-rulebook-structure-rules
+title: 作成ルールの章立てルール
 type: meta
 status: draft
 ---
