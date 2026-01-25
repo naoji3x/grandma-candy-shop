@@ -18,8 +18,13 @@ module.exports = {
         'revert', // 変更の取り消し
       ],
     ],
-    'subject-case': [2, 'never', ['pascal-case', 'upper-case']],
+    // Allow PascalCase (e.g., class names) and uppercase acronyms; still enforce valid casing
+    'subject-case': [
+      2,
+      'always',
+      ['lower-case', 'sentence-case', 'start-case', 'pascal-case', 'upper-case'],
+    ],
     'subject-max-length': [2, 'always', 100],
     'body-max-line-length': [2, 'always', 100],
   },
-};
+}
