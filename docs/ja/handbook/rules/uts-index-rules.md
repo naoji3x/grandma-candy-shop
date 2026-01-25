@@ -10,6 +10,7 @@ Unit Test Specification Index (UTS Index) Documentation Rules
 
 - `uts-index` は単体テストの責務（対象・境界・共通合格基準）と、TPC の観点・条件を `uts-<term>` に分配する方針（ナビゲーション）を定義します。
 - `uts-index` は **方針・基準・分配**までを扱い、個別の詳細条件やテストケースは扱いません（個別は `uts-<term>` / UTD へ委譲）。
+- 共通の合格基準・共通エビデンスは `uts-index` を単一ソース（SSOT）とし、`uts-<term>` では対象固有の差分のみを記載します。
 - トレース表（観点 ID ↔ 上位仕様 ID）は原則 TPC に集約し、`uts-index` は Frontmatter の `based_on` を追跡の起点（一次参照）として扱います。
 - 曖昧表現（例:「十分に」「適切に」）は禁止し、判定可能な表現（対象/境界/基準/エビデンス）で書きます。
 
