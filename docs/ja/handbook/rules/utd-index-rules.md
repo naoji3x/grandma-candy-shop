@@ -27,13 +27,13 @@ flowchart BT
   subgraph UTS
   direction RL
     UTSIndex["uts-index<br>単体テスト仕様-全体構成"]
-    UTSDetail["**uts-&lt;term&gt;<br>単体テスト仕様-個別仕様**"]
+    UTSDetail["uts-&lt;term&gt;<br>単体テスト仕様-個別仕様"]
     UTSDetail -->|part_of| UTSIndex
   end
 
   subgraph UTD
   direction RL
-    UTDIndex["utd-index<br>単体テスト設計-全体構成"]
+    UTDIndex["**utd-index<br>単体テスト設計-全体構成**"]
     UTDDetail["utd-&lt;term&gt;<br>単体テスト設計-個別設計"]
     UTDDetail -->|part_of| UTDIndex
 end

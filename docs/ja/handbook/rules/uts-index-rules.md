@@ -25,8 +25,8 @@ flowchart BT
 
   subgraph UTS
   direction RL
-    UTSIndex["uts-index<br>単体テスト仕様-全体構成"]
-    UTSDetail["**uts-&lt;term&gt;<br>単体テスト仕様-個別仕様**"]
+    UTSIndex["**uts-index<br>単体テスト仕様-全体構成**"]
+    UTSDetail["uts-&lt;term&gt;<br>単体テスト仕様-個別仕様"]
     UTSDetail -->|part_of| UTSIndex
   end
 
