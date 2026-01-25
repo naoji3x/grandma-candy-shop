@@ -22,8 +22,8 @@ const handbookItems = {
   },
 }
 
-// GitHub Pages の公開パス: https://naoji3x.github.io/grandma-candy-shop/
-const base = '/grandma-candy-shop/'
+// GitHub Pages の公開パス: https://specdojo.github.io/spec-dojo-handbook/
+const base = '/spec-dojo-handbook/'
 
 const hashCode = (code: string): string =>
   crypto.createHash('md5').update(code).digest('hex').slice(0, 8)
@@ -247,8 +247,8 @@ const sidebarJaAuto = makeSidebar('ja')
 const sidebarEnAuto = makeSidebar('en')
 
 export default defineConfig({
-  title: 'Grandma Candy Shop Docs',
-  description: 'Documentation for Grandma Candy Shop',
+  title: 'SpecDojo Handbook',
+  description: 'Documentation for SpecDojo Handbook',
   base,
 
   locales: {
