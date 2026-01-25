@@ -27,24 +27,23 @@ flowchart BT
   direction RL
     UTSIndex["uts-index<br>単体テスト仕様-全体構成"]
     UTSDetail["**uts-&lt;term&gt;<br>単体テスト仕様-個別仕様**"]
+    UTSDetail -->|part_of| UTSIndex
   end
 
   subgraph UTD
   direction RL
     UTDIndex["utd-index<br>単体テスト設計-全体構成"]
     UTDDetail["utd-&lt;term&gt;<br>単体テスト設計-個別設計"]
+    UTDDetail -->|part_of| UTDIndex
   end
 
   TC["テストコード<br>JUnit 等"]
 
   TPC -->|based_on| TSP
-  UTSDetail -->|part_of| UTSIndex
   UTD -->|based_on| UTS
   TC -->|based_on| UTD
-
   UTS -->|based_on| TSP
   UTS -->|based_on| TPC
-  UTDDetail -->|part_of| UTDIndex
 
   classDef target stroke-width:4px
   class UTSIndex target
