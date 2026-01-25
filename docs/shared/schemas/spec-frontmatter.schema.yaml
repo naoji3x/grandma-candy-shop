@@ -25,16 +25,20 @@ properties:
     description: '一意なID'
   type:
     type: string
-    # screen: 画面仕様
-    # api: API仕様
-    # domain: ドメイン仕様
-    # data: データ仕様
-    # test: テスト仕様
-    # flow: 業務フロー仕様
-    # rule: 業務ルール仕様
-    # architecture: 構造・構成（C4、配置、統合、ネットワーク境界など
-    # decision: 設計判断（ADR的な意思決定記録）
-    enum: ['screen', 'api', 'domain', 'data', 'test', 'flow', 'rule', 'architecture', 'decision']
+    enum:
+      - screen # 画面仕様
+      - api # API仕様
+      - domain # ドメイン仕様
+      - data # データ仕様
+      - test # テスト仕様
+      - flow # 業務フロー仕様
+      - rule # 業務ルール仕様
+      - architecture # 構造・構成仕様（C4、配置、統合、ネットワーク境界など
+      - decision # 設計判断（ADR的な意思決定記録）
+      - meta # 共通/横断ルール
+      - rulebook # ドキュメント記述ルール
+      - instruction # 生成AIへの指示テンプレート
+      - guide # ガイドライン
     description: '仕様の種別'
   title:
     type: string

@@ -1,6 +1,11 @@
-# ドキュメントのメタ情報の記述ルール
+---
+id: meta-document-metadata-rules
+type: meta
+title: ドキュメントのメタ情報の記述ルール
+status: draft
+---
 
-（Document Metadata Rules）
+Document Metadata Rules
 
 ## 1. メタ情報概要
 
@@ -37,17 +42,20 @@
 
 下表の定義済み列挙に限定
 
-| 種類         | 説明                                               |
-| ------------ | -------------------------------------------------- |
-| screen       | 画面仕様                                           |
-| api          | API仕様                                            |
-| domain       | ドメイン仕様                                       |
-| data         | データ仕様                                         |
-| test         | テスト仕様                                         |
-| flow         | 業務フロー仕様                                     |
-| rule         | 業務ルール仕様                                     |
-| architecture | 構造・構成（C4、配置、統合、ネットワーク境界など） |
-| decision     | 設計判断（ADR的な意思決定記録）                    |
+| 種類          | 説明                                               |
+| ------------- | -------------------------------------------------- |
+| screen        | 画面仕様                                           |
+| api           | API仕様                                            |
+| domain        | ドメイン仕様                                       |
+| data          | データ仕様                                         |
+| test          | テスト仕様                                         |
+| flow          | 業務フロー仕様                                     |
+| rule          | 業務ルール仕様                                     |
+| architecture  | 構造・構成（C4、配置、統合、ネットワーク境界など） |
+| decision      | 設計判断（ADR的な意思決定記録）                    |
+| rulebook      | ドキュメント記述ルール                             |
+| meta-rulebook | ドキュメント記述ルールのルール                     |
+| instruction   | 生成AIへの指示テンプレート                         |
 
 ### 3.3. title(ドキュメント名)
 

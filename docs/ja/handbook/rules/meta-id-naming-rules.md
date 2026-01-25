@@ -1,6 +1,11 @@
-# ドキュメントID命名ルール
+---
+id: meta-id-naming-rules
+type: meta
+title: ドキュメントID命名ルール
+status: draft
+---
 
-（ID Naming Rules）
+ID Naming Rules
 
 ## 1. 目的
 
