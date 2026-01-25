@@ -1,6 +1,11 @@
-# テスト観点・条件 作成ルール
+---
+id: tpc-rules
+title: テスト観点・条件 作成ルール
+type: rulebook
+status: draft
+---
 
-（Test Perspectives and Conditions: TPC）
+Test Perspectives and Conditions (TPC) Documentation Rules
 
 本ドキュメントは、テスト設計のために **テスト観点・テスト条件を統一形式で記述する標準ルール**です。
 TPC は「**何を確認すべきか（観点）**」と「**どのような状態・条件で確認するか（条件）**」を整理し、
@@ -32,35 +37,66 @@ TPC は **テスト戦略・方針（TSP）を具体化する中間成果物**�
 - 1ファイル = 1 つの観点整理単位を原則とします。
   - 肥大化する場合は分割し、`part_of` で集約ドキュメントへの所属を明示します。
 
-## 2. 用語定義
+## 2. 位置づけ（他ドキュメントとの関係） / 用語定義
+
+### 2.1. 位置づけ
+
+TSP と下位ドキュメント（TPC、テスト仕様・設計）の関係を示します。
+
+```mermaid
+flowchart BT
+  TSP["**tsp-overview<br>テスト戦略・方針**"]
+  TPC["tpc-&lt;term&gt;<br>テスト観点・条件"]
+
+  subgraph xTS[*TS]
+  direction RL
+    xTSIndex["*ts-index<br>テスト仕様-全体構成"]
+    xTSDetail["*ts-&lt;term&gt;<br>テスト仕様-個別仕様"]
+    xTSDetail -->|part_of| xTSIndex
+  end
+
+  subgraph xTD[*TD]
+  direction RL
+    xTDIndex["*td-index<br>テスト設計-全体構成"]
+    xTDDetail["*td-&lt;term&gt;<br>テスト設計-個別設計"]
+    xTDDetail -->|part_of| xTDIndex
+  end
+
+  TC["テストコード<br>JUnit 等"]
+
+  TPC -->|based_on| TSP
+  xTD -->|based_on| xTS
+  TC -->|based_on| xTD
+  xTS -->|based_on| TSP
+  xTS -->|based_on| TPC
+
+  classDef target stroke-width:4px
+  class TSP target
+```
+
+\*はテストレベル（U:単体テスト、I:内部結合テスト、S:システムテスト、A:受け入れテストなど）
+
+### 2.2. 用語定義
 
 | 用語       | 定義                                                            |
 | ---------- | --------------------------------------------------------------- |
-| TPC        | テスト観点・テスト条件。何を・どの状態で確認するかの整理        |
 | テスト観点 | 確認すべき品質・振る舞いの切り口（機能、業務、例外、非機能 等） |
 | テスト条件 | 観点を確認するために必要な前提状態・入力状態・環境条件          |
 | トレース   | 要件・仕様・受入条件などとの対応関係                            |
 | 下位成果物 | テスト仕様、テスト設計、テスト実装（コード）                    |
 
----
-
 ## 3. ファイル命名・ID規則
 
-- ファイル名: `tpc-<番号>-<短い日本語名>.md`
-  - 例: `tpc-0010-受注処理.md`
+ID 命名ルールは [meta-id-naming-rules.md](meta-id-naming-rules.md) に従います。
 
-- Frontmatter:
-  - `id`: `tpc-order-process` のように小文字ハイフン形式
-  - `title`: 「テスト観点・条件: <対象>」
-
----
+- `id`: 小文字ハイフン形式で `tpc-<term>` の構造とします（例: `tpc-order-process`）。
+- ファイル名: `tpc-<番号>-<短い日本語名>.md`（例: `tpc-0010-受注処理.md`）
 
 ## 4. 推奨 Frontmatter 項目
 
-Frontmatter は共通スキーマに従います（あわせてドキュメントのメタ情報の記述ルールも参照）。
+### 4.1. 設定内容
 
-- 参照スキーマ: `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml`
-- メタ情報ルール: `docs/ja/handbook/rules/meta-document-metadata-rules.md`
+Frontmatter は共通スキーマに従います（参照: [docs/shared/schemas/spec-frontmatter.schema.yaml](../../../shared/schemas/spec-frontmatter.schema.yaml) / [meta-document-metadata-rules.md](meta-document-metadata-rules.md)）。
 
 | 項目       | 説明                                                                                  | 必須 |
 | ---------- | ------------------------------------------------------------------------------------- | ---- |
@@ -72,7 +108,7 @@ Frontmatter は共通スキーマに従います（あわせてドキュメン�
 | based_on   | 技術的・定義的な土台（前提）/根拠となるドキュメント（ID配列。未指定時は `[]` を許容） | 任意 |
 | supersedes | 置き換え関係（ID配列。未指定時は `[]` を許容）                                        | 任意 |
 
-推奨:
+### 4.2. 推奨ルール
 
 - `based_on` には **観点の根拠となる仕様**を必ず入れます。`tsp-overview` や `bac-...` / `nfr-...` / `sac-...` などが該当します。
 - `part_of` / `based_on` / `supersedes` は ID の配列として記載し、未指定の場合も `[]` として明示してよいです（機械処理の安定化）。
@@ -103,8 +139,6 @@ TPC ファイルは以下の見出しを **必ずこの順で**記載します�
 
 テスト観点は **一覧表** で整理します。
 
-#### 推奨カラム
-
 | 観点ID | 観点分類 | 観点名     | 確認したいこと                       | 備考 |
 | ------ | -------- | ---------- | ------------------------------------ | ---- |
 | TP-01  | 機能     | 正常処理   | 正しい入力で正しい結果が得られること |      |
@@ -121,8 +155,6 @@ TPC ファイルは以下の見出しを **必ずこの順で**記載します�
 
 テスト条件は、観点ごとに **どのような状態・条件で確認するか**を定義します。
 
-#### 推奨カラム
-
 | 観点ID | 条件ID | 条件内容       | 前提状態 / 入力状態  | 期待される振る舞い |
 | ------ | ------ | -------------- | -------------------- | ------------------ |
 | TP-01  | TC-01  | 正常な受注入力 | 有効な商品・在庫あり | 受注が確定する     |
@@ -138,7 +170,7 @@ TPC ファイルは以下の見出しを **必ずこの順で**記載します�
 
 観点・条件は必ず **上位仕様と紐づけ**ます。
 
-#### 例
+例:
 
 | 観点ID | 関連仕様ID              |
 | ------ | ----------------------- |
