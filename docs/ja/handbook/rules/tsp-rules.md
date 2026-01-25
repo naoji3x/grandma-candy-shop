@@ -85,7 +85,7 @@ flowchart BT
 
 ID 命名ルールは [meta-id-naming-rules.md](meta-id-naming-rules.md) に従います。
 
-- `id`: 小文字ハイフン形式で `tsp-<body>` の構造とします。
+- `id`: 小文字ハイフン形式で `tsp-<term>` の構造とします。
   - **デフォルト: `tsp-overview`** （全体方針の入口・概説）
   - 分割が必要な場合：方針の対象範囲が分かる ID を使用
     - 例: `tsp-nfr-testing`（非機能試験方針）
@@ -97,7 +97,7 @@ ID 命名ルールは [meta-id-naming-rules.md](meta-id-naming-rules.md) に従�
 
 ### 4.1. 設定内容
 
-Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の制約に従います。
+Frontmatter は共通スキーマに従います（参照: [docs/shared/schemas/spec-frontmatter.schema.yaml](../../../shared/schemas/spec-frontmatter.schema.yaml) / [meta-document-metadata-rules.md](meta-document-metadata-rules.md)）。
 
 | 項目       | 説明                                               | 必須 |
 | ---------- | -------------------------------------------------- | ---- |
@@ -109,7 +109,7 @@ Frontmatter は `docs/handbook/shared/schemas/spec-frontmatter.schema.yaml` の�
 | based_on   | 参照する仕様ID（BAC/NFR/SAC/ADR/TSL/UIS/EAPIS 等） | 任意 |
 | supersedes | 置き換え関係（古仕様→新仕様）                      | 任意 |
 
-### 4.2. part_of / based_on 項目の使用
+### 4.2. 推奨ルール
 
 - `part_of`: 複数ファイルに分割した場合、集約ドキュメント（`tsp-overview`など）を指定。
 - `based_on`: 方針の根拠となる主要仕様（BAC/NFR/SAC/ADRなど）を列挙し、スコープを明確にする。
