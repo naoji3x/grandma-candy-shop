@@ -239,6 +239,38 @@ flowchart LR
   style 境界 fill:#ffffff,fill-opacity:0,stroke:#868e96,stroke-width:1px,stroke-dasharray: 5 5;
 ```
 
+```palintext
+flowchart LR
+  %% Person
+  店員["👤店員"]
+  店主["👤店主"]
+
+  %% External Systems
+  会計システム["会計システム"]
+  決済サービス["決済サービス"]
+
+  %% Target System Boundary
+  subgraph 境界["対象システム"]
+    販売管理システム("駄菓子屋きぬや<br>販売管理システム")
+  end
+
+  %% Relationships
+  店員 -->|"売上登録"| 販売管理システム
+  店主 -->|"商品・在庫管理"| 販売管理システム
+  販売管理システム -->|"会計仕訳連携"| 会計システム
+  販売管理システム -->|"決済依頼"| 決済サービス
+  決済サービス -->|"決済結果"| 販売管理システム
+
+  %% Styles
+  classDef person fill:#fff3bf,stroke:#f08c00,color:#000;
+  classDef system fill:#d0ebff,stroke:#1c7ed6,color:#000;
+  classDef external fill:#e9ecef,stroke:#495057,color:#000;
+  class 店員,店主 person;
+  class 販売管理システム system;
+  class 会計システム,決済サービス external;
+  style 境界 fill:#ffffff,fill-opacity:0,stroke:#868e96,stroke-width:1px,stroke-dasharray: 5 5;
+```
+
 ### 11.4. 要素の説明
 
 #### 11.4.1. Person（人/ロール）
