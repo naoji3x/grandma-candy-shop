@@ -80,7 +80,7 @@ flowchart BT
 
 ## 3. ファイル命名・ID規則
 
-ID 命名ルールは [meta-id-naming-rules.md](meta-id-naming-rules.md) に従います。
+ID 命名ルールは [meta-id-and-file-naming-rules.md](meta-id-and-file-naming-rules.md) に従います。
 
 - `id`: 小文字ハイフン形式で `tpc-<term>` の構造とします（例: `tpc-order-process`）。
 - ファイル名: `tpc-<番号>-<短い日本語名>.md`（例: `tpc-0010-受注処理.md`）

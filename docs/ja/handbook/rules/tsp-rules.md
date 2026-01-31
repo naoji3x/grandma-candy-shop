@@ -83,7 +83,7 @@ flowchart BT
 
 ## 3. ファイル命名・ID規則
 
-ID 命名ルールは [meta-id-naming-rules.md](meta-id-naming-rules.md) に従います。
+ID 命名ルールは [meta-id-and-file-naming-rules.md](meta-id-and-file-naming-rules.md) に従います。
 
 - `id`: 小文字ハイフン形式で `tsp-<term>` の構造とします。
   - **デフォルト: `tsp-overview`** （全体方針の入口・概説）
