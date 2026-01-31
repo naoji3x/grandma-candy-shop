@@ -18,11 +18,11 @@ module.exports = {
         'revert', // 変更の取り消し
       ],
     ],
-    // Allow PascalCase (e.g., class names) and uppercase acronyms; still enforce valid casing
+    // Allow camelCase, PascalCase (e.g., class names) and uppercase acronyms; still enforce valid casing
     'subject-case': [
       2,
       'always',
-      ['lower-case', 'sentence-case', 'start-case', 'pascal-case', 'upper-case'],
+      ['lower-case', 'sentence-case', 'start-case', 'pascal-case', 'upper-case', `camel-case`],
     ],
     'subject-max-length': [2, 'always', 100],
     'body-max-line-length': [2, 'always', 100],
